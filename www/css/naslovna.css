@@ -28,8 +28,8 @@ color:white;}
 /*            **** button log in   ****              */
 
 .button.button-block{
-	background-color:black;
-	background: rgba(255,255,255,0.4); 
+	
+	background: rgba(255,255,255,0.6) !important;
 	border-color: #e68a00;
 }
 .button.button-block h4{
