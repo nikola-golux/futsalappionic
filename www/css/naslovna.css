@@ -1,0 +1,36 @@
+/*                     **** ceo content   ****              */
+
+
+.padding{
+	padding-top: 10%;
+} 
+
+.padding h2{
+text-align: center;
+color:white;}
+/*                     **** sredjivanje logo-a   ****              */
+#logo_naslovna{
+	padding-top: 3%;
+	text-align: center;
+}
+
+.login_form{
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 10%;
+
+}
+/*            **** button log in   ****              */
+
+.button.button-block{
+	background-color:black;
+	background: rgba(255,255,255,0.4); 
+	border-color: #e68a00;
+}
+.button.button-block h4{
+	color:white;
+}
+/*            **** place holder   ****              */
+.item.item-input{
+	border-color: #e68a00;
+}
