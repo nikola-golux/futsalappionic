@@ -4,15 +4,15 @@
                   **** ceo content   ****              */
 
 
-}
 
 .padding{
-	padding-top: 10%;
+	padding-top: 10% !important;
 } 
 
 .padding h2{
-text-align: center;
-color:white;}
+text-align: center !important;
+color:white !important;
+}
 /*                     **** sredjivanje logo-a   ****              */
 #logo_naslovna{
 	padding-top: 3%;
@@ -20,9 +20,9 @@ color:white;}
 }
 
 .login_form{
-	padding-left: 10%;
-	padding-right: 10%;
-	padding-top: 10%;
+	padding-left: 10% !important;
+	padding-right: 10% !important;
+	padding-top: 10% !important;
 
 }
 /*            **** button log in   ****              */
@@ -30,10 +30,10 @@ color:white;}
 .button.button-block{
 	
 	background: rgba(255,255,255,0.6) !important;
-	border-color: #e68a00;
+	border-color: #e68a00 !important;
 }
 .button.button-block h4{
-	color:white;
+	color:white !important;
 }
 /*            **** place holder   ****              */
 .item.item-input{
