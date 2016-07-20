@@ -4,17 +4,17 @@
 /*                  **** O nama  ****              */
 
 #o_nama h1{
-color:white;
-text-align: center;
-padding: 5%;
+color:white !important;
+text-align: center !important;
+padding: 5% !important;
 }
 /*                     **** Sredjivanje Hedera  ****              */
 
 .bar-heder{
-	background-color: #00091a;
-	color:white;
-	border-color: #f9ad1c;
-	
+	background-color: #00091a !important;
+	color:white !important;
+	border-color: #f9ad1c !important;
+
 
 }
 
@@ -23,21 +23,21 @@ padding: 5%;
                   /*   **** O nama Logo Balf-a ****   */
 
 #bgr-img{
-	text-align: center;
+	text-align: center !important;
  }
                       /*  **** O nama text ****   */
 .o-nama{
-	margin: 10% 3% 3% ;
-    border: 0.5px solid ;
-	border-color: #e68a00;
-	border-radius: 5px;
-	background: rgba(255,255,255,0.6);
+	margin: 10% 3% 3%  !important;
+    border: 0.5px solid  !important;
+	border-color: #e68a00 !important;
+	border-radius: 5px !important;
+	background: rgba(255,255,255,0.6) !important;
 	
 
 }
 
 .o-nama p{
-	font-size: 1.1em;
+	font-size: 1.1em !important;
 
 	
 }
