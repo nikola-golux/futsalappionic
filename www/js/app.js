@@ -33,11 +33,48 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-  .state('login', {
-    url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl'
+  /**************************
+  * HOME (WELCOME) TABS
+  **************************/
+  .state('home_tab', {
+    url: '/home_tab',
+    abstract: true,
+    templateUrl: 'templates/home_tabs.html',
   })
+
+  // 1) Login
+  .state('home_tab.login', {
+    url: '/login',
+    views: {
+      'home_tab-login': {
+        templateUrl: 'templates/home_tab-login.html',
+        controller: 'LoginCtrl'
+      }
+    }
+  })
+
+  // 2) O nama
+  .state('home_tab.o_nama', {
+    url: '/o_nama',
+    views: {
+      'home_tab-o_nama': {
+        templateUrl: 'templates/home_tab-o_nama.html',
+        controller: 'O_namaCtrl'
+      }
+    }
+  })
+
+  // 3) Kontakt
+  .state('home_tab.kontakt', {
+    url: '/kontakt',
+    views: {
+      'home_tab-kontakt': {
+        templateUrl: 'templates/home_tab-kontakt.html',
+        controller: 'KontaktCtrl'
+      }
+    }
+  })
+
 
   // setup an abstract state for the tabs directive
   .state('tab', {
@@ -88,6 +125,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/home_tab/home_tab-login');
 
 });
