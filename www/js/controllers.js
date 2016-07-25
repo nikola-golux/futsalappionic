@@ -14,13 +14,12 @@ angular.module('starter.controllers', [])
         window.localStorage['userId'] = null;
         window.localStorage['userId'] = data.id;
         /*window.localStorage['userName'] = data.name;*/
-        /*if(data.player_id != 0){
+        if(data.player_id != 0){
           $location.path('/tab/chats');
         }
         else if(data.delegate_id !=0){
           $location.path('/tab/dash');
-        }*/
-        $location.path('/tab/dash');
+        }
       },
       function(err){
         var error = err["data"]["error"] || err.data.join('. ')
