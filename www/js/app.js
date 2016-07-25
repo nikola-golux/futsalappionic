@@ -75,6 +75,38 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   })
 
+  /**************************
+  * DELEGATE TABS
+  **************************/
+  .state('delegate_tab', {
+    url: '/delegate_tab',
+    abstract: true,
+    templateUrl: 'templates/delegate_tabs.html',
+  })
+
+  // 1) Matches
+  .state('delegate_tab.matches', {
+    url: '/matches',
+    views: {
+      'delegate_tab-matches': {
+        templateUrl: 'templates/delegate_tab-matches.html',
+        controller: 'Delegate_matchesCtrl'
+      }
+    }
+  })
+
+  // 2) Info
+  .state('delegate_tab.info', {
+    url: '/info',
+    views: {
+      'delegate_tab-info': {
+        templateUrl: 'templates/delegate_tab-info.html',
+        controller: 'Delegate_infoCtrl'
+      }
+    }
+  })
+
+  /*************************/
 
   // setup an abstract state for the tabs directive
   .state('tab', {
