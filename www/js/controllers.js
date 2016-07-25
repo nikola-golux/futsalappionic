@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
           $location.path('/tab/chats');
         }
         else if(data.delegate_id !=0){
-          $location.path('/tab/dash');
+          $location.path('/delegate_tab/matches');
         }
       },
       function(err){
@@ -46,9 +46,24 @@ angular.module('starter.controllers', [])
   });
 })
 
-/****************************************************************************************************/
+/****************************************************************************************************
+* DELEGATE TABS CONTROLLERS
+****************************************************************************************************/
+// 1) Delegate_matches Controller
+.controller('Delegate_matchesCtrl', function($scope, BlogEntry) {
+  BlogEntry.query().$promise.then(function(response){
+    $scope.blog_entries = response;
+  });
+})
 
+// 2) Delegate_matches Controller
+.controller('Delegate_infoCtrl', function($scope, BlogEntry) {
+  BlogEntry.query().$promise.then(function(response){
+    $scope.blog_entries = response;
+  });
+})
 
+/***************************************************************************************************/
 
 .controller('DashCtrl', function($scope, BlogEntry) {
   BlogEntry.query().$promise.then(function(response){
