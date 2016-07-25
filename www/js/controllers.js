@@ -1,5 +1,9 @@
 angular.module('starter.controllers', [])
 
+/****************************************************************************************************
+* HOME (WELCOME) TABS CONTROLLERS
+****************************************************************************************************/
+// 1) Login Controller
 .controller('LoginCtrl', function($scope, $location, UserSession, $ionicPopup, $rootScope) {
   $scope.data = {};
 
@@ -10,12 +14,13 @@ angular.module('starter.controllers', [])
         window.localStorage['userId'] = null;
         window.localStorage['userId'] = data.id;
         /*window.localStorage['userName'] = data.name;*/
-        if(data.player_id != 0){
+        /*if(data.player_id != 0){
           $location.path('/tab/chats');
         }
         else if(data.delegate_id !=0){
           $location.path('/tab/dash');
-        }
+        }*/
+        $location.path('/tab/dash');
       },
       function(err){
         var error = err["data"]["error"] || err.data.join('. ')
@@ -27,6 +32,24 @@ angular.module('starter.controllers', [])
     );
   }
 })
+
+// 2) O_nama Controller
+.controller('O_namaCtrl', function($scope, BlogEntry) {
+  BlogEntry.query().$promise.then(function(response){
+    $scope.blog_entries = response;
+  });
+})
+
+// 3) Kontakt Controller
+.controller('KontaktCtrl', function($scope, BlogEntry) {
+  BlogEntry.query().$promise.then(function(response){
+    $scope.blog_entries = response;
+  });
+})
+
+/****************************************************************************************************/
+
+
 
 .controller('DashCtrl', function($scope, BlogEntry) {
   BlogEntry.query().$promise.then(function(response){
