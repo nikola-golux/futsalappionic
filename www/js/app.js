@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngResource'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -18,12 +18,14 @@ angular.module('starter', ['ionic'])
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
+      StatusBar.styleLightContent();
     }
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+
+  $httpProvider.defaults.withCredentials = true;
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -31,8 +33,14 @@ angular.module('starter', ['ionic'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+  })
+
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -40,38 +48,46 @@ angular.module('starter', ['ionic'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.naslovna', {
-    url: '/naslovna',
+  .state('tab.dash', {
+    url: '/dash',
     views: {
-      'naslovna': {
-        templateUrl: 'templates/naslovna.html',
-        
+      'tab-dash': {
+        templateUrl: 'templates/tab-dash.html',
+        controller: 'DashCtrl'
       }
     }
   })
 
-  .state('tab.Onama', {
-      url: '/Onama',
+  .state('tab.chats', {
+      url: '/chats',
       views: {
-        'Onama': {
-          templateUrl: 'templates/Onama.html',
-          
+        'tab-chats': {
+          templateUrl: 'templates/tab-chats.html',
+          controller: 'ChatsCtrl'
         }
       }
     })
-   
+    .state('tab.chat-detail', {
+      url: '/chats/:chatId',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/chat-detail.html',
+          controller: 'ChatDetailCtrl'
+        }
+      }
+    })
 
-  .state('tab.kontakt', {
-    url: '/kontakt',
+  .state('tab.account', {
+    url: '/account',
     views: {
-      'tab-kontakt': {
-        templateUrl: 'templates/kontakt.html',
-        
+      'tab-account': {
+        templateUrl: 'templates/tab-account.html',
+        controller: 'AccountCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/naslovna');
+  $urlRouterProvider.otherwise('/login');
 
 });
