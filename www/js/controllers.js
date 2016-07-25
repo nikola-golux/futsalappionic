@@ -13,6 +13,7 @@ angular.module('starter.controllers', [])
       function(data){
         window.localStorage['userId'] = null;
         window.localStorage['userId'] = data.id;
+        window.localStorage['userPlayerId'] = data.player_id;
         /*window.localStorage['userName'] = data.name;*/
         if(data.player_id != 0){
           $location.path('/player_tab/team');
@@ -62,17 +63,17 @@ angular.module('starter.controllers', [])
   });
 })
 
-/***************************************************************************************************/
-
 /****************************************************************************************************
 * PLAYER TABS CONTROLLERS
 ****************************************************************************************************/
 // 1) Player_experience controller
-.controller('Player_ExpCtrl', function($scope, BlogEntry) {
-  BlogEntry.query().$promise.then(function(response){
-    $scope.blog_entries = response;
+.controller('Player_ExpCtrl', function($scope, Player) {
+  Player.query().$promise.then(function(response){
+    /*var id_igraca = window.localStorage['userPlayerId']*/
+    $scope.players = response;
   });
 })
+
 // 2) Player_stats controller
 .controller('Player_StatsCtrl', function($scope, BlogEntry) {
   BlogEntry.query().$promise.then(function(response){
@@ -80,14 +81,14 @@ angular.module('starter.controllers', [])
   });
 })
 
-// 2) Player_badges Controller
+// 3) Player_badges Controller
 .controller('Player_BadgesCtrl', function($scope, BlogEntry) {
   BlogEntry.query().$promise.then(function(response){
     $scope.blog_entries = response;
   });
 })
 
-// 3) Player_Team Controller
+// 4) Player_Team Controller
 .controller('Player_TeamCtrl', function($scope, BlogEntry) {
   BlogEntry.query().$promise.then(function(response){
     $scope.blog_entries = response;
