@@ -15,17 +15,16 @@ angular.module('starter.controllers', [])
         window.localStorage['userId'] = data.id;
         /*window.localStorage['userName'] = data.name;*/
         if(data.player_id != 0){
-          $location.path('/tab/chats');
+          $location.path('/player_tab/team');
         }
         else if(data.delegate_id !=0){
           $location.path('/delegate_tab/matches');
         }
       },
-      function(err){
-        var error = err["data"]["error"] || err.data.join('. ')
-        var confirmPopup = $ionicPopup.alert({
-          title: 'An error occured',
-          template: error
+      function(error){
+        $ionicPopup.alert({
+          title: 'Incorrect password',
+          template: 'Please try again!'
         });
       }
     );
@@ -58,6 +57,38 @@ angular.module('starter.controllers', [])
 
 // 2) Delegate_matches Controller
 .controller('Delegate_infoCtrl', function($scope, BlogEntry) {
+  BlogEntry.query().$promise.then(function(response){
+    $scope.blog_entries = response;
+  });
+})
+
+/***************************************************************************************************/
+
+/****************************************************************************************************
+* PLAYER TABS CONTROLLERS
+****************************************************************************************************/
+// 1) Player_experience controller
+.controller('Player_ExpCtrl', function($scope, BlogEntry) {
+  BlogEntry.query().$promise.then(function(response){
+    $scope.blog_entries = response;
+  });
+})
+// 2) Player_stats controller
+.controller('Player_StatsCtrl', function($scope, BlogEntry) {
+  BlogEntry.query().$promise.then(function(response){
+    $scope.blog_entries = response;
+  });
+})
+
+// 2) Player_badges Controller
+.controller('Player_BadgesCtrl', function($scope, BlogEntry) {
+  BlogEntry.query().$promise.then(function(response){
+    $scope.blog_entries = response;
+  });
+})
+
+// 3) Player_Team Controller
+.controller('Player_TeamCtrl', function($scope, BlogEntry) {
   BlogEntry.query().$promise.then(function(response){
     $scope.blog_entries = response;
   });

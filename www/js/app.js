@@ -39,7 +39,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .state('home_tab', {
     url: '/home_tab',
     abstract: true,
-    templateUrl: 'templates/home_tabs.html',
+    templateUrl: 'templates/home/home_tabs.html',
   })
 
   // 1) Login
@@ -47,7 +47,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/login',
     views: {
       'home_tab-login': {
-        templateUrl: 'templates/home_tab-login.html',
+        templateUrl: 'templates/home/home_tab-login.html',
         controller: 'LoginCtrl'
       }
     }
@@ -58,7 +58,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/o_nama',
     views: {
       'home_tab-o_nama': {
-        templateUrl: 'templates/home_tab-o_nama.html',
+        templateUrl: 'templates/home/home_tab-o_nama.html',
         controller: 'O_namaCtrl'
       }
     }
@@ -69,7 +69,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/kontakt',
     views: {
       'home_tab-kontakt': {
-        templateUrl: 'templates/home_tab-kontakt.html',
+        templateUrl: 'templates/home/home_tab-kontakt.html',
         controller: 'KontaktCtrl'
       }
     }
@@ -81,7 +81,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .state('delegate_tab', {
     url: '/delegate_tab',
     abstract: true,
-    templateUrl: 'templates/delegate_tabs.html',
+    templateUrl: 'templates/delegate/delegate_tabs.html',
   })
 
   // 1) Matches
@@ -89,7 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/matches',
     views: {
       'delegate_tab-matches': {
-        templateUrl: 'templates/delegate_tab-matches.html',
+        templateUrl: 'templates/delegate/delegate_tab-matches.html',
         controller: 'Delegate_matchesCtrl'
       }
     }
@@ -100,7 +100,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/info',
     views: {
       'delegate_tab-info': {
-        templateUrl: 'templates/delegate_tab-info.html',
+        templateUrl: 'templates/delegate/delegate_tab-info.html',
         controller: 'Delegate_infoCtrl'
       }
     }
@@ -108,53 +108,64 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   /*************************/
 
-  // setup an abstract state for the tabs directive
-  .state('tab', {
-    url: '/tab',
+
+  /**************************
+  * Player TABS
+  **************************/
+
+  
+  .state('player_tab', {
+    url: '/player_tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/player/player_tabs.html'
   })
 
-  // Each tab has its own nav history stack:
+  // 1) Experience
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('player_tab.experience', {
+    url: '/experience',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'player_tab-experience': {
+        templateUrl: 'templates/player/player_tab-experience.html',
+        controller: 'Player_ExpCtrl'
       }
     }
   })
+  // 2) Stats
 
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
-
-  .state('tab.account', {
-    url: '/account',
+  .state('player_tab.stats', {
+    url: '/stats',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'player_tab-stats': {
+        templateUrl: 'templates/player/player_tab-stats.html',
+        controller: 'Player_StatsCtrl'
       }
     }
-  });
+  })
+ 
+  // 3) Badges
+
+  .state('player_tab.badges', {
+      url: '/badges',
+      views: {
+        'player_tab-badges': {
+          templateUrl: 'templates/player/player_tab-badges.html',
+          controller: 'Player_BadgesCtrl'
+        }
+      }
+    })
+
+  // 4) Team
+
+    .state('player_tab.team', {
+      url: '/team',
+      views: {
+        'player_tab-team': {
+          templateUrl: 'templates/player/player_tab-team.html',
+          controller: 'Player_TeamCtrl'
+        }
+      }
+    });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home_tab/login');
