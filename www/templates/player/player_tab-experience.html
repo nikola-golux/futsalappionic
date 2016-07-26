@@ -1,16 +1,29 @@
 <ion-view view-title="Experience">
-  <ion-content class="padding">
+  <ion-content class="padding" ng-repeat="player in players | filter:{id: 1}">
 	<div class="row">
-	  <div class="col col-33 col-offset-33 ofarbano">.col</div>
+	  <div class="col col-33 col-offset-33 ofarbano">
+	  	<img src="{{player.avatar_url}}" height="auto" width="100%" style="max-width: 200px">
+	  </div>
 	</div>
 
 	<div class="row">
-	  <div class="col col-33">.col</div>
-	  <div class="col col-33 col-offset-33">.col</div>
+		<div class="col col-offset-33 col-offset-33 col-offset-33"></div>
 	</div>
 
-	<div class="row">
-	  <div class="col col-33 col-offset-67">.col</div>
+	<div>Ime igraca: {{player.name}}</div>
+	<div>Prezime igraca: {{player.surname}}</div>
+
+	<div>EKPIRIENCE - LEVEL: {{player.id}}</div>
+	<div class="progress-pie-chart" data-percent="{{player.id}}">
+		<div class="ppc-progress">
+			<div class="ppc-progress-fill"></div>
+		</div>
+		<div class="ppc-percents">
+			<div class="pcc-percents-wrapper">
+				<span>%</span>
+			</div>
+		</div>
 	</div>
+
   </ion-content>
 </ion-view>
