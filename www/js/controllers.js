@@ -14,6 +14,7 @@ angular.module('starter.controllers', [])
         window.localStorage['userId'] = null;
         window.localStorage['userId'] = data.id;
         window.localStorage['userPlayerId'] = data.player_id;
+        window.localStorage['userDelegateId'] = data.delegate_id;
         /*window.localStorage['userName'] = data.name;*/
         if(data.player_id != 0){
           $location.path('/player_tab/team');
@@ -67,9 +68,9 @@ angular.module('starter.controllers', [])
 * PLAYER TABS CONTROLLERS
 ****************************************************************************************************/
 // 1) Player_experience controller
-.controller('Player_ExpCtrl', function($scope, Player) {
-  Player.query().$promise.then(function(response){
-    /*var id_igraca = window.localStorage['userPlayerId']*/
+.controller('Player_ExpCtrl', function($scope, Players) {
+  Players.query().$promise.then(function(response){
+    $scope.id_igraca = window.localStorage['userPlayerId'];
     $scope.players = response;
   });
 })

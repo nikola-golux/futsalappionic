@@ -4,8 +4,8 @@ angular.module('starter.services', [])
   return $resource("http://192.168.1.102:3000/users/sign_in.json");
 })
 
-.factory('Player', function($resource) {
-  return $resource("http://192.168.1.102:3000/players/:id.json");
+.factory('Players', function($resource) {
+  return $resource("http://192.168.1.102:3000/api/v1/players");
 })
 
 /************************************************************************/
