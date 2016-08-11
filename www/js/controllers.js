@@ -68,11 +68,29 @@ angular.module('starter.controllers', [])
 * PLAYER TABS CONTROLLERS
 ****************************************************************************************************/
 // 1) Player_experience controller
-.controller('Player_ExpCtrl', function($scope, Players) {
+.controller('Player_ExpCtrl', function($scope, Players, PlayerSeasons) {
   Players.query().$promise.then(function(response){
     $scope.id_igraca = window.localStorage['userPlayerId'];
     $scope.players = response;
   });
+  PlayerSeasons.query().$promise.then(function(response){
+    $scope.id_igraca = window.localStorage['userPlayerId'];
+    $scope.player_seasons = response;
+    /* Funkcija za nalazenje JSON elementa */
+    function getById(arr, id) {
+        for (var d = 0, len = arr.length; d < len; d += 1) {
+            if (arr[d].id == id) /* Bilo je 3 === */ {
+                return arr[d];
+            }
+        }
+    }
+
+    $scope.current_player_season = getById($scope.player_seasons, window.localStorage['userPlayerId']);
+
+  });
+
+
+  
 })
 
 // 2) Player_stats controller
