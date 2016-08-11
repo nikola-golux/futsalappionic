@@ -16,10 +16,10 @@ angular.module('starter.controllers', [])
         window.localStorage['userPlayerId'] = data.player_id;
         window.localStorage['userDelegateId'] = data.delegate_id;
         /*window.localStorage['userName'] = data.name;*/
-        if(data.player_id != 0){
-          $location.path('/player_tab/team');
+        if(data.player_id != 0 && data.player_id != null){
+          $location.path('/player_tab/experience');
         }
-        else if(data.delegate_id !=0){
+        else if(data.delegate_id !=0 && data.delegate_id != null){
           $location.path('/delegate_tab/matches');
         }
       },
