@@ -8,6 +8,10 @@ angular.module('starter.services', [])
   return $resource("http://192.168.1.102:3000/api/v1/players");
 })
 
+.factory('PlayerSeasons', function($resource) {
+  return $resource("http://192.168.1.102:3000/api/v1/player_seasons");
+})
+
 /************************************************************************/
 .factory('BlogEntry', function($resource) {
   return $resource("http://192.168.1.102:3000/articles/:id.json");
