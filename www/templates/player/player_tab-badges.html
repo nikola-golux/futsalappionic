@@ -1,12 +1,53 @@
 <ion-view view-title="Badges">
-  <ion-content class="padding">
-    <div class="list card" ng-repeat="blog_entry in blog_entries">
-      <div class="item item-divider">{{blog_entry.title}}</div>
-      <div class="item item-body">
-        <div>
-          {{blog_entry.content}}
-        </div>
+  <ion-content class="padding" ng-repeat="player in players" ng-show="player.id == id_igraca">
+    
+    <div class="row">
+      <div class="col-33">
+        <img src="img/player_badges/igrac_01.png" height="auto" width="100%" style="max-width: 60px">
+      </div>
+      <div class="col-33">
+        <img src="img/player_badges/igrac_02.png" height="auto" width="100%" style="max-width: 60px">
+      </div>
+      <div class="col-33">
+        <img src="img/player_badges/igrac_03.png" height="auto" width="100%" style="max-width: 60px">
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-33">
+        <img src="img/player_badges/igrac_04.png" height="auto" width="100%" style="max-width: 60px">
+      </div>
+      <div class="col-33">
+        <img src="img/player_badges/igrac_05.png" height="auto" width="100%" style="max-width: 60px">
+      </div>
+      <div class="col-33">
+        <img src="img/player_badges/igrac_06.png" height="auto" width="100%" style="max-width: 60px">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-33">
+        <img src="img/player_badges/igrac_07.png" height="auto" width="100%" style="max-width: 60px">
+      </div>
+      <div class="col-33">
+        <img src="img/player_badges/igrac_08.png" height="auto" width="100%" style="max-width: 90px">
+      </div>
+      <div class="col-33">
+        <img src="img/player_badges/igrac_09.png" height="auto" width="100%" style="max-width: 60px">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-33">
+        <img src="img/player_badges/igrac_10.png" height="auto" width="100%" style="max-width: 60px">
+      </div>
+      <div class="col-offset-33">
+
+      </div>
+      <div class="col-offset-33">
+
+      </div>
+    </div>
+
   </ion-content>
 </ion-view>
