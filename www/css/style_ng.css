@@ -4,7 +4,11 @@
  * Boja pozadine aplikacije
  **********************************************/
 .scroll-content{
-    background: radial-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 50%), linear-gradient(#0c1325, #337ab7 60%, #0c1325);
+    /*background: radial-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 50%), linear-gradient(#0c1325, #337ab7 60%, #0c1325);*/
+    background:url('../img/pozadina.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
 }
 
 /***********************************************
