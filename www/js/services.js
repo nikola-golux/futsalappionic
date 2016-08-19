@@ -4,6 +4,16 @@ angular.module('starter.services', [])
   return $resource("http://192.168.1.102:3000/users/sign_in.json");
 })
 
+/**********************
+* Articles
+**********************/
+.factory('Articles', function($resource) {
+  return $resource("http://192.168.1.102:3000/articles");
+})
+
+/**********************
+* Players
+**********************/
 .factory('Players', function($resource) {
   return $resource("http://192.168.1.102:3000/api/v1/players");
 })
@@ -16,6 +26,9 @@ angular.module('starter.services', [])
   return $resource("http://192.168.1.102:3000/api/v1/player_badges");
 })
 
+/**********************
+* Teams
+**********************/
 .factory('Teams', function($resource) {
   return $resource("http://192.168.1.102:3000/api/v1/teams");
 })
@@ -24,14 +37,21 @@ angular.module('starter.services', [])
   return $resource("http://192.168.1.102:3000/api/v1/team_seasons");
 })
 
+.factory('HomeTeams', function($resource) {
+  return $resource("http://192.168.1.102:3000/api/v1/home_teams");
+})
+
+/**********************
+* Matches
+**********************/
 .factory('Matches', function($resource) {
   return $resource("http://192.168.1.102:3000/api/v1/matches");
 })
 
+
+
 /************************************************************************/
-.factory('BlogEntry', function($resource) {
-  return $resource("http://192.168.1.102:3000/articles/:id.json");
-})
+
 
 /************************************************************************/
 
