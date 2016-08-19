@@ -105,6 +105,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
+  /**************************
+  * DELEGATE MATCH
+  **************************/
+  
+  .state('delegate_match', {
+    url: '/delegate_match',
+    templateUrl: 'templates/match/delegate_match.html',
+    controller: 'Delegate_matchCtrl'  
+    })
+  
+
 
   /*************************/
 
