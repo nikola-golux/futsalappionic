@@ -1,10 +1,10 @@
 <ion-view view-title="Delegate">
   <ion-content class="padding">
-    <div class="list card" ng-repeat="blog_entry in blog_entries">
-      <div class="item item-divider">{{blog_entry.title}}</div>
+    <div class="list card" ng-repeat="match in matches">
+      <div class="item item-divider">{{match.id}}</div>
       <div class="item item-body">
         <div>
-          {{blog_entry.content}}
+          {{match.home_team_name}} {{match.home_goals}} - {{match.away_goals}} {{match.away_team_name}}
         </div>
       </div>
     </div>

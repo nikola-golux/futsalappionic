@@ -51,9 +51,19 @@ angular.module('starter.controllers', [])
 * DELEGATE TABS CONTROLLERS
 ****************************************************************************************************/
 // 1) Delegate_matches Controller
-.controller('Delegate_matchesCtrl', function($scope, BlogEntry) {
-  BlogEntry.query().$promise.then(function(response){
-    $scope.blog_entries = response;
+.controller('Delegate_matchesCtrl', function($scope, Matches, HomeTeams, Teams) {
+  Matches.query().$promise.then(function(response){
+    $scope.id_delegata = window.localStorage['userDelegateId'];
+    $scope.matches = response;
+    /* Funkcija za nalazenje JSON elementa */
+    function getById(arr, id) {
+        for (var d = 0, len = arr.length; d < len; d += 1) {
+            if (arr[d].delegate_id == id) /* Bilo je 3 === */ {
+                return arr[d];
+            }
+        }
+    }
+    $scope.mecevi_delegata = getById($scope.matches, window.localStorage['userDelegateId']);
   });
 })
 
