@@ -286,5 +286,9 @@ text-shadow: -1px 1px 0px #fff;
 }
 
 /***********************************************
- * 
- **********************************************/
+* Grayscale filter for badges
+**********************************************/
+.grayscale_badge {
+  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+  filter: grayscale(100%);
+}
