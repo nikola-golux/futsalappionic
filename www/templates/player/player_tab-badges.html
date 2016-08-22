@@ -2,52 +2,92 @@
   <ion-content class="padding" ng-repeat="player in players" ng-show="player.id == id_igraca">
     
     <div class="row">
-      <div class="col-33">
-        <img src="img/player_badges/igrac_01.png" height="auto" width="100%" style="max-width: 60px">
+        <!--***********************************
+        * Bedz za PRVI GOL
+        *************************************-->
+        <div class="col-50" align="center">
+          <div ng-if="current_player_badge.prvi_gol > 0">
+            <img src="img/player_badges/igrac_01.png" height="auto" width="100%" style="max-width: 90px">
+          </div>
+          <div ng-if="current_player_badge.prvi_gol == 0">
+            <img src="img/player_badges/igrac_01.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
+          </div>
+        </div>
+        <div class="col-50" align="center">
+          <!--***********************************
+          * Bedz za PRVI GOL
+          *************************************-->
+          <div ng-if="current_player_badge.prva_asistencija > 0">
+            <img src="img/player_badges/igrac_02.png" height="auto" width="100%" style="max-width: 90px">
+          </div>
+          <div ng-if="current_player_badge.prva_asistencija == 0">
+             <img src="img/player_badges/igrac_02.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-50" align="center">
+        <img src="img/player_badges/igrac_03.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
       </div>
-      <div class="col-33">
-        <img src="img/player_badges/igrac_02.png" height="auto" width="100%" style="max-width: 60px">
-      </div>
-      <div class="col-33">
-        <img src="img/player_badges/igrac_03.png" height="auto" width="100%" style="max-width: 60px">
+      <div class="col-50" align="center">
+        <img src="img/player_badges/igrac_04.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
       </div>
     </div>
 
     <div class="row">
-      <div class="col-33">
-        <img src="img/player_badges/igrac_04.png" height="auto" width="100%" style="max-width: 60px">
+      <div class="col-50" align="center">
+        <img src="img/player_badges/igrac_05.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
       </div>
-      <div class="col-33">
-        <img src="img/player_badges/igrac_05.png" height="auto" width="100%" style="max-width: 60px">
-      </div>
-      <div class="col-33">
-        <img src="img/player_badges/igrac_06.png" height="auto" width="100%" style="max-width: 60px">
+      <div class="col-50" align="center">
+        <img src="img/player_badges/igrac_06.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
       </div>
     </div>
 
     <div class="row">
-      <div class="col-33">
-        <img src="img/player_badges/igrac_07.png" height="auto" width="100%" style="max-width: 60px">
+      <div class="col-50" align="center">
+        <img src="img/player_badges/igrac_07.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
       </div>
-      <div class="col-33">
-        <img src="img/player_badges/igrac_08.png" height="auto" width="100%" style="max-width: 90px">
-      </div>
-      <div class="col-33">
-        <img src="img/player_badges/igrac_09.png" height="auto" width="100%" style="max-width: 60px">
+      <div class="col-50" align="center">
+        <img src="img/player_badges/igrac_08.png" height="auto" width="100%" style="max-width: 135px" class="grayscale_badge">
       </div>
     </div>
 
     <div class="row">
-      <div class="col-33">
-        <img src="img/player_badges/igrac_10.png" height="auto" width="100%" style="max-width: 60px">
+      <div class="col-50" align="center">
+        <img src="img/player_badges/igrac_09.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
       </div>
-      <div class="col-offset-33">
-
-      </div>
-      <div class="col-offset-33">
-
+      <div class="col-50" align="center">
+        <img src="img/player_badges/igrac_10.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
       </div>
     </div>
+
+    <table class="player-stats">
+        <tr>
+          <td>prvi_gol</td>
+          <td>{{current_player_badge.prvi_gol}}</td>
+        </tr>
+        <tr>
+          <td>Asistencija</td>
+          <td>{{current_player_badge.prva_asistencija}}</td>
+        </tr>
+        <tr>
+          <td>gol_u_prva_2_min</td>
+          <td>{{current_player_badge.gol_u_prva_2_min}}</td>
+        </tr>
+        <tr>
+          <td>tri_gola_na_utakmici</td>
+          <td>{{current_player_badge.tri_gola_na_utakmici}}</td>
+        </tr>
+        <tr>
+          <td>deset_golova_na_utakmici</td>
+          <td>{{current_player_badge.deset_golova_na_utakmici}}</td>
+        </tr>
+        <tr>
+          <td>tri_asist_na_utakmici</td>
+          <td>{{current_player_badge.tri_asist_na_utakmici}}</td>
+        </tr>
+      </table>
 
   </ion-content>
 </ion-view>

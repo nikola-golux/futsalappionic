@@ -119,7 +119,7 @@ angular.module('starter.controllers', [])
     /* Funkcija za nalazenje JSON elementa */
     function getById(arr, id) {
         for (var d = 0, len = arr.length; d < len; d += 1) {
-            if (arr[d].id == id) /* Bilo je 3 === */ {
+            if (arr[d].player_id == id) /* Bilo je 3 === */ {
                 return arr[d];
             }
         }
@@ -144,7 +144,7 @@ angular.module('starter.controllers', [])
     /* Funkcija za nalazenje JSON elementa */
     function getById(arr, id) {
         for (var d = 0, len = arr.length; d < len; d += 1) {
-            if (arr[d].id == id) /* Bilo je 3 === */ {
+            if (arr[d].player_id == id) /* Bilo je 3 === */ {
                 return arr[d];
             }
         }
@@ -162,14 +162,14 @@ angular.module('starter.controllers', [])
     $scope.id_igraca = window.localStorage['userPlayerId'];
     $scope.players = response;
   });
-  /* PLAYER_SEASONS table */
+  /* PLAYER_BADGES table */
   PlayerBadges.query().$promise.then(function(response){
     $scope.id_igraca = window.localStorage['userPlayerId'];
     $scope.player_badges = response;
     /* Funkcija za nalazenje JSON elementa */
     function getById(arr, id) {
         for (var d = 0, len = arr.length; d < len; d += 1) {
-            if (arr[d].id == id) /* Bilo je 3 === */ {
+            if (arr[d].player_id == id) /* Bilo je 3 === */ {
                 return arr[d];
             }
         }
