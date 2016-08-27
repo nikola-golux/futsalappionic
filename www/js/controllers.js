@@ -106,7 +106,7 @@ angular.module('starter.controllers', [])
 * PLAYER TABS CONTROLLERS
 ****************************************************************************************************/
 // 1) Player_experience controller
-.controller('Player_ExpCtrl', function($scope, $window, Players, PlayerSeasons, Teams) {
+.controller('Player_ExpCtrl', function($scope, $state, $stateParams, $window, Players, PlayerSeasons, Teams) {
   /* PLAYERS table */
   Players.query().$promise.then(function(response){
     $scope.id_igraca = window.localStorage['userPlayerId'];
@@ -121,7 +121,6 @@ angular.module('starter.controllers', [])
       }
 
     $scope.current_player = getById($scope.players, window.localStorage['userPlayerId']);
-    /* Ovo ne radi */
     window.localStorage['playerTeamId'] = $scope.current_player.team_id;
   });
 
@@ -333,10 +332,47 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('Team_PlayersCtrl', function($scope, Players) {
-  Players.query().$promise.then(function(response){
-    $scope.blog_entries = response;
+// 4) Team_players Controller
+.controller('Team_PlayersCtrl', function($scope, $state, $stateParams, Teams, Players) {
+  /* PLAYERS table */
+  Teams.query().$promise.then(function(response){
+    $scope.id_igraca = window.localStorage['playerTeamId'];
+    $scope.teams = response;
+    /* Funkcija za nalazenje JSON elementa */
+    function getById(arr, id) {
+        for (var d = 0, len = arr.length; d < len; d += 1) {
+            if (arr[d].id == id) /* Bilo je 3 === */ {
+                return arr[d];
+            }
+        }
+    }
 
+    $scope.current_team = getById($scope.teams, window.localStorage['playerTeamId']);
+  });
+  /* PLAYERS table */
+  Players.query().$promise.then(function(response){
+    $scope.id_tima_igraca = window.localStorage['playerTeamId'];
+    $scope.players = response;
+    /* Funkcija za nalazenje JSON elementa */
+    function getById(arr, id) {
+        var svi_rezultati = [];
+        var i = 0;
+        for (var d = 0, len = arr.length; d < len; d += 1) {
+          if (arr[d].team_id == id) /* Bilo je 3 === */ {
+                svi_rezultati[i]=arr[d];
+                i += 1;
+          }
+
+        }
+        return svi_rezultati;
+    }
+
+    $scope.current_team_players = getById($scope.players, window.localStorage['playerTeamId']);
+    
+    $scope.params = $stateParams;
+    $scope.go = function (id) {
+      $state.go('player_tab.experience', { id : id });
+    };
   });
 })
 
