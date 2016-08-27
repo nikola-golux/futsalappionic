@@ -222,12 +222,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   // 4) Team
 
-    .state('team_tab.team', {
-      url: '/team',
+    .state('team_tab.players', {
+      url: '/players',
       views: {
-        'team_tab-team': {
+        'team_tab-players': {
           templateUrl: 'templates/team/team_tab-players.html',
-          controller: 'Team_TeamCtrl'
+          controller: 'Team_PlayersCtrl'
         }
       }
     });
