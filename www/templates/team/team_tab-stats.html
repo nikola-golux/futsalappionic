@@ -1,0 +1,64 @@
+<ion-view view-title="Stats">
+  <ion-content class="padding" ng-repeat="team in teams" ng-show="team.id == id_tima_igraca">
+      <div class="row">
+        <div class="col col-33 col-offset-33">
+          <img src="{{team.avatar_url}}" height="auto" width="100%" style="max-width: 200px">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-offset-33 col-offset-33 col-offset-33"></div>
+      </div>
+
+      <table class="player-stats" style="width: 80%; text-align: left">
+          <tr>
+            <td>Ime tima:</td>
+            <td style="text-align: center">{{team.name}}</td>
+          </tr>
+          <tr>
+            <td>Broj odigranih mečeva:</td>
+            <td style="text-align: center">{{current_team_season.matches_played}}</td>
+          </tr>
+          <tr>
+            <td>Broj pobeđenih mečeva:</td>
+            <td style="text-align: center">{{current_team_season.matches_win}}</td>
+          </tr>
+          <tr>
+            <td>Broj nerešenih mečeva:</td>
+            <td style="text-align: center">{{current_team_season.matches_draw}}</td>
+          </tr>
+          <tr>
+            <td>Broj izgubljenih mečeva:</td>
+            <td style="text-align: center">{{current_team_season.matches_lose}}</td>
+          </tr>
+          <tr>
+            <td>Procenat pobeđenih mečeva:</td>
+            <td style="text-align: center">{{current_team_season.matches_win / current_team_season.matches_played * 100}} %</td>
+          </tr>
+          <tr>
+            <td>Procenat nerešenih mečeva:</td>
+            <td style="text-align: center">{{current_team_season.matches_draw / current_team_season.matches_played * 100}} %</td>
+          </tr>
+          <tr>
+            <td>Procenat izgubljenih mečeva:</td>
+            <td style="text-align: center">{{current_team_season.matches_lose / current_team_season.matches_played * 100}} %</td>
+          </tr>
+          <tr>
+            <td>Postigunto golova:</td>
+            <td style="text-align: center">{{current_team_season.goals_scored}}</td>
+          </tr>
+          <tr>
+            <td>Primljeno golova:</td>
+            <td style="text-align: center">{{current_team_season.goals_received}}</td>
+          </tr>
+          <tr>
+            <td>Šutevi:</td>
+            <td style="text-align: center">{{current_team_season.shoots}}</td>
+          </tr>
+          <tr>
+            <td>Poena:</td>
+            <td style="text-align: center">{{current_team_season.points}}</td>
+          </tr>
+      </table>
+  </ion-content>
+</ion-view>

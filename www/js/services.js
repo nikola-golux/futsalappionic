@@ -1,57 +1,63 @@
 angular.module('starter.services', [])
 
 .factory('UserSession', function($resource) {
-  return $resource("http://192.168.1.3:3000/users/sign_in.json");
+  return $resource("http://192.168.122.1:3000/users/sign_in.json");
 })
 
 /**********************
 * Articles
 **********************/
 .factory('Articles', function($resource) {
-  return $resource("http://192.168.1.3:3000/articles");
+  return $resource("http://192.168.122.1:3000/articles");
 })
 
 /**********************
 * Players
 **********************/
 .factory('Players', function($resource) {
-  return $resource("http://192.168.1.3:3000/api/v1/players");
+  return $resource("http://192.168.122.1:3000/api/v1/players");
 })
 
 .factory('PlayerSeasons', function($resource) {
-  return $resource("http://192.168.1.3:3000/api/v1/player_seasons");
+  return $resource("http://192.168.122.1:3000/api/v1/player_seasons");
 })
 
 .factory('PlayerBadges', function($resource) {
-  return $resource("http://192.168.1.3:3000/api/v1/player_badges");
+  return $resource("http://192.168.122.1:3000/api/v1/player_badges");
 })
 
 /**********************
 * Teams
 **********************/
 .factory('Teams', function($resource) {
-  return $resource("http://192.168.1.3:3000/api/v1/teams");
+  return $resource("http://192.168.122.1:3000/api/v1/teams");
 })
 
 .factory('TeamSeasons', function($resource) {
-  return $resource("http://192.168.1.3:3000/api/v1/team_seasons");
+  return $resource("http://192.168.122.1:3000/api/v1/team_seasons");
 })
 
+
+.factory('TeamBadges', function($resource){
+  return $resource("http://192.168.122.1:3000/api/v1/team_badges");
+})
+
+
 .factory('HomeTeams', function($resource) {
-  return $resource("http://192.168.1.3:3000/api/v1/home_teams");
+  return $resource("http://192.168.122.1:3000/api/v1/home_teams");
 })
 
 /**********************
 * Matches
 **********************/
 .factory('Matches', function($resource) {
-  return $resource("http://192.168.1.3:3000/api/v1/matches");
+  return $resource("http://192.168.122.1:3000/api/v1/matches");
 })
 /**********************
 * Delegate Match
 **********************/
 .factory('Match', function($resource) {
-  return $resource("http://192.168.1.3:3000/api/v1/matches");
+  return $resource("http://192.168.122.1:3000/api/v1/matches");
   
 })
 

@@ -123,8 +123,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   /**************************
   * Player TABS
   **************************/
-
-  
   .state('player_tab', {
     url: '/player_tab',
     abstract: true,
@@ -174,6 +172,62 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         'player_tab-team': {
           templateUrl: 'templates/player/player_tab-team.html',
           controller: 'Player_TeamCtrl'
+        }
+      }
+    })
+
+  /**************************
+  * Team TABS
+  **************************/
+  .state('team_tab', {
+    url: '/team_tab',
+    abstract: true,
+    templateUrl: 'templates/team/team_tabs.html'
+  })
+
+  // 1) Experience
+
+  .state('team_tab.experience', {
+    url: '/experience',
+    views: {
+      'team_tab-experience': {
+        templateUrl: 'templates/team/team_tab-experience.html',
+        controller: 'Team_ExpCtrl'
+      }
+    }
+  })
+  // 2) Stats
+
+  .state('team_tab.stats', {
+    url: '/stats',
+    views: {
+      'team_tab-stats': {
+        templateUrl: 'templates/team/team_tab-stats.html',
+        controller: 'Team_StatsCtrl'
+      }
+    }
+  })
+ 
+  // 3) Badges
+
+  .state('team_tab.badges', {
+      url: '/badges',
+      views: {
+        'team_tab-badges': {
+          templateUrl: 'templates/team/team_tab-badges.html',
+          controller: 'Team_BadgesCtrl'
+        }
+      }
+    })
+
+  // 4) Team
+
+    .state('team_tab.team', {
+      url: '/team',
+      views: {
+        'team_tab-team': {
+          templateUrl: 'templates/team/team_tab-players.html',
+          controller: 'Team_TeamCtrl'
         }
       }
     });
