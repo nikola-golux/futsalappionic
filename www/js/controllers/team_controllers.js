@@ -135,9 +135,18 @@ angular.module('starter.controllers')
     window.localStorage['current_team_players'] = $scope.current_team_players;
     
     $scope.go = function (id) {
-      $state.go('single_player_tab.experience', {id});
-      /*window.localStorage['tempPlayerId'] = id;*/
       localStorage.setItem("tempPlayerId", id);
+      
+      $scope.i = true;
+      //$scope.$apply();
+      if ($scope.i){
+        $scope.i = false;
+        //$scope.$apply();
+        window.location.reload(true);  
+      }
+
+      $state.go('single_player_tab.experience', {}, { reload: true });
+      /*window.localStorage['tempPlayerId'] = id;*/
     };
   });
 })

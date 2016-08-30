@@ -4,7 +4,7 @@ angular.module('starter.controllers')
 * PLAYER TABS CONTROLLERS
 ****************************************************************************************************/
 // 1) SinglePlayer_experience controller
-.controller('SinglePlayer_ExpCtrl', function($scope, $state, $stateParams, $window, Players, PlayerSeasons, Teams) {
+.controller('SinglePlayer_ExpCtrl',function($scope, $state, $stateParams, $window, Players, PlayerSeasons, Teams) {
   /* PLAYERS table */
   Players.query().$promise.then(function(response){
     $scope.id_igraca = window.localStorage['tempPlayerId'];
@@ -17,16 +17,14 @@ angular.module('starter.controllers')
               }
           }
       }
-      
 
-    
-    
-
-    var i = false;
-    if (i){
-        window.location.reload(true);
-        i = true;
-    }
+    /*$scope.i = true;
+    $scope.$apply();
+    if ($scope.i){
+      $scope.i = false;
+      $scope.$apply();
+      window.location.reload(true);  
+    }*/
     $scope.current_player = getById($scope.players, window.localStorage['tempPlayerId']);
     window.localStorage['playerTeamId'] = $scope.current_player.team_id;
 
