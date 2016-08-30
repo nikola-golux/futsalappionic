@@ -1,0 +1,30 @@
+<!--
+Tabovi za Player stranu kad se uloguje player, gde se nalaze linkovi ka stranicama:
+1. Experience
+2. Stats
+3. Badges
+4. Team
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+  <!-- Experience  tab-->
+  <ion-tab title="Experience" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/single_player_tab/experience">
+    <ion-nav-view name="single_player_tab-experience"></ion-nav-view>
+  </ion-tab>
+  <!-- Stats tab -->
+   <ion-tab title="Stats" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/single_player_tab/stats">
+    <ion-nav-view name="single_player_tab-stats"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Experience Tab -->
+  <ion-tab title="Badges" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/single_player_tab/badges">
+    <ion-nav-view name="single_player_tab-badges"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Kontakt Tab -->
+  <ion-tab title="Team" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/team_tab/experience">
+    <ion-nav-view name="single_player_tab-team"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>
