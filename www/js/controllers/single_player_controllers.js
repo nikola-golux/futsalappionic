@@ -28,10 +28,6 @@ angular.module('starter.controllers')
     $scope.current_player = getById($scope.players, window.localStorage['tempPlayerId']);
     window.localStorage['playerTeamId'] = $scope.current_player.team_id;
 
-      
-    
-    
-
   });
 
   /* PLAYER_SEASONS table */
