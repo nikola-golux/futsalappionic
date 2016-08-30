@@ -7,7 +7,7 @@
 	</div> 
 
 	<div class="list">
-	    <button ng-click="go(player.id)" class="item item-thumbnail-left" href="#/single_player_tab/experience" ng-repeat="player in current_team_players" style="width:100%;">
+	    <button ng-click="go(player.id)" class="item item-thumbnail-left" ng-repeat="player in current_team_players" style="width:100%;">
 	      <img src="{{player.avatar_url}}">
 	      <h2>{{player.name}}</h2>
 	      <p>{{player.surname}}</p>
