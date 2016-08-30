@@ -5,14 +5,19 @@ Tabovi za DELEGATE stranu, gde se nalaze linkovi ka stranicama:
 -->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
+	<!-- Info Tab -->
+  <ion-tab title="Info" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/delegate_tab/info">
+    <ion-nav-view name="delegate_tab-info"></ion-nav-view>
+  </ion-tab>
+
   <!-- Matches Tab -->
   <ion-tab title="Matches" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/delegate_tab/matches">
     <ion-nav-view name="delegate_tab-matches"></ion-nav-view>
   </ion-tab>
 
-  <!-- Info Tab -->
-  <ion-tab title="Info" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/delegate_tab/info">
-    <ion-nav-view name="delegate_tab-info"></ion-nav-view>
+  <!-- Matches played Tab -->
+  <ion-tab title="Odigrani mecevi" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/delegate_tab/matches_played">
+    <ion-nav-view name="delegate_tab-matches_played"></ion-nav-view>
   </ion-tab>
 
 </ion-tabs>

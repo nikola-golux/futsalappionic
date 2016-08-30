@@ -1,0 +1,39 @@
+<ion-view view-title="Team">
+  <ion-content class="padding" ng-repeat="player in players" ng-show="player.id == id_igraca">
+  <div class="row">
+    <div class="col col-33 col-offset-33">
+      <img src="{{current_player_team.avatar_url}}" height="auto" width="100%" style="max-width: 200px">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-offset-33 col-offset-33 col-offset-33"></div>
+  </div>
+
+  <table class="player-stats">
+      <tr>
+        <th>Ime</th>
+      </tr>
+      <tr>
+        <td>{{current_player_team.name}}</td>
+      </tr>
+  </table>
+
+  <div class="row">
+    <div class="col col-offset-33 col-offset-33 col-offset-33"></div>
+  </div>
+
+  <table class="player-stats">
+      <tr>
+        <th>Experience</th>
+        <td>{{current_player_team.name}}</td>
+      </tr>
+      <tr>
+        <th>Level</th>
+        <td>{{current_player_team.name}}</td>
+      </tr>
+  </table>
+  <div>
+  </div>
+  </ion-content>
+</ion-view>

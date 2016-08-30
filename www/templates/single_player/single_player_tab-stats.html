@@ -1,0 +1,52 @@
+<ion-view view-title="Stats">
+  <ion-content class="padding" ng-repeat="player in players" ng-show="player.id == id_igraca">
+      <div class="row">
+        <div class="col col-33 col-offset-33">
+          <img src="{{player.avatar_url}}" height="auto" width="100%" style="max-width: 200px">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-offset-33 col-offset-33 col-offset-33"></div>
+      </div>
+
+      <table class="player-stats">
+          <tr>
+            <td>Golova</td>
+            <td>{{current_player_season.goals}}</td>
+          </tr>
+          <tr>
+            <td>Asistencija</td>
+            <td>{{current_player_season.assists}}</td>
+          </tr>
+          <tr>
+            <td>Faulova</td>
+            <td>{{current_player_season.fouls}}</td>
+          </tr>
+          <tr>
+            <td>Žuti karton</td>
+            <td>{{current_player_season.yellow_cards}}</td>
+          </tr>
+          <tr>
+            <td>Crvenih kartona</td>
+            <td>{{current_player_season.red_cards}}</td>
+          </tr>
+          <tr>
+            <td>Odigranih utakmica</td>
+            <td>{{current_player_season.matches_played}}</td>
+          </tr>
+          <tr>
+            <td>Pobeda</td>
+            <td>{{current_player_season.matches_win}}</td>
+          </tr>
+          <tr>
+            <td>Nerešenih</td>
+            <td>{{current_player_season.matches_draw}}</td>
+          </tr>
+          <tr>
+            <td>Izgubljenih</td>
+            <td>{{current_player_season.matches_lose}}</td>
+          </tr>
+      </table>
+  </ion-content>
+</ion-view>
