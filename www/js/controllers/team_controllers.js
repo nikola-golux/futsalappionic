@@ -136,16 +136,15 @@ angular.module('starter.controllers')
     
     $scope.go = function (id) {
       localStorage.setItem("tempPlayerId", id);
-      
+      $state.go('single_player_tab.experience', {}, { reload: true });
       $scope.i = true;
-      //$scope.$apply();
+      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        //$scope.$apply();
+        $scope.$apply();
         window.location.reload(true);  
       }
-
-      $state.go('single_player_tab.experience', {}, { reload: true });
+      
       /*window.localStorage['tempPlayerId'] = id;*/
     };
   });
