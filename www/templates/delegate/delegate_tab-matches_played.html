@@ -1,11 +1,13 @@
 <ion-view view-title="Delegate">
   <ion-content class="padding">
     <div class="list card" ng-repeat="match in mecevi_delegata" ng-show="delegate.id = id_delegata">
-      <div class="item item-divider">{{match.id}}</div>
-      <div class="item item-body">
-         <a href="#delegate_match">
-          {{match.home_team_name}} {{match.home_goals}} - {{match.away_goals}} {{match.away_team_name}}
-          </a>
+      <div class="item item-divider">{{match.start_time}}</div>
+      <div class="item item-body" style="text-align: center">
+         <tr href="#delegate_match">
+          <td><img src="{{match.home_team_avatar}}" height="auto" width="100%" style="max-width: 60px"></td>
+          <td>{{match.home_team_name}} {{match.home_goals}} - {{match.away_goals}} {{match.away_team_name}}</td>
+          <td><img src="{{match.away_team_avatar}}" height="auto" width="100%" style="max-width: 60px"></td>
+          </tr>
         </div>
       </div>
     </div>
