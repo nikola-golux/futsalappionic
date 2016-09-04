@@ -4,7 +4,7 @@ angular.module('starter.controllers')
 * DELEGATE TABS CONTROLLERS
 ****************************************************************************************************/
 // 1) Delegate_matches Controller
-.controller('Delegate_matchesCtrl', function($scope, Matches, HomeTeams, Teams) {
+.controller('Delegate_matchesCtrl', function($scope, $state, $stateParams, Matches, HomeTeams, Teams) {
   Matches.query().$promise.then(function(response){
     $scope.id_delegata = window.localStorage['userDelegateId'];
     $scope.matches = response;
@@ -22,6 +22,18 @@ angular.module('starter.controllers')
         return svi_rezultati;
     }
     $scope.mecevi_delegata = getById($scope.matches, window.localStorage['userDelegateId']);
+    
+    $scope.go = function (id) {
+      localStorage.setItem("delegateMatchId", id);
+      $state.go('delegate_match', {}, { reload: true });
+      $scope.i = true;
+      $scope.$apply();
+      if ($scope.i){
+        $scope.i = false;
+        $scope.$apply();
+        window.location.reload(true);  
+      }
+    }
   });
 })
 
@@ -45,11 +57,22 @@ angular.module('starter.controllers')
     }
     $scope.mecevi_delegata = getById($scope.matches, window.localStorage['userDelegateId']);
   });
+
 })
 
 // 3) Delegate_info Controller
-.controller('Delegate_infoCtrl', function($scope, Delegate) {
+.controller('Delegate_infoCtrl', function($scope, Delegates) {
   Delegates.query().$promise.then(function(response){
-    $scope.blog_entries = response;
+    $scope.id_delegata = window.localStorage['userDelegateId'];
+    $scope.delegates = response;
+
+    function getById(arr, id) {
+          for (var d = 0, len = arr.length; d < len; d += 1) {
+              if (arr[d].id == id) /* Bilo je 3 === */ {
+                  return arr[d];
+              }
+          }
+      }
+      $scope.current_delegate = getById($scope.delegates, window.localStorage['userDelegateId']);
   });
 })
