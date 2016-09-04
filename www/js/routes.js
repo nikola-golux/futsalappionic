@@ -93,20 +93,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
-  /**************************
-  * DELEGATE MATCH
-  **************************/
-  
-  .state('delegate_match', {
-    url: '/delegate_match',
-    templateUrl: 'templates/match/delegate_match.html',
-    controller: 'Delegate_matchCtrl'  
-    })
-  
-
-
-  /*************************/
-
 
   /**************************
   * Player TABS
@@ -275,8 +261,109 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           controller: 'Team_PlayersCtrl'
         }
       }
-    });
+    })
 
+
+  /**************************
+  * DELEGATE MATCH
+  **************************/
+  
+  .state('delegate_match', {
+    url: '/delegate_match',
+    templateUrl: 'templates/match/delegate_match.html',
+    controller: 'Delegate_matchCtrl'  
+    })
+  
+
+  /**************************
+  * Goals
+  **************************/
+  .state('home_team_goal', {
+    url: '/home_team_goal',
+    templateUrl: 'templates/goal/home_team_goal.html',
+    controller: 'HomeGoal_Ctrl'  
+  })
+
+  .state('away_team_goal', {
+    url: '/away_team_goal',
+    templateUrl: 'templates/goal/away_team_goal.html',
+    controller: 'AwayGoal_Ctrl'  
+  })
+
+  /**************************
+  * Assists
+  **************************/
+  .state('home_team_assist', {
+    url: '/home_team_assist',
+    templateUrl: 'templates/assist/home_team_assist.html',
+    controller: 'HomeAssist_Ctrl'  
+  })
+
+  .state('away_team_assist', {
+    url: '/away_team_assist',
+    templateUrl: 'templates/assist/away_team_assist.html',
+    controller: 'AwayAssist_Ctrl'  
+  })
+
+  /**************************
+  * Fouls
+  **************************/
+  .state('home_team_foul', {
+    url: '/home_team_foul',
+    templateUrl: 'templates/foul/home_team_foul.html',
+    controller: 'HomeFoul_Ctrl'  
+  })
+
+  .state('away_team_foul', {
+    url: '/away_team_foul',
+    templateUrl: 'templates/foul/away_team_foul.html',
+    controller: 'AwayFoul_Ctrl'  
+  })
+
+  /**************************
+  * Yellow Cards
+  **************************/
+  .state('home_team_yellow_card', {
+    url: '/home_team_yellow_card',
+    templateUrl: 'templates/yellow_card/home_team_yellow_card.html',
+    controller: 'HomeYellowCard_Ctrl'  
+  })
+
+  .state('away_team_yellow_card', {
+    url: '/away_team_yellow_card',
+    templateUrl: 'templates/yellow_card/away_team_yellow_card.html',
+    controller: 'AwayYellowCard_Ctrl'  
+  })
+
+  /**************************
+  * Red Cards
+  **************************/
+  .state('home_team_red_card', {
+    url: '/home_team_red_card',
+    templateUrl: 'templates/red_card/home_team_red_card.html',
+    controller: 'HomeRedCard_Ctrl'  
+  })
+
+  .state('away_team_red_card', {
+    url: '/away_team_red_card',
+    templateUrl: 'templates/red_card/away_team_red_card.html',
+    controller: 'AwayRedCard_Ctrl'  
+  })
+
+  /**************************
+  * Goalkepper Saves
+  **************************/
+  .state('home_team_goalkeeper_save', {
+    url: '/home_team_goalkeeper_save',
+    templateUrl: 'templates/goalkeeper_save/home_team_goalkeeper_save.html',
+    controller: 'HomeGKSave_Ctrl'  
+  })
+
+  .state('away_team_goalkeeper_save', {
+    url: '/away_team_goalkeeper_save',
+    templateUrl: 'templates/goalkeeper_save/away_team_goalkeeper_save.html',
+    controller: 'AwayGKSave_Ctrl'  
+  })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home_tab/login');
 
