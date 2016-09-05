@@ -1,15 +1,15 @@
 /**************************************************
-* 1) Odavde skacemo na CURRENT MATCH iz sesije
-* 2) 
-*
-*
-*
+* 1) Odavde skacemo na CURRENT MATCH iz sesije meca
+* 2) Pa skacemo na home team
+* 3) Pa uporedjujemo koji je tim u home timu
+* 4) Pa onda izlistavamo sve igrace tog tima
+* 5) I na kraju otvaramo njihove player sezone
 *
 ****************************************************/
 angular.module('starter.controllers')
 
 /****************************************************************************************************
-* HOME GOALS CONTROLLERS
+* HOME GOALKEEPER SAVE CONTROLLERS
 ****************************************************************************************************/
 .controller('HomeGKSave_Ctrl', function($scope, $state, $http, $stateParams, Matches, HomeTeams, Teams, Players, PlayerSeasons) {
   Matches.query().$promise.then(function(response){
@@ -118,7 +118,7 @@ angular.module('starter.controllers')
 })
 
 /****************************************************************************************************
-* AWAY RED CARDS CONTROLLERS
+* AWAY GOALKEEPER SAVE CONTROLLERS
 ****************************************************************************************************/
 .controller('AwayGKSave_Ctrl', function($scope, $state, $http, $stateParams, Matches, AwayTeams, Teams, Players, PlayerSeasons) {
   Matches.query().$promise.then(function(response){

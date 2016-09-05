@@ -3,7 +3,7 @@ angular.module('starter.controllers')
 /****************************************************************************************************
 * DELEGATE_MATCH CONTROLLERS
 ****************************************************************************************************/
-.controller('Delegate_matchCtrl', function($scope, $state, Matches, HomeTeams, Teams) {
+.controller('Delegate_matchCtrl', function($scope, $http, $state, Matches, HomeTeams, Teams) {
   Matches.query().$promise.then(function(response){
     $scope.id_delegata = window.localStorage['userDelegateId'];
     $scope.id_meca = localStorage.getItem('delegateMatchId');
@@ -17,6 +17,20 @@ angular.module('starter.controllers')
           }
       }
     $scope.mec_delegata = getById($scope.matches, $scope.id_meca);
+
+  $scope.start_match = function(){
+    var match = 'http://192.168.1.104:3000/api/v1/change_match_started';
+
+    $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data;
+      })
+  }
+
+  $scope.finish_match = function(){
+    var match = 'http://192.168.1.104:3000/api/v1/change_second_half_ended';
+
+    $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data;
+      })
+  }
 
 /*******************************************************************************************************
 *SKAKNJE NA GOAL STRANU
@@ -186,5 +200,25 @@ angular.module('starter.controllers')
       }
     }
 
+/*******************************************************************************************************
+* SKAKNJE NA STRANU SHOOT
+*******************************************************************************************************/
+
+    $scope.go_home_shoot = function (id) {
+      localStorage.setItem('current_match', $scope.id_meca);
+      $state.go('home_team_shoot', {}, { reload: true });
+      $scope.i = true;
+      $scope.$apply();
+      if ($scope.i){
+        $scope.i = false;
+        $scope.$apply();
+        window.location.reload(true); 
+      }
+
+    }
+    $scope.go_away_shoot = function () {
+      localStorage.setItem('current_match', $scope.id_meca);
+      $state.go('away_team_shoot', {});
+    }
   });
 })

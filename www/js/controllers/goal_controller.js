@@ -1,9 +1,9 @@
 /**************************************************
-* 1) Odavde skacemo na CURRENT MATCH iz sesije
-* 2) 
-*
-*
-*
+* 1) Odavde skacemo na CURRENT MATCH iz sesije meca
+* 2) Pa skacemo na home team
+* 3) Pa uporedjujemo koji je tim u home timu
+* 4) Pa onda izlistavamo sve igrace tog tima
+* 5) I na kraju otvaramo njihove player sezone
 *
 ****************************************************/
 angular.module('starter.controllers')
