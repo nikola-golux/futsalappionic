@@ -271,7 +271,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .state('delegate_match', {
     url: '/delegate_match',
     templateUrl: 'templates/match/delegate_match.html',
-    controller: 'Delegate_matchCtrl'  
+    controller: 'Delegate_matchCtrl' 
     })
   
 
@@ -363,6 +363,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/away_team_goalkeeper_save',
     templateUrl: 'templates/goalkeeper_save/away_team_goalkeeper_save.html',
     controller: 'AwayGKSave_Ctrl'  
+  })
+
+  /**************************
+  * Shoots
+  **************************/
+  .state('home_team_shoot', {
+    url: '/home_team_shoot',
+    templateUrl: 'templates/shoot/home_team_shoot.html',
+    controller: 'HomeShoot_Ctrl'  
+  })
+
+  .state('away_team_shoot', {
+    url: '/away_team_shoot',
+    templateUrl: 'templates/shoot/away_team_shoot.html',
+    controller: 'AwayShoot_Ctrl'  
   })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home_tab/login');

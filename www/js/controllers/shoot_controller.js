@@ -2,16 +2,15 @@
 * 1) Odavde skacemo na CURRENT MATCH iz sesije meca
 * 2) Pa skacemo na home team
 * 3) Pa uporedjujemo koji je tim u home timu
-* 4) Pa onda izlistavamo sve igrace tog tima
-* 5) I na kraju otvaramo njihove player sezone
+* 4) Pa definisemo tim sezonu tog tima
 *
 ****************************************************/
 angular.module('starter.controllers')
 
 /****************************************************************************************************
-* HOME ASSIST CONTROLLERS
+* HOME SHOOT CONTROLLERS
 ****************************************************************************************************/
-.controller('HomeAssist_Ctrl', function($scope, $state, $http, $stateParams, Matches, HomeTeams, Teams, Players, PlayerSeasons) {
+.controller('HomeShoot_Ctrl', function($scope, $state, $http, $stateParams, Matches, HomeTeams, Teams, TeamSeasons) {
   Matches.query().$promise.then(function(response){
     $scope.id_meca = localStorage.getItem('current_match');
     $scope.matches = response;
@@ -52,75 +51,50 @@ angular.module('starter.controllers')
     function getById(arr, id) {
           for (var d = 0, len = arr.length; d < len; d += 1) {
               if (arr[d].id == id) /* Bilo je 3 === */ {
-                  return arr[d];
+                  return arr[d].id;
               }
           }
       }
     $scope.current_team = getById($scope.teams, $scope.current_team_id);
   });
 
-  /* PLAYERS table */
-  Players.query().$promise.then(function(response){
-    $scope.players = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-        var svi_rezultati = [];
-        var i = 0;
-        for (var d = 0, len = arr.length; d < len; d += 1) {
-          if (arr[d].team_id == id) /* Bilo je 3 === */ {
-                svi_rezultati[i]=arr[d];
-                i += 1;
-          }
-
-        }
-        return svi_rezultati;
-    }
-
-    $scope.current_team_players = getById($scope.players, $scope.current_team.id);
-  });
-
     /* PLAYER_SEASONS table */
-  PlayerSeasons.query().$promise.then(function(response){
-    $scope.id_igraca_na_mecu = $scope.current_team_players;
-    $scope.player_seasons = response;
+  TeamSeasons.query().$promise.then(function(response){
+    $scope.id_tima = $scope.current_team;
+    $scope.team_seasons = response;
     /* Funkcija za nalazenje JSON elementa */
-    function getPlayerSeasonById(arr, id) {
+    function getTeamSeasonById(arr, id) {
         for (var d = 0, len = arr.length; d < len; d += 1) {
-            if (arr[d].player_id == id) /* Bilo je 3 === */ {
+            if (arr[d].team_id == id) /* Bilo je 3 === */ {
                 return arr[d].id;
             }
         }
     }
 
-    $scope.current_player_season = getPlayerSeasonById($scope.player_seasons, $scope.id_igraca_na_mecu);
-      
-    $scope.submit_home = function(id) {
+    $scope.current_team_season = getTeamSeasonById($scope.team_seasons, $scope.id_tima);
+     
 
-      var player_season_that_scored_assist = getPlayerSeasonById($scope.player_seasons, id);
-      var assist = 'http://192.168.1.104:3000/api/v1/assists';
-      
-      $http.post(assist,{ player_season_id : player_season_that_scored_assist,
-                        match_id : $scope.id_meca,
-                        is_home : true}).then(function(res){ $scope.response = res.data;
-      })
-      
-      
-      $state.go('delegate_match', {}, { reload: true });
-      $scope.i = true;
+    var shoot = 'http://192.168.1.104:3000/api/v1/new_home_shoot';
+    
+    $http.post(shoot,{ team_season_id : $scope.current_team_season,
+                      match_id : $scope.id_meca,
+                      is_home : true}).then(function(res){ $scope.response = res.data;
+    })
+    $state.go('delegate_match', {}, { reload: true });                 
+    $scope.i = true;
+    $scope.$apply();
+    if ($scope.i){
+      $scope.i = false;
       $scope.$apply();
-      if ($scope.i){
-        $scope.i = false;
-        $scope.$apply();
-        window.location.reload(true);  
-      }
+      window.location.reload(true);  
     }
   });
 })
 
 /****************************************************************************************************
-* AWAY ASSIST CONTROLLERS
+* AWAY SHOOT CONTROLLERS
 ****************************************************************************************************/
-.controller('AwayAssist_Ctrl', function($scope, $state, $http, $stateParams, Matches, AwayTeams, Teams, Players, PlayerSeasons) {
+.controller('AwayShoot_Ctrl', function($scope, $state, $http, $stateParams, Matches, AwayTeams, Teams, TeamSeasons) {
   Matches.query().$promise.then(function(response){
     $scope.id_meca = localStorage.getItem('current_match');
     $scope.matches = response;
@@ -168,60 +142,35 @@ angular.module('starter.controllers')
     $scope.current_team = getById($scope.teams, $scope.current_team_id);
   });
 
-  /* PLAYERS table */
-  Players.query().$promise.then(function(response){
-    $scope.players = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-        var svi_rezultati = [];
-        var i = 0;
-        for (var d = 0, len = arr.length; d < len; d += 1) {
-          if (arr[d].team_id == id) /* Bilo je 3 === */ {
-                svi_rezultati[i]=arr[d];
-                i += 1;
-          }
-
-        }
-        return svi_rezultati;
-    }
-
-    $scope.current_team_players = getById($scope.players, $scope.current_team.id);
-  });
-
     /* PLAYER_SEASONS table */
-  PlayerSeasons.query().$promise.then(function(response){
-    $scope.id_igraca_na_mecu = $scope.current_team_players;
-    $scope.player_seasons = response;
+  TeamSeasons.query().$promise.then(function(response){
+    $scope.id_tima = $scope.current_team.id;
+    $scope.team_seasons = response;
     /* Funkcija za nalazenje JSON elementa */
-    function getPlayerSeasonById(arr, id) {
+    function getTeamSeasonById(arr, id) {
         for (var d = 0, len = arr.length; d < len; d += 1) {
-            if (arr[d].player_id == id) /* Bilo je 3 === */ {
+            if (arr[d].team_id == id) /* Bilo je 3 === */ {
                 return arr[d].id;
             }
         }
     }
 
-    $scope.current_player_season = getPlayerSeasonById($scope.player_seasons, $scope.id_igraca_na_mecu);
-      
-    $scope.submit_away = function(id) {
+    $scope.current_team_season = getTeamSeasonById($scope.team_seasons, $scope.id_tima);
+     
 
-      var player_season_that_scored_assist = getPlayerSeasonById($scope.player_seasons, id);
-      var assist = 'http://192.168.1.104:3000/api/v1/assists';
-      
-      $http.post(assist,{ player_season_id : player_season_that_scored_assist,
-                        match_id : $scope.id_meca,
-                        is_home : false}).then(function(res){ $scope.response = res.data;
-      })
-      
-      
-      $state.go('delegate_match', {}, { reload: true });
-      $scope.i = true;
+    var shoot = 'http://192.168.1.104:3000/api/v1/new_away_shoot';
+    
+    $http.post(shoot,{ team_season_id : $scope.current_team_season,
+                      match_id : $scope.id_meca,
+                      is_home : false}).then(function(res){ $scope.response = res.data;
+    })
+    $state.go('delegate_match', {}, { reload: true });                 
+    $scope.i = true;
+    $scope.$apply();
+    if ($scope.i){
+      $scope.i = false;
       $scope.$apply();
-      if ($scope.i){
-        $scope.i = false;
-        $scope.$apply();
-        window.location.reload(true);  
-      }
+      window.location.reload(true);  
     }
   });
 })
