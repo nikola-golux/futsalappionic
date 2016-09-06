@@ -107,10 +107,8 @@ angular.module('starter.controllers')
       
       $state.go('delegate_match', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true);  
       }
     }
@@ -216,10 +214,8 @@ angular.module('starter.controllers')
       
       $state.go('delegate_match', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true);  
       }
     }
