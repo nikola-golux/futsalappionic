@@ -40,10 +40,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('home_team_goal', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
 
@@ -52,10 +50,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('away_team_goal', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
     }
@@ -68,10 +64,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('home_team_assist', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
 
@@ -80,10 +74,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('away_team_assist', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
     }
@@ -96,10 +88,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('home_team_foul', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
 
@@ -108,10 +98,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('away_team_foul', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
     }
@@ -124,10 +112,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('home_team_yellow_card', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
 
@@ -136,10 +122,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('away_team_yellow_card', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
     }
@@ -152,10 +136,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('home_team_red_card', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
 
@@ -164,10 +146,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('away_team_red_card', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
     }
@@ -180,10 +160,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('home_team_goalkeeper_save', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
 
@@ -192,10 +170,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('away_team_goalkeeper_save', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
     }
@@ -208,10 +184,8 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('home_team_shoot', {}, { reload: true });
       $scope.i = true;
-      $scope.$apply();
       if ($scope.i){
         $scope.i = false;
-        $scope.$apply();
         window.location.reload(true); 
       }
 
