@@ -11,6 +11,28 @@
         background-size: cover;
 }
 
+.center-progress-wrapper{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.progress-wrapper{
+    position: relative;
+}
+
+.progress-wrapper .text{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    color: white;
+    font-size: 25px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
 /***********************************************
  * Tabela player-stats
  **********************************************/
@@ -24,7 +46,7 @@
 .player-stats {
   text-align: center;
   overflow: hidden;
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
   display: table;
   padding: 0 0 8em 0;

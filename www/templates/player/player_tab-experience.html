@@ -37,7 +37,34 @@
 				<td>{{current_player_season.level}}</td>
 			</tr>
 	</table>
-	<div>
+
+	<div class="center-progress-wrapper">
+		<div class="progress-wrapper" style="padding-top: 20px">
+			<!-- bgcolor="#eaeaea" -->
+			<round-progress
+			    max="100"
+			    current="75"
+			    color="url(#boja-progress-bara)"
+			    bgcolor="#14181f" 
+			    radius="100"
+			    stroke="18"
+			    semi="false"
+			    rounded="true"
+			    clockwise="true"
+			    responsive="true"
+			    duration="3200"
+			    animation="easeInOutQuart"
+			    animation-delay="0">
+
+			    <svg>
+			        <linearGradient id="boja-progress-bara" x1="0" x2="0" y1="0" y2="1">
+			            <stop offset="5%"  stop-color="red"/>
+			            <stop offset="95%" stop-color="gold"/>
+			        </linearGradient>
+			    </svg>
+			</round-progress>
+		<div class="text">{{current_player_season.level}} Level</div>
+		</div>
 	</div>
   </ion-content>
 </ion-view>
