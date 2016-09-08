@@ -50,15 +50,45 @@
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-    </ion-nav-bar>
+    <ion-side-menus>
+        <ion-side-menu side="left">
+          <ion-header-bar class="bar-positive">
+            <img ng-src="img/balf-logo-155px.png" style="max-width:35px;">
+          </ion-header-bar>
+          <ion-content>
+            <ul class="list">
+              <li>
+                <a class="item" style="background-color: red" menu-close nav-clear href="#">Login</a>
+              </li>
+              <li>
+                <a class="item" menu-close nav-clear href="#">Settings</a>
+              </li>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+
+        <ion-side-menu-content>
+            <ion-nav-view></ion-nav-view>
+            <ion-nav-bar class="bar-positive">
+              <ion-nav-back-button>
+              </ion-nav-back-button>
+
+              <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" style="background-color: navy" menu-toggle="left">
+                </button>
+              </ion-nav-buttons>
+            </ion-nav-bar>
+            <ion-nav-view name="menuContent"></ion-nav-view>
+        </ion-side-menu-content>
+
+    </ion-side-menus>
+
+
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
-    <ion-nav-view></ion-nav-view>
+    
   </body>
 </html>
