@@ -1,0 +1,128 @@
+.siki {
+	 background: #1d2caf !important
+}
+
+/* login */
+.main-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.login-main {
+  width: 300px;
+  height: 100px;
+  position: relative;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /*background: rgba(8, 10, 9, 0.44);*/
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+
+
+
+.login-polje {
+  background: rgba(8, 10, 9, 0.57);
+  height: 40px;
+  width: 90%;
+  margin-bottom: 2px;
+  color: whitesmoke;
+  font-size: 15px;
+  font-weight: 400;
+  border-color: rgba(158, 158, 158, 0.55); /* Boja okvira login polja */
+}
+
+.border1 {
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.border2 {
+  -webkit-border-radius: 0px 0 5px 5px;
+  -moz-border-radius: 0px 0 5px 5px;
+  -ms-border-radius: 0px 0 5px 5px;
+  -o-border-radius: 0px 0 5px 5px;
+  border-radius: 0px 0 5px 5px;
+}
+
+/*********************************************
+* Dugme za Login (Lopta koja se okrece)
+*********************************************/
+.send {
+  width: 65px;
+  height: 65px;
+  background-color: transparent;
+  /* -webkit-border-radius: 50%; */
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-color: rgba(181, 181, 181, 0);
+  position: absolute;
+  top: 15px;
+  left: 232px;
+  background-image: url("../img/emoticons/soccerball.png");
+  background-repeat: no-repeat;
+  font-size: 18px;
+  color: #F9AD1C;
+  font-weight: normal;
+  text-shadow: 1px 1px 2px #000;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.send:hover {
+  animation: spin 0.4s ease-in-out;
+  -webkit-animation: spin 0.4s ease-in-out;
+  -moz-animation: spin 0.4s ease-in-out;
+  -ms-animation: spin 0.4s ease-in-out;
+  -o-animation: spin 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg);}
+  to { transform: rotate(360deg);}
+}
+
+@-webkit-keyframes spin {
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes spin {
+  from {-moz-transform: rotate(0deg);}
+  to {-moz-transform: rotate(360deg);}
+}
+
+@-o-keyframes spin {
+  from {-o-transform: rotate(0deg);}
+  to {-o-transform: rotate(360deg);}
+}
+
+.h1-title {
+  color:#FFF;
+  font-family: Ubuntu;
+  font-size: 1.6em;
+  margin-top: 2%;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-shadow: 1px 1px 1.3px black;
+  text-transform: uppercase;
+}
+
+input[type="email"], input[type="password"] {
+	padding: 3px;
+	padding-left: 10px !important;
+	color: #FFFAFA !important
+}

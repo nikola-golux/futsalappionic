@@ -7,7 +7,7 @@ angular.module('starter.controllers')
 .controller('SinglePlayer_ExpCtrl',function($scope, $state, $stateParams, $window, Players, PlayerSeasons, Teams) {
   /* PLAYERS table */
   Players.query().$promise.then(function(response){
-    $scope.id_igraca = window.localStorage['tempPlayerId'];
+    $scope.id_igraca = localStorage.getItem('tempPlayerId');
     $scope.players = response;
     
     function getById(arr, id) {
@@ -25,7 +25,7 @@ angular.module('starter.controllers')
       $scope.$apply();
       window.location.reload(true);  
     }*/
-    $scope.current_player = getById($scope.players, window.localStorage['tempPlayerId']);
+    $scope.current_player = getById($scope.players, $scope.id_igraca);
     window.localStorage['playerTeamId'] = $scope.current_player.team_id;
 
   });

@@ -8,14 +8,7 @@ angular.module('starter.controllers')
     $scope.id_delegata = window.localStorage['userDelegateId'];
     $scope.id_meca = localStorage.getItem('delegateMatchId');
     $scope.matches = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-          for (var d = 0, len = arr.length; d < len; d += 1) {
-              if (arr[d].id == id) /* Bilo je 3 === */ {
-                  return arr[d];
-              }
-          }
-      }
+
     $scope.mec_delegata = getById($scope.matches, $scope.id_meca);
 
   $scope.start_match = function(){
@@ -38,22 +31,11 @@ angular.module('starter.controllers')
 
     $scope.go_home_goal = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('home_team_goal', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
-
+      $state.go('home_team_goal');
     }
     $scope.go_away_goal = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('away_team_goal', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
+      $state.go('away_team_goal');
     }
 
 /*******************************************************************************************************
@@ -62,22 +44,12 @@ angular.module('starter.controllers')
 
     $scope.go_home_assist = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('home_team_assist', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
-
+      $state.go('home_team_assist');
     }
     $scope.go_away_assist = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('away_team_assist', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
+      $state.go('away_team_assist');
+
     }
 
 /*******************************************************************************************************
@@ -86,22 +58,11 @@ angular.module('starter.controllers')
 
     $scope.go_home_foul = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('home_team_foul', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
-
+      $state.go('home_team_foul');
     }
     $scope.go_away_foul = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('away_team_foul', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
+      $state.go('away_team_foul');
     }
 
 /*******************************************************************************************************
@@ -110,22 +71,11 @@ angular.module('starter.controllers')
 
     $scope.go_home_yellow_card = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('home_team_yellow_card', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
-
+      $state.go('home_team_yellow_card');
     }
     $scope.go_away_yellow_card = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('away_team_yellow_card', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
+      $state.go('away_team_yellow_card');
     }
 
 /*******************************************************************************************************
@@ -134,22 +84,12 @@ angular.module('starter.controllers')
 
     $scope.go_home_red_card = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('home_team_red_card', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
+      $state.go('home_team_red_card');
 
     }
     $scope.go_away_red_card = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('away_team_red_card', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
+      $state.go('away_team_red_card');
     }
 
 /*******************************************************************************************************
@@ -158,22 +98,13 @@ angular.module('starter.controllers')
 
     $scope.go_home_goalkeeper_saves = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('home_team_goalkeeper_save', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
+      $state.go('home_team_goalkeeper_save');
 
     }
     $scope.go_away_goalkeeper_saves = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('away_team_goalkeeper_save', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
+      $state.go('away_team_goalkeeper_save');
+
     }
 
 /*******************************************************************************************************
@@ -182,13 +113,7 @@ angular.module('starter.controllers')
 
     $scope.go_home_shoot = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('home_team_shoot', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true); 
-      }
-
+      $state.go('home_team_shoot');
     }
     $scope.go_away_shoot = function () {
       localStorage.setItem('current_match', $scope.id_meca);
