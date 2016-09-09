@@ -7,11 +7,11 @@
 	</div> 
 
 	<div class="list">
-		    <button ng-click="submit_home(player.id)" class="item item-thumbnail-left" ng-repeat="player in current_team_players" style="width:100%;">
-			      <img src="{{player.avatar_url}}">
-			      <h2>{{player.name}}</h2>
-			      <p>{{player.surname}}</p>
-		    </button>
+	    <button ng-click="submit_home(match_player.player_id)" class="item item-thumbnail-left" ng-repeat="match_player in home_players_on_match" style="width:100%;">
+		      <img src="{{match_player.player_avatar_url}}">
+		      <h2>{{match_player.player_name}}</h2>
+		      <p>{{match_player.player_surname}}</p>
+	    </button>
 	</div>
 	
   </ion-content>

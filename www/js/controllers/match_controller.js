@@ -23,6 +23,7 @@ angular.module('starter.controllers')
 
     $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data;
       })
+    $state.go('delegate_tab.matches_played');
   }
 
 /*******************************************************************************************************
