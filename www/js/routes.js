@@ -379,6 +379,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     templateUrl: 'templates/shoot/away_team_shoot.html',
     controller: 'AwayShoot_Ctrl'  
   })
+
+  /**************************
+  * Choose Match Players
+  **************************/
+  .state('choose_home_players', {
+    url: '/choose_home_players',
+    templateUrl: 'templates/choose_players/choose_home_players.html',
+    controller: 'HomeMatchPlayers_Ctrl'  
+  })
+
+  .state('choose_away_players', {
+    url: '/choose_away_players',
+    templateUrl: 'templates/choose_players/choose_away_players.html',
+    controller: 'AwayMatchPlayers_Ctrl'
+  })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home_tab/login');
 

@@ -11,7 +11,7 @@ angular.module('starter.controllers')
 /****************************************************************************************************
 * HOME GOALS CONTROLLERS
 ****************************************************************************************************/
-.controller('HomeGoal_Ctrl', function($scope, $state, $http, $stateParams, Matches, HomeTeams, Teams, Players, PlayerSeasons, MatchPlayers) {
+.controller('HomeMatchPlayers_Ctrl', function($scope, $state, $http, $stateParams, Matches, HomeTeams, Teams, Players, PlayerSeasons) {
   Matches.query().$promise.then(function(response){
     $scope.id_meca = localStorage.getItem('current_match');
     $scope.matches = response;
@@ -42,15 +42,11 @@ angular.module('starter.controllers')
     $scope.players = response;
     /* Funkcija za nalazenje JSON elementa */
   
-    // Igraci koji su dosli na utakmicu, dakle NE svi igraci tima, vec samo izabrani
+
     $scope.current_team_players = getAllId($scope.players, $scope.current_team.id);
   });
 
-  MatchPlayers.query().$promise.then(function(response){
-    
-  }
-
-  /* PLAYER_SEASONS table */
+    /* PLAYER_SEASONS table */
   PlayerSeasons.query().$promise.then(function(response){
     $scope.id_igraca_na_mecu = $scope.current_team_players;
     $scope.player_seasons = response;
@@ -65,23 +61,47 @@ angular.module('starter.controllers')
 
     $scope.current_player_season = getPlayerSeasonById($scope.player_seasons, $scope.id_igraca_na_mecu);
       
-    $scope.submit_home = function(id) {
+    $scope.checkItems = {};
 
-      var player_season_that_scored_goal = getPlayerSeasonById($scope.player_seasons, id);
-      var goal = 'http://192.168.1.104:3000/api/v1/goals';
-      
-      $http.post(goal,{ player_season_id : player_season_that_scored_goal,
+    $scope.print = function() {
+        console.log($scope.checkItems);
+    }
+
+    // Reprezentacija funkcije save
+    /*
+    $scope.save = function() {
+        var array = [];
+        for(i in $scope.checkItems) {
+            console.log($scope.checkItems[i]);
+            if($scope.checkItems[i] == true) {
+                array.push(i);
+            }
+        }
+        console.log(array);
+    }
+    */
+    $scope.save = function() {
+        var array = [];
+        for(i in $scope.checkItems) {
+            console.log($scope.checkItems[i]);
+            if($scope.checkItems[i] == true) {
+                array.push(i);
+                var player_season_that_is_checked = getPlayerSeasonById($scope.player_seasons, i);
+                var match_players = 'http://192.168.1.104:3000/api/v1/chooseplayers';
+                
+                $http.post(match_players,{ player_season_id : player_season_that_is_checked,
                         match_id : $scope.id_meca,
-                        is_home : true}).then(function(res){ $scope.response = res.data;
-      })
-      
-      
-      $state.go('delegate_match', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true);  
-      }
+                        is_home : true}).then(function(res){ $scope.response = res.data; })
+            }
+        }
+
+        $state.go('delegate_match', {}, { reload: true });
+        $scope.i = true;
+        if ($scope.i){
+          $scope.i = false;
+          window.location.reload(true);  
+        }
+        console.log(array);
     }
   });
 })
@@ -89,7 +109,7 @@ angular.module('starter.controllers')
 /****************************************************************************************************
 * AWAY GOALS CONTROLLERS
 ****************************************************************************************************/
-.controller('AwayGoal_Ctrl', function($scope, $state, $http, $stateParams, Matches, AwayTeams, Teams, Players, PlayerSeasons) {
+.controller('AwayMatchPlayers_Ctrl', function($scope, $state, $http, $stateParams, Matches, AwayTeams, Teams, Players, PlayerSeasons) {
   Matches.query().$promise.then(function(response){
     $scope.id_meca = localStorage.getItem('current_match');
     $scope.matches = response;
@@ -140,23 +160,47 @@ angular.module('starter.controllers')
 
     $scope.current_player_season = getPlayerSeasonById($scope.player_seasons, $scope.id_igraca_na_mecu);
       
-    $scope.submit_away = function(id) {
+    $scope.checkItems = {};
 
-      var player_season_that_scored_goal = getPlayerSeasonById($scope.player_seasons, id);
-      var goal = 'http://192.168.1.104:3000/api/v1/goals';
-      
-      $http.post(goal,{ player_season_id : player_season_that_scored_goal,
+    $scope.print = function() {
+        console.log($scope.checkItems);
+    }
+
+    // Reprezentacija funkcije save
+    /*
+    $scope.save = function() {
+        var array = [];
+        for(i in $scope.checkItems) {
+            console.log($scope.checkItems[i]);
+            if($scope.checkItems[i] == true) {
+                array.push(i);
+            }
+        }
+        console.log(array);
+    }
+    */
+    $scope.save = function() {
+        var array = [];
+        for(i in $scope.checkItems) {
+            console.log($scope.checkItems[i]);
+            if($scope.checkItems[i] == true) {
+                array.push(i);
+                var player_season_that_is_checked = getPlayerSeasonById($scope.player_seasons, i);
+                var match_players = 'http://192.168.1.104:3000/api/v1/chooseplayers';
+                
+                $http.post(match_players,{ player_season_id : player_season_that_is_checked,
                         match_id : $scope.id_meca,
-                        is_home : false}).then(function(res){ $scope.response = res.data;
-      })
-      
-      
-      $state.go('delegate_match', {}, { reload: true });
-      $scope.i = true;
-      if ($scope.i){
-        $scope.i = false;
-        window.location.reload(true);  
-      }
+                        is_home : false}).then(function(res){ $scope.response = res.data; })
+            }
+        }
+
+        $state.go('delegate_match', {}, { reload: true });
+        $scope.i = true;
+        if ($scope.i){
+          $scope.i = false;
+          window.location.reload(true);  
+        }
+        console.log(array);
     }
   });
 })
