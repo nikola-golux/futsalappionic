@@ -11,7 +11,7 @@ angular.module('starter.controllers')
 /****************************************************************************************************
 * HOME ASSIST CONTROLLERS
 ****************************************************************************************************/
-.controller('HomeAssist_Ctrl', function($scope, $state, $http, Matches, HomeTeams, Teams, Players, PlayerSeasons) {
+.controller('HomeAssist_Ctrl', function($scope, $state, $http, Matches, HomeTeams, Teams, Players, PlayerSeasons, MatchPlayers) {
   Matches.query().$promise.then(function(response){
     $scope.id_meca = localStorage.getItem('current_match');
     $scope.matches = response;
@@ -45,6 +45,11 @@ angular.module('starter.controllers')
     
 
     $scope.current_team_players = getAllId($scope.players, $scope.current_team.id);
+  });
+
+  MatchPlayers.query().$promise.then(function(response){
+    $scope.match_players = response;
+    $scope.home_players_on_match = getAllHomeMatchPlayersByMatchId($scope.match_players, $scope.id_meca);
   });
 
     /* PLAYER_SEASONS table */
@@ -84,7 +89,7 @@ angular.module('starter.controllers')
 /****************************************************************************************************
 * AWAY ASSIST CONTROLLERS
 ****************************************************************************************************/
-.controller('AwayAssist_Ctrl', function($scope, $state, $http, $stateParams, Matches, AwayTeams, Teams, Players, PlayerSeasons) {
+.controller('AwayAssist_Ctrl', function($scope, $state, $http, $stateParams, Matches, AwayTeams, Teams, Players, PlayerSeasons, MatchPlayers) {
   Matches.query().$promise.then(function(response){
     $scope.id_meca = localStorage.getItem('current_match');
     $scope.matches = response;
@@ -119,6 +124,11 @@ angular.module('starter.controllers')
  
 
     $scope.current_team_players = getAllId($scope.players, $scope.current_team.id);
+  });
+
+  MatchPlayers.query().$promise.then(function(response){
+    $scope.match_players = response;
+    $scope.away_players_on_match = getAllAwayMatchPlayersByMatchId($scope.match_players, $scope.id_meca);
   });
 
     /* PLAYER_SEASONS table */
