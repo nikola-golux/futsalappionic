@@ -49,7 +49,6 @@ angular.module('starter.controllers')
     $scope.go_away_assist = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('away_team_assist');
-
     }
 
 /*******************************************************************************************************

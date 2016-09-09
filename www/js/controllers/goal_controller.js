@@ -41,20 +41,9 @@ angular.module('starter.controllers')
   Players.query().$promise.then(function(response){
     $scope.players = response;
     /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-        var svi_rezultati = [];
-        var i = 0;
-        for (var d = 0, len = arr.length; d < len; d += 1) {
-          if (arr[d].team_id == id) /* Bilo je 3 === */ {
-                svi_rezultati[i]=arr[d];
-                i += 1;
-          }
+  
 
-        }
-        return svi_rezultati;
-    }
-
-    $scope.current_team_players = getById($scope.players, $scope.current_team.id);
+    $scope.current_team_players = getAllId($scope.players, $scope.current_team.id);
   });
 
     /* PLAYER_SEASONS table */
@@ -127,20 +116,9 @@ angular.module('starter.controllers')
   Players.query().$promise.then(function(response){
     $scope.players = response;
     /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-        var svi_rezultati = [];
-        var i = 0;
-        for (var d = 0, len = arr.length; d < len; d += 1) {
-          if (arr[d].team_id == id) /* Bilo je 3 === */ {
-                svi_rezultati[i]=arr[d];
-                i += 1;
-          }
+   
 
-        }
-        return svi_rezultati;
-    }
-
-    $scope.current_team_players = getById($scope.players, $scope.current_team.id);
+    $scope.current_team_players = getAllId($scope.players, $scope.current_team.id);
   });
 
     /* PLAYER_SEASONS table */

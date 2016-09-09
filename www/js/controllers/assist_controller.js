@@ -11,18 +11,11 @@ angular.module('starter.controllers')
 /****************************************************************************************************
 * HOME ASSIST CONTROLLERS
 ****************************************************************************************************/
-.controller('HomeAssist_Ctrl', function($scope, $state, $http, $stateParams, Matches, HomeTeams, Teams, Players, PlayerSeasons) {
+.controller('HomeAssist_Ctrl', function($scope, $state, $http, Matches, HomeTeams, Teams, Players, PlayerSeasons) {
   Matches.query().$promise.then(function(response){
     $scope.id_meca = localStorage.getItem('current_match');
     $scope.matches = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-          for (var d = 0, len = arr.length; d < len; d += 1) {
-              if (arr[d].id == id) /* Bilo je 3 === */ {
-                  return arr[d];
-              }
-          }
-      }
+
     $scope.mec_delegata = getById($scope.matches, $scope.id_meca);
     localStorage.setItem('hometeam_id', $scope.mec_delegata.home_team_id);
   });
@@ -31,14 +24,7 @@ angular.module('starter.controllers')
   HomeTeams.query().$promise.then(function(response){
     $scope.hometeam_id = localStorage.getItem('hometeam_id');
     $scope.home_teams = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-          for (var d = 0, len = arr.length; d < len; d += 1) {
-              if (arr[d].id == id) /* Bilo je 3 === */ {
-                  return arr[d];
-              }
-          }
-      }
+
     $scope.home_team = getById($scope.home_teams,  $scope.hometeam_id);
     localStorage.setItem('current_hometeam_team_id', $scope.home_team.team_id);
   });
@@ -48,35 +34,17 @@ angular.module('starter.controllers')
     $scope.id_meca = localStorage.getItem('delegateMatchId');
     $scope.teams = response;
     $scope.current_team_id = localStorage.getItem('current_hometeam_team_id');
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-          for (var d = 0, len = arr.length; d < len; d += 1) {
-              if (arr[d].id == id) /* Bilo je 3 === */ {
-                  return arr[d];
-              }
-          }
-      }
+          /* Funkcija za nalazenje JSON elementa */
+
     $scope.current_team = getById($scope.teams, $scope.current_team_id);
   });
 
   /* PLAYERS table */
   Players.query().$promise.then(function(response){
     $scope.players = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-        var svi_rezultati = [];
-        var i = 0;
-        for (var d = 0, len = arr.length; d < len; d += 1) {
-          if (arr[d].team_id == id) /* Bilo je 3 === */ {
-                svi_rezultati[i]=arr[d];
-                i += 1;
-          }
+    
 
-        }
-        return svi_rezultati;
-    }
-
-    $scope.current_team_players = getById($scope.players, $scope.current_team.id);
+    $scope.current_team_players = getAllId($scope.players, $scope.current_team.id);
   });
 
     /* PLAYER_SEASONS table */
@@ -104,6 +72,11 @@ angular.module('starter.controllers')
                         is_home : true}).then(function(res){ $scope.response = res.data;
       })
       $state.go('delegate_match');
+      $scope.i = true;
+      if ($scope.i){
+        $scope.i = false;
+        window.location.reload(true);  
+      }
     }
   });
 })
@@ -115,14 +88,7 @@ angular.module('starter.controllers')
   Matches.query().$promise.then(function(response){
     $scope.id_meca = localStorage.getItem('current_match');
     $scope.matches = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-          for (var d = 0, len = arr.length; d < len; d += 1) {
-              if (arr[d].id == id) /* Bilo je 3 === */ {
-                  return arr[d];
-              }
-          }
-      }
+
     $scope.mec_delegata = getById($scope.matches, $scope.id_meca);
     localStorage.setItem('awayteam_id', $scope.mec_delegata.away_team_id);
   });
@@ -131,14 +97,7 @@ angular.module('starter.controllers')
   AwayTeams.query().$promise.then(function(response){
     $scope.awayteam_id = localStorage.getItem('awayteam_id');
     $scope.away_teams = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-          for (var d = 0, len = arr.length; d < len; d += 1) {
-              if (arr[d].id == id) /* Bilo je 3 === */ {
-                  return arr[d];
-              }
-          }
-      }
+   
     $scope.away_team = getById($scope.away_teams,  $scope.awayteam_id);
     localStorage.setItem('current_awayteam_team_id', $scope.away_team.team_id);
   });
@@ -149,13 +108,7 @@ angular.module('starter.controllers')
     $scope.teams = response;
     $scope.current_team_id = localStorage.getItem('current_awayteam_team_id');
     /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-          for (var d = 0, len = arr.length; d < len; d += 1) {
-              if (arr[d].id == id) /* Bilo je 3 === */ {
-                  return arr[d];
-              }
-          }
-      }
+  
     $scope.current_team = getById($scope.teams, $scope.current_team_id);
   });
 
@@ -163,20 +116,9 @@ angular.module('starter.controllers')
   Players.query().$promise.then(function(response){
     $scope.players = response;
     /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-        var svi_rezultati = [];
-        var i = 0;
-        for (var d = 0, len = arr.length; d < len; d += 1) {
-          if (arr[d].team_id == id) /* Bilo je 3 === */ {
-                svi_rezultati[i]=arr[d];
-                i += 1;
-          }
+ 
 
-        }
-        return svi_rezultati;
-    }
-
-    $scope.current_team_players = getById($scope.players, $scope.current_team.id);
+    $scope.current_team_players = getAllId($scope.players, $scope.current_team.id);
   });
 
     /* PLAYER_SEASONS table */
