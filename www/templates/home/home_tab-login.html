@@ -1,5 +1,23 @@
 <ion-view name="login-view">
   <ion-content>
+    <h1 class="h1-title" align="center">SPORT<br>REKREACIJA<br>DRUŽENJE</h1>
+
+    <div id="logo-container" align="center">
+      <img ng-src="../img/balf-logo-155px.png" height="auto" width="100%" style="max-width: 100px">
+    </div>
+    
+    <div class="main-wrap">
+      <div class="login-main">
+        <input type="email" placeholder="Email" class="login-polje border1" ng-model="data.email">
+        <input type="password" placeholder="Password" class="login-polje border2" ng-model="data.password">
+        <button class="send" ng-click="login()"></button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+
+<!--<ion-view name="login-view">
+  <ion-content>
     <div class="list">
       <label class="item item-input item-floating-label">
         <span class="input-label">Email</span>
@@ -15,4 +33,4 @@
       <button class="button button-block button-calm" ng-click="login()">Login</button>
     </div>
   </ion-content>
-</ion-view>
+</ion-view>-->

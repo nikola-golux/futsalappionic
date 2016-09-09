@@ -146,7 +146,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       views: {
         'player_tab-team': {
           templateUrl: 'templates/player/player_tab-team.html',
-          controller: 'Player_TeamCtrl'
+          controller: 'Player_TeamCtrl',
         }
       }
     })

@@ -86,3 +86,18 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
     enableFriends: true
   };
 });
+
+
+
+/****************************************************************************************************
+* General Functions
+****************************************************************************************************/
+/* Funkcija za nalazenje JSON elementa */
+// Pretrazuje niz, i vraca jedan element niza koji ima odredjeni "id"
+var getById = function(arr, id) {
+  for (var d = 0, len = arr.length; d < len; d += 1) {
+      if (arr[d].id == id) /* Bilo je 3 === */ {
+          return arr[d];
+      }
+  }
+}
