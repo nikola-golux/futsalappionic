@@ -47,8 +47,9 @@ angular.module('starter.controllers')
   });
 
   MatchPlayers.query().$promise.then(function(response){
-    
-  }
+    $scope.match_players = response;
+    $scope.home_players_on_match = getAllHomeMatchPlayersByMatchId($scope.match_players, $scope.id_meca);
+  });
 
   /* PLAYER_SEASONS table */
   PlayerSeasons.query().$promise.then(function(response){
@@ -89,7 +90,7 @@ angular.module('starter.controllers')
 /****************************************************************************************************
 * AWAY GOALS CONTROLLERS
 ****************************************************************************************************/
-.controller('AwayGoal_Ctrl', function($scope, $state, $http, $stateParams, Matches, AwayTeams, Teams, Players, PlayerSeasons) {
+.controller('AwayGoal_Ctrl', function($scope, $state, $http, $stateParams, Matches, AwayTeams, Teams, Players, PlayerSeasons, MatchPlayers) {
   Matches.query().$promise.then(function(response){
     $scope.id_meca = localStorage.getItem('current_match');
     $scope.matches = response;
@@ -120,9 +121,14 @@ angular.module('starter.controllers')
   Players.query().$promise.then(function(response){
     $scope.players = response;
     /* Funkcija za nalazenje JSON elementa */
-   
-
+  
+    // Igraci koji su dosli na utakmicu, dakle NE svi igraci tima, vec samo izabrani
     $scope.current_team_players = getAllId($scope.players, $scope.current_team.id);
+  });
+
+  MatchPlayers.query().$promise.then(function(response){
+    $scope.match_players = response;
+    $scope.away_players_on_match = getAllAwayMatchPlayersByMatchId($scope.match_players, $scope.id_meca);
   });
 
     /* PLAYER_SEASONS table */

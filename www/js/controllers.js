@@ -103,12 +103,40 @@ var getById = function(arr, id) {
 }
 
 
- /* Funkcija za za izlistavanje JSON elementa */
+/* Funkcija za za izlistavanje JSON elementa */
 var getAllId =  function (arr, id) {
     var svi_rezultati = [];
     var i = 0;
     for (var d = 0, len = arr.length; d < len; d += 1) {
       if (arr[d].team_id == id) /* Bilo je 3 === */ {
+            svi_rezultati[i]=arr[d];
+            i += 1;
+      }
+
+    }
+    return svi_rezultati;
+}
+
+/* Funkcija za za izlistavanje JSON elementa */
+var getAllHomeMatchPlayersByMatchId =  function (arr, id) {
+    var svi_rezultati = [];
+    var i = 0;
+    for (var d = 0, len = arr.length; d < len; d += 1) {
+      if ((arr[d].match_id == id) && (arr[d].is_home == true)) /* Bilo je 3 === */ {
+            svi_rezultati[i]=arr[d];
+            i += 1;
+      }
+
+    }
+    return svi_rezultati;
+}
+
+/* Funkcija za za izlistavanje JSON elementa */
+var getAllAwayMatchPlayersByMatchId =  function (arr, id) {
+    var svi_rezultati = [];
+    var i = 0;
+    for (var d = 0, len = arr.length; d < len; d += 1) {
+      if ((arr[d].match_id == id) && (arr[d].is_home == false)) /* Bilo je 3 === */ {
             svi_rezultati[i]=arr[d];
             i += 1;
       }
