@@ -1,0 +1,24 @@
+<!--
+Tabovi za Match played stranu, gde se nalaze linkovi ka stranicama:
+1. Match results
+2. Match stats
+3. Match players stats
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+  <!-- Match result  tab-->
+  <ion-tab title="Rezultat meča" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/match_played_tab/match_result">
+    <ion-nav-view name="match_played_tab-match_result"></ion-nav-view>
+  </ion-tab>
+  <!-- Stats tab -->
+   <ion-tab title="Statistike meča" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/match_played_tab/match_stats">
+    <ion-nav-view name="match_played_tab-match_stats"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Experience Tab -->
+  <ion-tab title="Statistike igrača" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/match_played_tab/match_players_stats">
+    <ion-nav-view name="match_played_tab-match_players_stats"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>
