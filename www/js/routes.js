@@ -410,7 +410,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/match_result',
     views: {
       'match_played_tab-match_result': {
-        templateUrl: 'templates/match_played/match_played_tab-match_result.html'
+        templateUrl: 'templates/match_played/match_played_tab-match_result.html',
+        controller: 'MatchPlayed_MResulCtrl'
       }
     }
   })

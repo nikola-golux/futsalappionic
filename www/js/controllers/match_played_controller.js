@@ -9,7 +9,7 @@ angular.module('starter.controllers')
     $scope.id_meca = localStorage.getItem('delegateMatchId');
     $scope.matches = response;
 
-    $scope.finished_mec = getById($scope.matches, $scope.id_meca);
+    $scope.gotov_mec = getById($scope.matches, $scope.id_meca);
   });
 })
 // 2) O_nama Controller
