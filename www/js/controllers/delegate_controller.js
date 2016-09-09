@@ -38,7 +38,7 @@ angular.module('starter.controllers')
 })
 
 // 2) Delegate_matches_played Controller
-.controller('Delegate_matches_playedCtrl', function($scope, Matches, HomeTeams, Teams) {
+.controller('Delegate_matches_playedCtrl', function($scope, $state, Matches, HomeTeams, Teams) {
   Matches.query().$promise.then(function(response){
     $scope.id_delegata = window.localStorage['userDelegateId'];
     $scope.matches = response;
@@ -56,6 +56,11 @@ angular.module('starter.controllers')
         return svi_rezultati;
     }
     $scope.mecevi_delegata = getById($scope.matches, window.localStorage['userDelegateId']);
+
+    $scope.go = function(id){
+      localStorage.setItem('delegateMatchId', id);
+      $state.go('match_played_tab.match_result', {}, {reload: true});
+    }
   });
 
 })

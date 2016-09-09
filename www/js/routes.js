@@ -395,6 +395,48 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controller: 'AwayMatchPlayers_Ctrl'
   })
 
+  /**************************
+  * Match played TABS
+  **************************/
+  .state('match_played_tab', {
+    url: '/match_played_tab',
+    abstract: true,
+    templateUrl: 'templates/match_played/match_played-tabs.html'
+  })
+
+  // 1) Match result
+
+  .state('match_played_tab.match_result', {
+    url: '/match_result',
+    views: {
+      'match_played_tab-match_result': {
+        templateUrl: 'templates/match_played/match_played_tab-match_result.html'
+      }
+    }
+  })
+
+  // 2) Match stats
+
+  .state('match_played_tab.match_stats', {
+    url: '/match_stats',
+    views: {
+      'match_played_tab-match_stats': {
+        templateUrl: 'templates/match_played/match_played_tab-match_stats.html'
+      }
+    }
+  })
+ 
+  // 3) Match players stats
+
+  .state('match_played_tab.match_players_stats', {
+      url: '/match_players_stats',
+      views: {
+        'match_played_tab-match_players_stats': {
+          templateUrl: 'templates/match_played/match_played_tab-match_players_stats.html'
+        }
+      }
+    })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home_tab/login');
 
