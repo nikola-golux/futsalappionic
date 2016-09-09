@@ -56,6 +56,10 @@ angular.module('starter.services', [])
 .factory('Matches', function($resource) {
   return $resource("http://192.168.1.104:3000/api/v1/matches");
 })
+
+.factory('MatchPlayers', function($resource) {
+  return $resource("http://192.168.1.104:3000/api/v1/match_players");
+})
 /**********************
 * Delegate Match
 **********************/

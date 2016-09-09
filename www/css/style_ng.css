@@ -314,3 +314,16 @@ text-shadow: -1px 1px 0px #fff;
   -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
   filter: grayscale(100%);
 }
+
+.bar {
+  border-bottom: 1px solid #0d1527 !important;
+}
+
+.title, .title-center, .header-item {
+  color: white !important;
+}
+
+.item-avatar-right, .item-avatar-right .item-content {
+    padding-right: 72px;
+    min-height: 36px !important;
+}

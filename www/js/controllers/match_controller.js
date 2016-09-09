@@ -118,5 +118,21 @@ angular.module('starter.controllers')
       localStorage.setItem('current_match', $scope.id_meca);
       $state.go('away_team_shoot', {});
     }
+
+/*******************************************************************************************************
+* IZBOR IGRACA
+*******************************************************************************************************/
+
+    $scope.go_choose_home_players = function (id) {
+      localStorage.setItem('current_match', $scope.id_meca);
+      $state.go('choose_home_players');
+
+    }
+    $scope.go_choose_away_players = function (id) {
+      localStorage.setItem('current_match', $scope.id_meca);
+      $state.go('choose_away_players');
+
+    }
+    
   });
 })

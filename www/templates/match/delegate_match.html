@@ -12,59 +12,65 @@
     </div>
     <!-- GOLOVI -->
     <div class="row" style="text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 80px;">
-        <div class="col col-20 col-center"  ng-click="go_home_goal()">+ GOL</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_home_goal()">+ GOL</div>
         <div class="col col-20 col-center" >{{mec_delegata.home_goals}}</div>
-        <div class="col col-20 col-center" style="font-size: 11px;">GOLOVI</div>
+        <div class="col col-10 col-center" style="font-size: 11px;">G</div>
         <div class="col col-20 col-center" >{{mec_delegata.away_goals}}</div>
-        <div class="col col-20 col-center"  ng-click="go_away_goal()">+ GOL</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_away_goal()">+ GOL</div>
     </div>
     <!-- ASISTENCIJE -->
     <div class="row" style="text-align: center; background-color: rgba(71, 91, 121, 0.64); height: 80px;">
-        <div class="col col-20 col-center"  ng-click="go_home_assist()">+ ASSIS</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_home_assist()">+ ASSIST</div>
         <div class="col col-20 col-center" >{{mec_delegata.home_assists}}</div>
-        <div class="col col-20 col-center" style="font-size: 11px;">ASISTENCIJE</div>
+        <div class="col col-10 col-center" style="font-size: 11px;">A</div>
         <div class="col col-20 col-center" >{{mec_delegata.away_assists}}</div>
-        <div class="col col-20 col-center"  ng-click="go_away_assist()">+ ASSIS</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_away_assist()">+ ASSIST</div>
     </div>
     <!-- FAULOVI -->
     <div class="row" style="text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 80px;">
-        <div class="col col-20 col-center"  ng-click="go_home_foul()">+ FAUL</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_home_foul()">+ FAUL</div>
         <div class="col col-20 col-center" >{{mec_delegata.home_fouls}}</div>
-        <div class="col col-20 col-center" style="font-size: 11px;">FAULOVI</div>
+        <div class="col col-10 col-center" style="font-size: 11px;">F</div>
         <div class="col col-20 col-center" >{{mec_delegata.away_fouls}}</div>
-        <div class="col col-20 col-center"  ng-click="go_away_foul()">+ FAUL</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_away_foul()">+ FAUL</div>
     </div>
     <!-- ZUTI KARTONI -->
     <div class="row" style="text-align: center; background-color: rgba(71, 91, 121, 0.64); height: 80px;">
-        <div class="col col-20 col-center"  ng-click="go_home_yellow_card()">+ Ž.K</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_home_yellow_card()">+ Ž.K</div>
         <div class="col col-20 col-center" >{{mec_delegata.home_yellow_cards}}</div>
-        <div class="col col-20 col-center" style="font-size: 11px;">Ž.KARTONI</div>
+        <div class="col col-10 col-center" style="font-size: 11px;">Ž.K</div>
         <div class="col col-20 col-center" >{{mec_delegata.away_yellow_cards}}</div>
-        <div class="col col-20 col-center"  ng-click="go_away_yellow_card()">+ Ž.K</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_away_yellow_card()">+ Ž.K</div>
     </div>
     <!-- CRVENI KARTONI -->
     <div class="row" style="text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 80px;">
-        <div class="col col-20 col-center"  ng-click="go_home_red_card()">+ C.K</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_home_red_card()">+ C.K</div>
         <div class="col col-20 col-center" >{{mec_delegata.home_red_cards}}</div>
-        <div class="col col-20 col-center" style="font-size: 11px;">C.KARTONI</div>
+        <div class="col col-10 col-center" style="font-size: 11px;">C.K</div>
         <div class="col col-20 col-center" >{{mec_delegata.away_red_cards}}</div>
-        <div class="col col-20 col-center"  ng-click="go_away_red_card()">+ C.K</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_away_red_card()">+ C.K</div>
     </div>
     <!-- SUTEVI -->
     <div class="row" style="text-align: center; background-color: rgba(71, 91, 121, 0.64); height: 80px;">
-        <div class="col col-20 col-center"  ng-click="go_home_shoot()">+ ŠUT</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_home_shoot()">+ ŠUT</div>
         <div class="col col-20 col-center" >{{mec_delegata.home_shoots}}</div>
-        <div class="col col-20 col-center" style="font-size: 11px;">ŠUTEVI</div>
+        <div class="col col-10 col-center" style="font-size: 11px;">Š</div>
         <div class="col col-20 col-center" >{{mec_delegata.away_shoots}}</div>
-        <div class="col col-20 col-center"  ng-click="go_away_shoot()">+ ŠUT</div>
+        <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_away_shoot()">+ ŠUT</div>
     </div>
     <!-- ODBRANE -->
     <div class="row" style="text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 80px;">
-        <div class="col col-20 col-center"  ng-click="go_home_goalkeeper_saves()">+ ODBRANU</div>
+        <div class="button col col-25 col-center" style="font-size: 10px; max-height: 30px" ng-click="go_home_goalkeeper_saves()">+ ODBRANU</div>
         <div class="col col-20 col-center" >{{mec_delegata.home_goalkeeper_saves}}</div>
-        <div class="col col-20 col-center" style="font-size: 11px;">ODBRANE</div>
+        <div class="col col-10 col-center" style="font-size: 11px;">O</div>
         <div class="col col-20 col-center" >{{mec_delegata.away_goalkeeper_saves}}</div>
-        <div class="col col-20 col-center"  ng-click="go_away_goalkeeper_saves()">+ ODBRANU</div>
+        <div class="button col col-25 col-center" style="font-size: 10px; max-height: 30px" ng-click="go_away_goalkeeper_saves()">+ ODBRANU</div>
+    </div>
+    <!-- IZABERI IGRACE -->
+    <div class="row" style="text-align: center; background-color: rgba(71, 91, 121, 0.64); height: 80px;">
+        <div class="button col col-40 col-center" style="font-size: 12px; max-height: 30px" ng-click="go_choose_home_players()">Izaberi igrače</div>
+        <div class="col col-10 col-center" style="font-size: 11px;"></div>
+        <div class="button col col-40 col-center" style="font-size: 12px; max-height: 30px" ng-click="go_choose_away_players()">Izaberi igrače</div>
     </div>
     <button ng-click="start_match()">
         Start match

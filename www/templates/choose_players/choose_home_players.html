@@ -1,0 +1,19 @@
+<ion-view view-title="Choose Home Players">
+  <ion-content class="padding">
+	<div class="row">
+	  <div class="col col-33 col-offset-33">
+	  	<img src="{{current_team.avatar_url}}" height="auto" width="100%" style="max-width: 200px">
+	  </div>
+	</div> 
+
+	<ion-list>
+	  <ion-checkbox ng-model="checkItems[player.id]" class="item item-avatar-right" ng-repeat="player in current_team_players" ng-change="print()">
+		<img ng-src="{{player.avatar_url}}">
+		<h2>{{player.name}}</h2>
+		<p>{{player.surname}}</p>
+	  </ion-checkbox>
+	  <button type="button" name="button" ng-click="save()">Save</button>
+	</ion-list>
+	
+  </ion-content>
+</ion-view>
