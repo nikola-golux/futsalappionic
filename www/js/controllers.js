@@ -31,6 +31,22 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
       }
     );
   }
+
+  $scope.logout = function(){
+    // localStorage.setItem('userId', null);
+    window.localStorage['userId'] = null;
+    $scope.is_logged_in = null;
+    $state.go('app.login', {}, { reload: true });
+    $scope.i = true;
+    $scope.$apply();
+    if ($scope.i){
+      $scope.i = false;
+      $scope.$apply();
+      window.location.reload(true);  
+    }
+  };
+
+  $scope.is_logged_in = window.localStorage['userId'];
 })
 
 // 2) O_nama Controller

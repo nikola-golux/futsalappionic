@@ -60,11 +60,17 @@
           <ion-content>
             <ul class="list">
               <li>
-                <a class="item" menu-close nav-clear href="#">Login</a>
+                <a class="item" ng-if="is_logged_in != null" menu-close href="#/home_tab/login">Moj profil</a>
               </li>
               <li>
-                <a class="item" menu-close nav-clear href="#">Settings</a>
+                <a class="item" ng-if="is_logged_in == null" menu-close href="#/home_tab/login">Login</a>
               </li>
+              <li>
+                <a class="item" menu-close href="#/home_tab/o_nama">O nama</a>
+              </li>
+              <li>
+                <a class="item" ng-if="is_logged_in != null" menu-close ng-click="logout()">Log out</a>
+              </li>                        
             </ul>
           </ion-content>
         </ion-side-menu>

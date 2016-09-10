@@ -1,5 +1,14 @@
 <ion-view view-title="Statistike meča">
   <ion-content >
+    <div class="row">
+	    <div class="col col-33"></div>
+	    <div class="col col-33" align="center" style="color: white">GOALS</div>
+	    <div class="col col-33"></div>
+    </div>
+	<div class="row">
+		<div class="col col-20">{{match.home_team_name}}</div>
+		<div class="col col-60"><progress max="100" value="50"> </progress></div>
+		<div class="col col-20">{{match.away_team_name}}</div>
+	</div>
   	
-  </ion-content>
 </ion-view>
