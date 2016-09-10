@@ -1,6 +1,7 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngResource'])
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position('bottom');
 
   $httpProvider.defaults.withCredentials = true;
 
