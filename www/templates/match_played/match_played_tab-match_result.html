@@ -1,9 +1,56 @@
 <ion-view view-title="Rezultati meča">
-  <ion-content class="padding has-header" style="font-family: Ubuntu; color: white; font-weight: 500;">
-    <div class="row">
-    	<div class="col col-33">asdas</div>
-    	<div class="col col-33">adsa</div>
-    	<div class="col col-33">asdas</div>
+  <ion-content class="padding has-header" style="font-family: Ubuntu; color: #ff9100; font-weight: 500;">
+    <div class="row header" style="text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 130px;">
+    	<div class="col col-33"><img src="{{gotov_mec.home_team_avatar}}" height="auto" width="100%" style="max-width: 80px;"></div>
+    	<div class="col col-33" style="padding-top: 32px; font-size: 22px; color: white">{{gotov_mec.home_goals}} - {{gotov_mec.away_goals}}</div>
+    	<div class="col col-33"><img src="{{gotov_mec.away_team_avatar}}" height="auto" width="100%" style="max-width: 80px;"></div>
+    </div>
+    <div class="row" style="text-align: center; background-color: rgba(71, 91, 121, 0.64); height: 80px;">
+        <div class="col col-33 col-center" style="font-size: 20px">{{gotov_mec.home_team_name}}</div>
+        <div class="col col-33 col-center" ></div>
+        <div class="col col-33 col-center" style="font-size: 20px">{{gotov_mec.away_team_name}}</div>
+    </div>
+    <!-- GOLOVI -->
+    <div class="row" style="padding-top: 20px; font-size: 19px; text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 80px;">
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.home_goals}}</div>
+        <div class="col col-33">GOLOVI</div>
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.away_goals}}</div>
+    </div>
+    <!-- ASISTENCIJE -->
+    <div class="row" style="padding-top: 20px; font-size: 19px; text-align: center; background-color: rgba(71, 91, 121, 0.64); height: 80px;">
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.home_assists}}</div>
+        <div class="col col-33">ASISTENCIJE</div>
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.away_assists}}</div>
+    </div>
+    <!-- FAULOVI -->
+    <div class="row" style="padding-top: 20px; font-size: 19px; text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 80px;">
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.home_fouls}}</div>
+        <div class="col col-33">FAULOVI</div>
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.away_fouls}}</div>
+    </div>
+    <!-- ŽUTI KARTONI -->
+    <div class="row" style="padding-top: 20px; font-size: 19px; text-align: center; background-color: rgba(71, 91, 121, 0.64); height: 80px;">
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.home_yellow_cards}}</div>
+        <div class="col col-33">ŽUTI KARTONI</div>
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.away_yellow_cards}}</div>
+    </div>
+    <!-- CRVENI KARTONI -->
+    <div class="row" style="padding-top: 20px; font-size: 19px; text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 80px;">
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.home_red_cards}}</div>
+        <div class="col col-33">CRVENI KARTONI</div>
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.away_red_cards}}</div>
+    </div>
+    <!-- ŠUTEVI -->
+    <div class="row" style="padding-top: 20px; font-size: 19px; text-align: center; background-color: rgba(71, 91, 121, 0.64); height: 80px;">
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.home_shoots}}</div>
+        <div class="col col-33">ŠUTEVI</div>
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.away_shoots}}</div>
+    </div>
+    <!-- ODBRANE -->
+    <div class="row" style="padding-top: 20px; font-size: 17px; text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 80px;">
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.home_goalkeeper_saves}}</div>
+        <div class="col col-33">ODBRANE</div>
+        <div class="col col-33" style="color: #FF4500">{{gotov_mec.away_goalkeeper_saves}}</div>
     </div>
   </ion-content>
 </ion-view>
