@@ -1,5 +1,48 @@
-<ion-view view-title="Statistike igrača na meču">
-  <ion-content >
-  hi
+<ui-view view-title="Statistike igrača na meču">
+  <ion-content class="padding has-header">
+ 	<div class="row header" style="text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 120px;">
+ 		<div class="col" style=""><img src="{{gotov_mec.home_team_avatar}}" height="auto" width="100%" style="max-width: 80px; max-height: 100px"></div>
+ 	</div>
+
+ 	<div class="col" style="font-size: 22px; text-align: center; height: 40px; color: white; background-color: black">{{gotov_mec.home_team_name}}</div>
+
+ 	<div class="row" style="text-align: center; color:white; background-color: black">
+ 		<div class="col col-50">Igrali</div>
+ 		<div class="col col-10"><img ng-src="img/emoticons/ball4.png" style="max-width: 21px"></div>
+ 		<div class="col col-10"><img ng-src="img/emoticons/shoe4.png" style="max-width: 21px"></div>
+ 		<div class="col col-10"><img ng-src="img/emoticons/gloves.png" style="max-width: 21px"></div>
+ 		<div class="col col-10"><img ng-src="img/emoticons/yellow1.png" style="max-width: 21px"></div>
+ 		<div class="col col-10"><img ng-src="img/emoticons/red1.png" style="max-width: 21px"></div>
+ 	</div>
+ 	<div class="row" style="text-align: center; color:white; background-color: black" ng-repeat="match_player in home_players_on_match">
+			<div class="col col-50">{{match_player.player_name}} {{match_player.player_surname}}<br></div>
+			<div class="col col-10" style="color:#e47618">{{match_player.player_goals}}</div>
+			<div class="col col-10" style="color:#e47618">{{match_player.player_assists}}</div>
+			<div class="col col-10" style="color:#e47618">{{match_player.player_gk_saves}}</div>
+			<div class="col col-10" style="color:#e47618">{{match_player.player_y_c}}</div>
+			<div class="col col-10" style="color:#e47618">{{match_player.player_r_c}}</div>
+ 	</div>
+ 	<div class="row header" style="padding-top: 20px; text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 120px;">
+ 		<div class="col" style=""><img src="{{gotov_mec.away_team_avatar}}" height="auto" width="100%" style="max-width: 80px; max-height: 100px"></div>
+ 	</div>
+
+	<div class="col" style="color: white; font-size: 22px; height: 40px; text-align: center;  width: 100%; background-color: black">{{gotov_mec.away_team_name}}</div>
+
+ 	<div class="row" style="text-align: center; color:white; background-color: black">
+ 		<div class="col col-50">Igrali</div>
+ 		<div class="col col-10"><img ng-src="img/emoticons/ball4.png" style="max-width: 21px"></div>
+ 		<div class="col col-10"><img ng-src="img/emoticons/shoe4.png" style="max-width: 21px"></div>
+ 		<div class="col col-10"><img ng-src="img/emoticons/gloves.png" style="max-width: 21px"></div>
+ 		<div class="col col-10"><img ng-src="img/emoticons/yellow1.png" style="max-width: 21px"></div>
+ 		<div class="col col-10"><img ng-src="img/emoticons/red1.png" style="max-width: 21px"></div>
+ 	</div>
+ 	<div class="row" style="text-align: center; color:white; background-color: black" ng-repeat="match_player in away_players_on_match">
+			<div class="col col-50">{{match_player.player_name}} {{match_player.player_surname}}<br></div>
+			<div class="col col-10" style="color:#e47618">{{match_player.player_goals}}</div>
+			<div class="col col-10" style="color:#e47618">{{match_player.player_assists}}</div>
+			<div class="col col-10" style="color:#e47618">{{match_player.player_gk_saves}}</div>
+			<div class="col col-10" style="color:#e47618">{{match_player.player_y_c}}</div>
+			<div class="col col-10" style="color:#e47618">{{match_player.player_r_c}}</div>
+ 	</div>
   </ion-content>
-</ion-view>
+</ui-view>
