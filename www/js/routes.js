@@ -423,7 +423,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/match_stats',
     views: {
       'match_played_tab-match_stats': {
-        templateUrl: 'templates/match_played/match_played_tab-match_stats.html'
+        templateUrl: 'templates/match_played/match_played_tab-match_stats.html',
+        controller: 'MatchPlayed_StatsCtrl'
       }
     }
   })
