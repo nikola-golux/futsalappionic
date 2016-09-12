@@ -27,6 +27,7 @@
     <!-- Controllers -->
     <script src="js/controllers/player_controller.js"></script>
     <script src="js/controllers/single_player_controller.js"></script>
+    <script src="js/controllers/rang_list_controller.js"></script>
     <script src="js/controllers/goal_controller.js"></script>
     <script src="js/controllers/assist_controller.js"></script>
     <script src="js/controllers/foul_controller.js"></script>
@@ -36,6 +37,7 @@
     <script src="js/controllers/shoot_controller.js"></script>
     <script src="js/controllers/delegate_controller.js"></script>
     <script src="js/controllers/team_controller.js"></script>
+    <script src="js/controllers/team_rang_list_controller.js"></script>
     <script src="js/controllers/match_controller.js"></script>
     <script src="js/controllers/match_players_controller.js"></script>
     <script src="js/controllers/match_played_controller.js"></script>
@@ -82,10 +84,10 @@
                 <a class="item" menu-close href="#">Moje utakmice</a>
               </li>
               <li ng-if="ulogovan() == 'true'">
-                <a class="item" menu-close href="#">Rang lista 5+1</a>
+                <a class="item" menu-close href="#/pl_tab/players_rang_list_5_1">Rang lista 5+1</a>
               </li>
               <li ng-if="ulogovan() == 'true'">
-                <a class="item" menu-close href="#">Rang lista 4+1</a>
+                <a class="item" menu-close href="#/players_rang_list_4_1">Rang lista 4+1</a>
               </li>
               <li>
                 <a class="item" menu-close href="#/home_tab/o_nama">O nama</a>

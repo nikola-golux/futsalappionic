@@ -2,7 +2,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider) {
   $ionicConfigProvider.tabs.position('bottom');
-
+  $ionicConfigProvider.views.maxCache(0);
+  
   $httpProvider.defaults.withCredentials = true;
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -438,7 +439,44 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
+/**************************
+* RANG LIST 5_1 TABS
+**************************/
+  .state('pl_tab', {
+    url: '/pl_tab',
+    abstract: true,
+    templateUrl: 'templates/players_rang_list_5_1/pl_tabs.html'
+  })
 
+  .state('pl_tab.players_rang_list_5_1',{
+      url: '/players_rang_list_5_1',
+      views: {
+        'pl_tab-players_rang_list_5_1': {
+          templateUrl: 'templates/players_rang_list_5_1/pl_tab-players_rang_list_5_1.html',
+          controller: 'PlayerRangList_5_1_Ctrl'
+        }
+      }  
+  }) 
+
+   // 1) Experience
+
+  .state('pl_tab.teams_rang_list_5_1', {
+    url: '/teams_rang_list_5_1',
+    views: {
+      'pl_tab-teams_rang_list_5_1': {
+        templateUrl: 'templates/players_rang_list_5_1/pl_tab-teams_rang_list_5_1.html',
+        controller: 'TeamRangList_5_1_Ctrl'
+      }
+    }
+  })
+/**************************
+* RANG LIST 4_1 TABS
+**************************/
+.state('players_rang_list_4_1',{
+      url: '/players_rang_list_4_1',
+      templateUrl: 'templates/players_rang_list_4_1/players_rang_list_4_1.html',
+      controller: 'PlayerRangList_4_1_Ctrl'
+  })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home_tab/login');
 
