@@ -4,7 +4,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 * HOME (WELCOME) TABS CONTROLLERS
 ****************************************************************************************************/
 // 1) Login Controller
-.controller('LoginCtrl', function($scope, $location, UserSession, $ionicPopup, $rootScope) {
+.controller('LoginCtrl', function($scope, $state, $location, UserSession, $ionicPopup, $rootScope) {
   $scope.data = {};
 
   $scope.login = function() {
@@ -15,12 +15,34 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
         window.localStorage['userId'] = data.id;
         window.localStorage['userPlayerId'] = data.player_id;
         window.localStorage['userDelegateId'] = data.delegate_id;
+        localStorage.setItem('is_logged_in', true);
+        logged_in = 10;
         /*window.localStorage['userName'] = data.name;*/
         if(data.player_id != 0 && data.player_id != null){
+          localStorage.setItem('is_player', true);
+          localStorage.setItem('is_delegate', false);
+          window.localStorage['userDelegateId'] = null;
           $location.path('/player_tab/experience');
+          $scope.i = true;
+          $scope.$apply();
+          if ($scope.i){
+            $scope.i = false;
+            $scope.$apply();
+            window.location.reload(true);  
+          }
         }
         else if(data.delegate_id !=0 && data.delegate_id != null){
+          localStorage.setItem('is_player', false);
+          localStorage.setItem('is_delegate', true);
+          window.localStorage['userPlayerId'] = null;
           $location.path('/delegate_tab/matches');
+          $scope.i = true;
+          $scope.$apply();
+          if ($scope.i){
+            $scope.i = false;
+            $scope.$apply();
+            window.location.reload(true);  
+          }
         }
       },
       function(error){
@@ -34,9 +56,12 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 
   $scope.logout = function(){
     // localStorage.setItem('userId', null);
-    window.localStorage['userId'] = null;
-    $scope.is_logged_in = null;
-    $state.go('app.login', {}, { reload: true });
+    localStorage.setItem('userId', null);
+    localStorage.setItem('is_logged_in', false);
+    localStorage.setItem('is_player', false);
+    localStorage.setItem('is_delegate', false);
+    logged_in = null;
+    $state.go('home_tab.login', {}, { reload: true });
     $scope.i = true;
     $scope.$apply();
     if ($scope.i){
@@ -46,21 +71,33 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
     }
   };
 
-  $scope.is_logged_in = window.localStorage['userId'];
+  logged_in = localStorage.getItem('userId');
+  var logged_in2 = 100;
+
+  $scope.ulogovan = function() {
+      return localStorage.getItem('is_logged_in');
+  }
+  console.log('ulogovan= ' + localStorage.getItem('is_logged_in'));
+
+  $scope.ulogovan_igrac = function() {
+      return localStorage.getItem('is_player');
+  }
+  console.log('ulogovan_igrac= ' + localStorage.getItem('is_player'));
+
+  $scope.ulogovan_delegat = function() {
+      return localStorage.getItem('is_delegate');
+  }
+  console.log('ulogovan_delegat= ' + localStorage.getItem('is_delegate'));
 })
 
 // 2) O_nama Controller
-.controller('O_namaCtrl', function($scope, BlogEntry) {
-  BlogEntry.query().$promise.then(function(response){
-    $scope.blog_entries = response;
-  });
+.controller('O_namaCtrl', function($scope) {
+
 })
 
 // 3) Kontakt Controller
-.controller('KontaktCtrl', function($scope, BlogEntry) {
-  BlogEntry.query().$promise.then(function(response){
-    $scope.blog_entries = response;
-  });
+.controller('KontaktCtrl', function($scope) {
+
 })
 
 
