@@ -58,20 +58,46 @@
             <img ng-src="img/balf-logo-155px.png" style="max-width:35px;">
           </ion-header-bar>
           <ion-content>
-            <ul class="list">
-              <li>
-                <a class="item" ng-if="is_logged_in != null" menu-close href="#/home_tab/login">Moj profil</a>
+            <div  >
+            <ul class="list" ng-controller="LoginCtrl">
+              <!-- Ako NIJE ulogovan, PRVO VIDI Login DUGME -->
+              <li ng-app="starter" ng-if="ulogovan() == 'false'">
+                <a class="item" menu-close href="#/home_tab/login">Login</a>
               </li>
-              <li>
-                <a class="item" ng-if="is_logged_in == null" menu-close href="#/home_tab/login">Login</a>
+              
+              <!-- Ako JESTE ulogovan -->
+              <li ng-if="ulogovan_igrac() == 'true'">
+                <a class="item" menu-close href="#/player_tab/experience">Moj profil</a>
+              </li>
+              <li ng-if="ulogovan_delegat() == 'true'">
+                <a class="item" menu-close href="#/delegate_tab/matches">Moj profil</a>
+              </li>
+              <li ng-if="ulogovan_igrac() == 'true'">
+                <a class="item" menu-close href="#/team_tab/experience">Moja ekipa</a>
+              </li>
+              <li ng-if="ulogovan_igrac() == 'true'">
+                <a class="item" menu-close href="#">Moja liga</a>
+              </li>
+              <li ng-if="ulogovan() == 'true'">
+                <a class="item" menu-close href="#">Moje utakmice</a>
+              </li>
+              <li ng-if="ulogovan() == 'true'">
+                <a class="item" menu-close href="#">Rang lista 5+1</a>
+              </li>
+              <li ng-if="ulogovan() == 'true'">
+                <a class="item" menu-close href="#">Rang lista 4+1</a>
               </li>
               <li>
                 <a class="item" menu-close href="#/home_tab/o_nama">O nama</a>
               </li>
               <li>
-                <a class="item" ng-if="is_logged_in != null" menu-close ng-click="logout()">Log out</a>
+                <a class="item" menu-close href="#/home_tab/kontakt">Kontakt</a>
+              </li>
+              <li ng-if="ulogovan() == 'true'">
+                <a class="item" ng-click="logout()" menu-close href="#/home_tab/login">Log out</a>
               </li>                        
             </ul>
+            </div>
           </ion-content>
         </ion-side-menu>
 

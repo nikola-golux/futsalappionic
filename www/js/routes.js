@@ -37,7 +37,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     views: {
       'home_tab-o_nama': {
         templateUrl: 'templates/home/home_tab-o_nama.html',
-        controller: 'O_namaCtrl'
       }
     }
   })
@@ -48,7 +47,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     views: {
       'home_tab-kontakt': {
         templateUrl: 'templates/home/home_tab-kontakt.html',
-        controller: 'KontaktCtrl'
       }
     }
   })
