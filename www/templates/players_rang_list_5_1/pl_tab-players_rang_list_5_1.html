@@ -1,0 +1,28 @@
+<ion-view view-title="RANG LISTA IGRACA (5+1)">
+	<ion-content>
+		<div class="row" style="background: white">
+			<div class="col-10">Poz</div>
+			<div class="col-20">Ime</div>
+			<!--<div class="col">Ekipa</div>-->
+			<div class="col-10">G</div>
+			<div class="col-10">A</div>
+			<!--<div class="col">{{player_season_5_1.fouls}}</div>-->
+			<div class="col-10">ZK</div>
+			<div class="col-10">CK</div>
+			<div class="col-20">EXP</div>
+			<div class="col-10">Lvl</div>
+		</div>
+		<div class="row" style="background: white" ng-repeat="player_season_5_1 in player_seasons_5_1 | orderBy:'-expirience'">
+			<div class="col-10">{{player_season_5_1.position}}</div>
+			<div class="col-20">{{player_season_5_1.name}}<br>{{player_season_5_1.surname}}</div>
+			<!--<div class="col">{{player_season_5_1.team_name}}</div>-->
+			<div class="col-10">{{player_season_5_1.goals}}</div>
+			<div class="col-10">{{player_season_5_1.assists}}</div>
+			<!--<div class="col">{{player_season_5_1.fouls}}</div>-->
+			<div class="col-10">{{player_season_5_1.yellow_cards}}</div>
+			<div class="col-10">{{player_season_5_1.red_cards}}</div>
+			<div class="col-20">{{player_season_5_1.expirience}}</div>
+			<div class="col-10">{{player_season_5_1.level}}</div>
+		</div>
+	</ion-content>
+</ion-view>

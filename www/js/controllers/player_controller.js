@@ -20,6 +20,7 @@ angular.module('starter.controllers')
 
     $scope.current_player = getById($scope.players, window.localStorage['userPlayerId']);
     window.localStorage['playerTeamId'] = $scope.current_player.team_id;
+    window.localStorage['playerLeagueId'] = $scope.current_player.league_id;
 
   });
 

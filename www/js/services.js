@@ -26,6 +26,19 @@ angular.module('starter.services', [])
   return $resource("http://192.168.1.104:3000/api/v1/player_badges");
 })
 
+.factory('RangListPlayers_5_1', function($resource) {
+  return $resource("http://192.168.1.104:3000/api/v1/players_rang_list");
+})
+
+.factory('RangListPlayers_4_1', function($resource) {
+  return $resource("http://192.168.1.104:3000/api/v1/players_rang_list_4_1");
+})
+/**********************
+* Leagues
+**********************/
+.factory('Leagues', function($resource) {
+  return $resource("http://192.168.1.104:3000/api/v1/leagues");
+})
 /**********************
 * Teams
 **********************/
@@ -49,6 +62,14 @@ angular.module('starter.services', [])
 
 .factory('AwayTeams', function($resource) {
   return $resource("http://192.168.1.104:3000/api/v1/away_teams");
+})
+
+.factory('RangListTeams_5_1', function($resource) {
+  return $resource("http://192.168.1.104:3000/api/v1/teams_rang_list");
+})
+
+.factory('RangListTeams_4_1', function($resource) {
+  return $resource("http://192.168.1.104:3000/api/v1/teams_rang_list_4_1");
 })
 /**********************
 * Matches
