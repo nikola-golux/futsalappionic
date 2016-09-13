@@ -1,8 +1,8 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngResource'])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider) {
-  $ionicConfigProvider.tabs.position('bottom');
   $ionicConfigProvider.views.maxCache(0);
+  $ionicConfigProvider.tabs.position('bottom');
   
   $httpProvider.defaults.withCredentials = true;
 
@@ -269,9 +269,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   **************************/
   
   .state('delegate_match', {
+    cache: false,
     url: '/delegate_match',
     templateUrl: 'templates/match/delegate_match.html',
-    controller: 'Delegate_matchCtrl' 
+    controller: 'Delegate_matchCtrl'
     })
   
 
@@ -369,12 +370,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   * Shoots
   **************************/
   .state('home_team_shoot', {
+    cache: false,
     url: '/home_team_shoot',
     templateUrl: 'templates/shoot/home_team_shoot.html',
     controller: 'HomeShoot_Ctrl'  
   })
 
   .state('away_team_shoot', {
+    cache: false,
     url: '/away_team_shoot',
     templateUrl: 'templates/shoot/away_team_shoot.html',
     controller: 'AwayShoot_Ctrl'  
