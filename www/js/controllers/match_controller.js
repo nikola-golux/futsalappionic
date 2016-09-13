@@ -7,22 +7,23 @@ angular.module('starter.controllers')
   Matches.query().$promise.then(function(response){
     $scope.id_delegata = window.localStorage['userDelegateId'];
     $scope.id_meca = localStorage.getItem('delegateMatchId');
-    $scope.matches = response;
-
-    $scope.mec_delegata = getById($scope.matches, $scope.id_meca);
+    
+    var doRefresh = function(){ 
+      $scope.matches = response;
+      $scope.mec_delegata = getById($scope.matches, $scope.id_meca);
+    }
+    doRefresh();
 
   $scope.start_match = function(){
     var match = 'http://192.168.1.104:3000/api/v1/change_match_started';
 
-    $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data;
-      })
+    $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data; })
   }
 
   $scope.finish_match = function(){
     var match = 'http://192.168.1.104:3000/api/v1/change_second_half_ended';
 
-    $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data;
-      })
+    $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data; })
     $state.go('delegate_tab.matches_played');
   }
 
@@ -113,11 +114,11 @@ angular.module('starter.controllers')
 
     $scope.go_home_shoot = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('home_team_shoot');
+      $state.go('home_team_shoot', {}, { reload: true });
     }
     $scope.go_away_shoot = function () {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('away_team_shoot', {});
+      $state.go('away_team_shoot', {}, { reload: true });
     }
 
 /*******************************************************************************************************
@@ -126,12 +127,11 @@ angular.module('starter.controllers')
 
     $scope.go_choose_home_players = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('choose_home_players');
-
+      $state.go('choose_home_players', {}, { reload: true });
     }
     $scope.go_choose_away_players = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('choose_away_players');
+      $state.go('choose_away_players', {}, { reload: true });
 
     }
     
