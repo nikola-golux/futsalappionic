@@ -1,4 +1,4 @@
-<ion-view view-title="Utakmica delegata">
+<ion-view cache-view="false" view-title="Utakmica delegata">
   <ion-content class="padding has-header" style="font-family: Ubuntu; color: white; font-weight: 500;">
     <div class="row header" style="text-align: center; background-color: rgba(38, 58, 93, 0.83); height: 130px;">
         <div class="col col-33 col-center" ><img src="{{mec_delegata.home_team_avatar}}" height="auto" width="100%" style="max-width: 80px;"></div>
@@ -53,9 +53,9 @@
     <!-- SUTEVI -->
     <div class="row" style="text-align: center; background-color: rgba(71, 91, 121, 0.64); height: 80px;">
         <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_home_shoot()">+ ŠUT</div>
-        <div class="col col-20 col-center" >{{mec_delegata.home_shoots}}</div>
+        <div class="col col-20 col-center" >{{homeshoots}}</div>
         <div class="col col-10 col-center" style="font-size: 11px;">Š</div>
-        <div class="col col-20 col-center" >{{mec_delegata.away_shoots}}</div>
+        <div class="col col-20 col-center" >{{awayshoots}}</div>
         <div class="button col col-25 col-center" style="font-size: 11px; max-height: 30px" ng-click="go_away_shoot()">+ ŠUT</div>
     </div>
     <!-- ODBRANE -->

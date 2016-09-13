@@ -77,11 +77,11 @@ angular.module('starter.controllers')
                         is_home : true}).then(function(res){ $scope.response = res.data;
       })
       $state.go('delegate_match');
-      $scope.i = true;
+      /*$scope.i = true;
       if ($scope.i){
         $scope.i = false;
         window.location.reload(true);  
-      }
+      }*/
     }
   });
 })
@@ -158,11 +158,11 @@ angular.module('starter.controllers')
       
       
       $state.go('delegate_match', {}, { reload: true });
-      $scope.i = true;
+      /*$scope.i = true;
       if ($scope.i){
         $scope.i = false;
         window.location.reload(true);  
-      }
+      }*/
     }
   });
 })

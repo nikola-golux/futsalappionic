@@ -4,6 +4,7 @@ angular.module('starter.controllers')
 * DELEGATE_MATCH CONTROLLERS
 ****************************************************************************************************/
 .controller('Delegate_matchCtrl', function($scope, $http, $state, Matches, HomeTeams, Teams) {
+  $scope.$on('$ionicView.enter', function() {
   Matches.query().$promise.then(function(response){
     $scope.id_delegata = window.localStorage['userDelegateId'];
     $scope.id_meca = localStorage.getItem('delegateMatchId');
@@ -11,6 +12,8 @@ angular.module('starter.controllers')
     var doRefresh = function(){ 
       $scope.matches = response;
       $scope.mec_delegata = getById($scope.matches, $scope.id_meca);
+      $scope.homeshoots = $scope.mec_delegata.home_shoots;
+      $scope.awayshoots = $scope.mec_delegata.away_shoots;
     }
     doRefresh();
 
@@ -114,11 +117,11 @@ angular.module('starter.controllers')
 
     $scope.go_home_shoot = function (id) {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('home_team_shoot', {}, { reload: true });
+      $state.go('home_team_shoot', {}, { reload: true, inherit: false });
     }
     $scope.go_away_shoot = function () {
       localStorage.setItem('current_match', $scope.id_meca);
-      $state.go('away_team_shoot', {}, { reload: true });
+      $state.go('away_team_shoot', {}, { reload: true, inherit: false });
     }
 
 /*******************************************************************************************************
@@ -135,5 +138,6 @@ angular.module('starter.controllers')
 
     }
     
+  });
   });
 })
