@@ -171,6 +171,20 @@ var getAllId =  function (arr, id) {
 }
 
 /* Funkcija za za izlistavanje JSON elementa */
+var getAllTeamsFromLeagueId =  function (arr, id) {
+    var svi_rezultati = [];
+    var i = 0;
+    for (var d = 0, len = arr.length; d < len; d += 1) {
+      if (arr[d].league_id == id) /* Bilo je 3 === */ {
+            svi_rezultati[i]=arr[d];
+            i += 1;
+      }
+
+    }
+    return svi_rezultati;
+}
+
+/* Funkcija za za izlistavanje JSON elementa */
 var getAllHomeMatchPlayersByMatchId =  function (arr, id) {
     var svi_rezultati = [];
     var i = 0;
@@ -194,6 +208,20 @@ var getAllAwayMatchPlayersByMatchId =  function (arr, id) {
             i += 1;
       }
 
+    }
+    return svi_rezultati;
+}
+
+function getAllTeamSeasonsFromTeamIds (arr, arr2) {
+    var svi_rezultati = [];
+    var i = 0;
+    for (var d = 0, len = arr.length; d < len; d += 1) {
+      for (var b = 0, len2 = arr2.length; b < len2; b += 1) {
+        if (arr[d].team_id == arr2[b].id) /* Bilo je 3 === */ {
+              svi_rezultati[i]=arr[d];
+              i += 1;
+        }
+      }
     }
     return svi_rezultati;
 }

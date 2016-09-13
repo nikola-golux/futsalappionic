@@ -4,52 +4,28 @@ angular.module('starter.controllers')
 * PLAYER TABS CONTROLLERS
 ****************************************************************************************************/
 // 1) Player_experience controller
-.controller('PlayerRang_ListCtrl', function($scope, $state, $stateParams, $window, Players, PlayerSeasons, Teams, Leagues){
+.controller('Leaugue_Ctrl', function($scope, $state, $stateParams, $window, Teams, TeamSeasons, Leagues){
 	Leagues.query().$promise.then(function(response){
+		$scope.liga_trenutnog_igraca = localStorage.getItem('playerLeagueId');
 		$scope.leagues = response;
 
-		$scope.league = getById($scope.leagues, window.localStorage['playerLeagueId'].id);
-		localStorage.setItem('leagueId');
+		$scope.league = getById($scope.leagues, $scope.liga_trenutnog_igraca);
+		localStorage.setItem('current_league', $scope.league.id);
 	});
 
 	Teams.query().$promise.then(function(response){
-		$scope.id_lige = localStorage.getItem('leagueId');
+		$scope.liga_trenutnog_igraca = localStorage.getItem('playerLeagueId');
 		$scope.teams = response;
-			function getAllId (arr, id) {
-		    var svi_rezultati = [];
-		    var i = 0;
-		    for (var d = 0, len = arr.length; d < len; d += 1) {
-		      if (arr[d].id == id) /* Bilo je 3 === */ {
-		            svi_rezultati[i]=arr[d];
-		            i += 1;
-		      }
-
-		    }
-		    return svi_rezultati;
-		}
-		$scope.svi_timovi_lige = getAllId($scope.teams, $scope.id_lige);
+		
+		$scope.svi_timovi_lige = getAllTeamsFromLeagueId($scope.teams, $scope.liga_trenutnog_igraca);
+		window.localStorage['teamsLeagueId'] = $scope.svi_timovi_lige;
+		console.log($scope.svi_timovi_lige);
 	});
 
-	Players.query().$promise.then(function(response){
-		$scope.players = response;
+	TeamSeasons.query().$promise.then(function(response){
+		$scope.team_seasons = response;
+		$scope.current_team_seasons = getAllTeamSeasonsFromTeamIds($scope.team_seasons, $scope.svi_timovi_lige);
+		console.log($scope.current_team_seasons);
+	})
 
-		$scope.igraci_lige = getAllId($scope.players, $scope.svi_timovi_lige);
-	});
-
-	PlayerSeasons.query().$promise.then(function(response){
-		$scope.player_seasons = response;
-		function getAllId (arr, id) {
-	    var svi_rezultati = [];
-	    var i = 0;
-	    for (var d = 0, len = arr.length; d < len; d += 1) {
-	      if (arr[d].player_id == id) /* Bilo je 3 === */ {
-	            svi_rezultati[i]=arr[d];
-	            i += 1;
-	      }
-
-	    }
-	    return svi_rezultati;
-	}
-	$scope.all_player_seasons = getAllId($scope.player_seasons, $scope.igraci_lige)
-	});
 })
