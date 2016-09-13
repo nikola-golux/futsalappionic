@@ -502,7 +502,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           controller: 'TeamRangList_4_1_Ctrl'
         }
       }  
-  }) 
+  })
+
+/**************************
+* MOJA LIGA
+**************************/
+
+  .state('league', {
+    url: '/league',
+    templateUrl: 'templates/league/league.html',
+    controller: 'Leaugue_Ctrl' 
+    }) 
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home_tab/login');

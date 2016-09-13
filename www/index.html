@@ -41,6 +41,7 @@
     <script src="js/controllers/match_controller.js"></script>
     <script src="js/controllers/match_players_controller.js"></script>
     <script src="js/controllers/match_played_controller.js"></script>
+    <script src="js/controllers/league_controller.js"></script>
     <!-- Routes -->
     <script src="js/routes.js"></script>
     <!-- Services -->
@@ -78,7 +79,7 @@
                 <a class="item" menu-close href="#/team_tab/experience">Moja ekipa</a>
               </li>
               <li ng-if="ulogovan_igrac() == 'true'">
-                <a class="item" menu-close href="#">Moja liga</a>
+                <a class="item" menu-close href="#/league">Moja liga</a>
               </li>
               <li ng-if="ulogovan() == 'true'">
                 <a class="item" menu-close href="#">Moje utakmice</a>
