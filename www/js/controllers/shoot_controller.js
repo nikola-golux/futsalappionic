@@ -32,14 +32,15 @@ angular.module('starter.controllers')
   Teams.query().$promise.then(function(response){
     $scope.id_meca = localStorage.getItem('delegateMatchId');
     $scope.teams = response;
-    $scope.current_team_id = localStorage.getItem('current_hometeam_team_id');
-    
-    $scope.current_team = getById($scope.teams, $scope.current_team_id);
+    var current_team_id = localStorage.getItem('current_hometeam_team_id');
+    console.log(current_team_id);
+    var current_team = getById($scope.teams, current_team_id);
+    console.log(current_team);
   });
 
     /* PLAYER_SEASONS table */
   TeamSeasons.query().$promise.then(function(response){
-    $scope.id_tima = $scope.current_team.id;
+    $scope.id_tima = localStorage.getItem('current_hometeam_team_id');
     $scope.team_seasons = response;
     /* Funkcija za nalazenje JSON elementa */
     function getTeamSeasonById(arr, id) {
@@ -50,7 +51,7 @@ angular.module('starter.controllers')
         }
     }
 
-    $scope.current_team_season = getTeamSeasonById($scope.team_seasons, $scope.id_tima);
+    $scope.current_team_season = getTeamSeasonById($scope.team_seasons, $scope.id_tima.id);
      
 
     var shoot = 'http://192.168.1.104:3000/api/v1/new_home_shoot';
@@ -59,12 +60,12 @@ angular.module('starter.controllers')
                       match_id : $scope.id_meca,
                       is_home : true}).then(function(res){ $scope.response = res.data;
     })
-    $state.go('delegate_match', {}, { reload: true });                 
-    $scope.i = true;
+    $state.go('delegate_match', {}, { reload: true, inherit: false });                 
+    /*$scope.i = true;
     if ($scope.i){
       $scope.i = false;
       window.location.reload(true);  
-    }
+    }*/
   });
 })
 
@@ -93,14 +94,14 @@ angular.module('starter.controllers')
   Teams.query().$promise.then(function(response){
     $scope.id_meca = localStorage.getItem('delegateMatchId');
     $scope.teams = response;
-    $scope.current_team_id = localStorage.getItem('current_awayteam_team_id');
+    var current_team_id = localStorage.getItem('current_awayteam_team_id');
     
-    $scope.current_team = getById($scope.teams, $scope.current_team_id);
+    var current_team = getById($scope.teams, current_team_id);
   });
 
     /* PLAYER_SEASONS table */
   TeamSeasons.query().$promise.then(function(response){
-    $scope.id_tima = $scope.current_team.id;
+    $scope.id_tima = localStorage.getItem('current_awayteam_team_id');
     $scope.team_seasons = response;
     /* Funkcija za nalazenje JSON elementa */
     function getTeamSeasonById(arr, id) {
@@ -111,7 +112,7 @@ angular.module('starter.controllers')
         }
     }
 
-    $scope.current_team_season = getTeamSeasonById($scope.team_seasons, $scope.id_tima);
+    $scope.current_team_season = getTeamSeasonById($scope.team_seasons, $scope.id_tima.id);
      
 
     var shoot = 'http://192.168.1.104:3000/api/v1/new_away_shoot';
@@ -120,11 +121,11 @@ angular.module('starter.controllers')
                       match_id : $scope.id_meca,
                       is_home : false}).then(function(res){ $scope.response = res.data;
     })
-    $state.go('delegate_match', {}, { reload: true });                 
-    $scope.i = true;
+    $state.go('delegate_match', {}, { reload: true, inherit: false });                 
+    /*$scope.i = true;
     if ($scope.i){
       $scope.i = false;
       window.location.reload(true);  
-    }
+    }*/
   });
 })
