@@ -448,6 +448,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     templateUrl: 'templates/players_rang_list_5_1/pl_tabs.html'
   })
 
+  // 1) RANG LISTA IGRACA
+
   .state('pl_tab.players_rang_list_5_1',{
       url: '/players_rang_list_5_1',
       views: {
@@ -458,7 +460,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }  
   }) 
 
-   // 1) Experience
+   // 2) RANG LISTA TIMOVA
 
   .state('pl_tab.teams_rang_list_5_1', {
     url: '/teams_rang_list_5_1',
@@ -472,11 +474,36 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 /**************************
 * RANG LIST 4_1 TABS
 **************************/
-.state('players_rang_list_4_1',{
-      url: '/players_rang_list_4_1',
-      templateUrl: 'templates/players_rang_list_4_1/players_rang_list_4_1.html',
-      controller: 'PlayerRangList_4_1_Ctrl'
+.state('pls_tab', {
+    url: '/pls_tab',
+    abstract: true,
+    templateUrl: 'templates/players_rang_list_4_1/pls_tabs.html'
   })
+
+  // 1) RANG LISTA IGRACA
+
+  .state('pls_tab.players_rang_list_4_1',{
+      url: '/players_rang_list_4_1', 
+      views: {
+        'pls_tab-players_rang_list_4_1': {
+          templateUrl: 'templates/players_rang_list_4_1/pls_tab-players_rang_list_4_1.html',
+          controller: 'PlayerRangList_4_1_Ctrl'
+        }
+      } 
+  })
+
+  // 1) RANG LISTA TIMOVA
+
+  .state('pls_tab.teams_rang_list_4_1',{
+      url: '/teams_rang_list_4_1',
+      views: {
+        'pls_tab-teams_rang_list_4_1': {
+          templateUrl: 'templates/players_rang_list_4_1/pls_tab-teams_rang_list_4_1.html',
+          controller: 'TeamRangList_4_1_Ctrl'
+        }
+      }  
+  }) 
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home_tab/login');
 
