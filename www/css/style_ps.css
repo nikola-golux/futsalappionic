@@ -134,3 +134,95 @@ input[type="email"], input[type="password"] {
 	padding-left: 10px !important;
 	color: #FFFAFA !important
 }
+/***************************/
+/*Test za css za rang liste*/
+/***************************/
+ .player-stats1 th h1 {
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  color: #185875;
+}
+
+.player-stats1 {
+  text-align: center;
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+  padding-bottom: 50px;
+
+  font-family: Ubuntu;
+  font-weight: 250;
+}
+
+.player-stats1 a:hover {
+  color: #f9ad1c;
+  text-decoration: none;
+}
+
+.player-stats1 td, .player-stats1 th {  
+  /*padding-bottom: 2%;
+  padding-top: 2%;
+  padding-left:2%;*/
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.player-stats1 th {  
+  text-align: center;
+}
+
+/* Background-color of the odd rows */
+.player-stats1 tr:nth-child(odd) {
+  background-color: rgba(8, 3, 181, 0.61);
+}
+
+/* Background-color of the even rows */
+.player-stats1 tr:nth-child(even) {
+  background-color: rgb(14, 16, 80);
+}
+
+.player-stats1 th {
+  background-color: #1F2739;
+  color: #F9AD1C;
+}
+
+.player-stats1 td {
+  color: white; 
+}
+
+/*
+.player-stats tr:hover {
+  background-color: #464A52;
+  -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+  -moz-box-shadow: 0 6px 6px -6px #0E1119;
+  box-shadow: 0 6px 6px -6px #0E1119;
+}*/
+
+.player-stats1 tr:hover {
+  background-color: rgba(221, 221, 221, 0.13);
+}
+
+.player-stats1 td:hover {
+  /* rgba(221, 221, 221, 0.13); */
+  background-color: transparent;
+  /*color: #403E10;
+  font-weight: bold;
+  
+  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: line;*/
+}
+
+.player-stats1-padding {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
