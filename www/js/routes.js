@@ -508,14 +508,37 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   })
 
 /**************************
-* MOJA LIGA
+* MOJA LIGA TABS
 **************************/
+  .state('league_tab', {
+      url: '/league_tab',
+      abstract: true,
+      templateUrl: 'templates/league/league_tabs.html'
+  })
 
-  .state('league', {
+  // TABELA MOJE LIGE
+
+  .state('league_tab.league', {
     url: '/league',
-    templateUrl: 'templates/league/league.html',
-    controller: 'Leaugue_Ctrl' 
-    }) 
+    views:{
+      'league_tab-league':{
+        templateUrl: 'templates/league/league_tab-league.html',
+        controller: 'Leaugue_Ctrl'
+      }
+    }
+  })
+
+  // ZAVRSENE UTAKMICE MOJE LIGE
+
+  .state('league_tab.league_matches_played', {
+    url: '/league_matches_played',
+    views:{
+      'league_tab-league_matches_played':{
+        templateUrl: 'templates/league/league_tab-league_matches_played.html',
+        controller: 'MyLeagueFinishedMatches_Ctrl'
+      }
+    }
+  }) 
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home_tab/login');

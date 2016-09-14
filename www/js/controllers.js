@@ -225,3 +225,17 @@ function getAllTeamSeasonsFromTeamIds (arr, arr2) {
     }
     return svi_rezultati;
 }
+
+/* Funkcija za za izlistavanje JSON elementa */
+var getAllFinishedMatchesFromMyLeagueId =  function (arr, id) {
+    var svi_rezultati = [];
+    var i = 0;
+    for (var d = 0, len = arr.length; d < len; d += 1) {
+      if ((arr[d].league_id == id) && (arr[d].is_match_finished == true)) /* Bilo je 3 === */ {
+            svi_rezultati[i]=arr[d];
+            i += 1;
+      }
+
+    }
+    return svi_rezultati;
+}

@@ -1,11 +1,12 @@
 <ion-view view-title="Badges">
   <ion-content class="padding" ng-repeat="player in players" ng-show="player.id == id_igraca">
     
-    <div class="row">
+    <table  class="player-stats" style="min-width: 100%">
+      <tr>
+        <td>
         <!--***********************************
         * Bedz za PRVI GOL
         *************************************-->
-        <div class="col-50" align="center">
           <div ng-if="current_player_badge.prvi_gol > 0">
             <img src="img/player_badges/igrac_01.png" height="auto" width="100%" style="max-width: 90px">
           </div>
@@ -13,7 +14,8 @@
             <img src="img/player_badges/igrac_01.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
           </div>
         </div>
-        <div class="col-50" align="center">
+        </td>
+        <td>
           <!--***********************************
           * Bedz za PRVU ASISTENCIJU
           *************************************-->
@@ -23,110 +25,105 @@
           <div ng-if="current_player_badge.prva_asistencija == 0">
              <img src="img/player_badges/igrac_02.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
           </div>
-        </div>
-    </div>
-
-    <div class="row">
-      <div class="col-50" align="center">
-        <!--***********************************
-        * Bedz za TRI GOLA
-        *************************************-->
-        <div ng-if="current_player_badge.tri_gola_na_utakmici > 0">
-          <img src="img/player_badges/igrac_03.png" height="auto" width="100%" style="max-width: 90px">  
-        </div>
-        <div ng-if="current_player_badge.tri_gola_na_utakmici == 0">
-          <img src="img/player_badges/igrac_03.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
-        </div>
-      </div>
-
-      <div class="col-50" align="center">
-        <!--***********************************
-        * Bedz za TRI ASISTENCIJE
-        *************************************-->
-        <div ng-if="current_player_badge.tri_asist_na_utakmici > 0">
-          <img src="img/player_badges/igrac_04.png" height="auto" width="100%" style="max-width: 90px">
-        </div>
-        <div ng-if="current_player_badge.tri_asist_na_utakmici == 0">
-          <img src="img/player_badges/igrac_04.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-50" align="center">
-        <!--***********************************
-        * Bedz za TRI ODBRANE
-        *************************************-->
-        <div ng-if="current_player_badge.tri_odbrane_na_utakmici > 0">
-          <img src="img/player_badges/igrac_05.png" height="auto" width="100%" style="max-width: 90px">  
-        </div>
-        <div ng-if="current_player_badge.tri_odbrane_na_utakmici == 0">
-          <img src="img/player_badges/igrac_05.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
-        </div>
-        
-      </div>
-      <div class="col-50" align="center">
-        <!--***********************************
-        * Bedz za GOL I ASISTENCIJU
-        *************************************-->
-        <div ng-if="current_player_badge.gol_asistencija > 0">
-          <img src="img/player_badges/igrac_06.png" height="auto" width="100%" style="max-width: 90px">
-        </div>
-        <div ng-if="current_player_badge.gol_asistencija == 0">
-          <img src="img/player_badges/igrac_06.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-50" align="center">
-        <!--***********************************
-        * Bedz za 10 ODIGRANIH UTAKMICA
-        *************************************-->
-        <div ng-if="current_player_badge.odigrao_10_utakmica > 0">
-          <img src="img/player_badges/igrac_07.png" height="auto" width="100%" style="max-width: 90px"> 
-        </div>
-        <div ng-if="current_player_badge.odigrao_10_utakmica == 0">
-          <img src="img/player_badges/igrac_07.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
-        </div>
-      </div>
-      <div class="col-50" align="center">
-        <!--***********************************
-        * Bedz za BRZI GOL
-        *************************************-->
-        <div ng-if="current_player_badge.gol_u_prva_2_min > 0">
-          <img src="img/player_badges/igrac_08.png" height="auto" width="100%" style="max-width: 135px">  
-        </div>
-        <div ng-if="current_player_badge.gol_u_prva_2_min == 0">
-          <img src="img/player_badges/igrac_08.png" height="auto" width="100%" style="max-width: 135px" class="grayscale_badge">  
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-50" align="center">
-        <!--***********************************
-        * Bedz za PET PRIJATELJSKIH
-        *************************************-->
-        <div ng-if="current_player_badge.pet_prijateljskih > 0">
-          <img src="img/player_badges/igrac_09.png" height="auto" width="100%" style="max-width: 90px">  
-        </div>
-         <div ng-if="current_player_badge.pet_prijateljskih == 0">
-          <img src="img/player_badges/igrac_09.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
-        </div>
-      </div>
-      <div class="col-50" align="center">
-        <!--***********************************
-        * Bedz za ODIGRANE SVE LIGASKE UTAKMICE
-        *************************************-->
-        <div ng-if ="current_player_badge.odigrane_sve_ligaske > 0">
-          <img src="img/player_badges/igrac_10.png" height="auto" width="100%" style="max-width: 90px">  
-        </div>
-        <div ng-if ="current_player_badge.odigrane_sve_ligaske == 0">
-          <img src="img/player_badges/igrac_10.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
-        </div>
-      </div>
-    </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <!--***********************************
+          * Bedz za TRI GOLA
+          *************************************-->
+          <div ng-if="current_player_badge.tri_gola_na_utakmici > 0">
+            <img src="img/player_badges/igrac_03.png" height="auto" width="100%" style="max-width: 90px">  
+          </div>
+          <div ng-if="current_player_badge.tri_gola_na_utakmici == 0">
+            <img src="img/player_badges/igrac_03.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
+          </div>
+        </td>
+        <td>
+          <!--***********************************
+          * Bedz za TRI ASISTENCIJE
+          *************************************-->
+          <div ng-if="current_player_badge.tri_asist_na_utakmici > 0">
+            <img src="img/player_badges/igrac_04.png" height="auto" width="100%" style="max-width: 90px">
+          </div>
+          <div ng-if="current_player_badge.tri_asist_na_utakmici == 0">
+            <img src="img/player_badges/igrac_04.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <!--***********************************
+          * Bedz za TRI ODBRANE
+          *************************************-->
+          <div ng-if="current_player_badge.tri_odbrane_na_utakmici > 0">
+            <img src="img/player_badges/igrac_05.png" height="auto" width="100%" style="max-width: 90px">  
+          </div>
+          <div ng-if="current_player_badge.tri_odbrane_na_utakmici == 0">
+            <img src="img/player_badges/igrac_05.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
+          </div>
+        </td>
+        <td>
+          <!--***********************************
+          * Bedz za GOL I ASISTENCIJU
+          *************************************-->
+          <div ng-if="current_player_badge.gol_asistencija > 0">
+            <img src="img/player_badges/igrac_06.png" height="auto" width="100%" style="max-width: 90px">
+          </div>
+          <div ng-if="current_player_badge.gol_asistencija == 0">
+            <img src="img/player_badges/igrac_06.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <!--***********************************
+          * Bedz za 10 ODIGRANIH UTAKMICA
+          *************************************-->
+          <div ng-if="current_player_badge.odigrao_10_utakmica > 0">
+            <img src="img/player_badges/igrac_07.png" height="auto" width="100%" style="max-width: 90px"> 
+          </div>
+          <div ng-if="current_player_badge.odigrao_10_utakmica == 0">
+            <img src="img/player_badges/igrac_07.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
+          </div>
+        </td>
+        <td>
+          <!--***********************************
+          * Bedz za BRZI GOL
+          *************************************-->
+          <div ng-if="current_player_badge.gol_u_prva_2_min > 0">
+            <img src="img/player_badges/igrac_08.png" height="auto" width="100%" style="max-width: 135px">  
+          </div>
+          <div ng-if="current_player_badge.gol_u_prva_2_min == 0">
+            <img src="img/player_badges/igrac_08.png" height="auto" width="100%" style="max-width: 135px" class="grayscale_badge">  
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <!--***********************************
+          * Bedz za PET PRIJATELJSKIH
+          *************************************-->
+          <div ng-if="current_player_badge.pet_prijateljskih > 0">
+            <img src="img/player_badges/igrac_09.png" height="auto" width="100%" style="max-width: 90px">  
+          </div>
+           <div ng-if="current_player_badge.pet_prijateljskih == 0">
+            <img src="img/player_badges/igrac_09.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
+          </div>
+        </td>
+        <td>
+          <!--***********************************
+          * Bedz za ODIGRANE SVE LIGASKE UTAKMICE
+          *************************************-->
+          <div ng-if ="current_player_badge.odigrane_sve_ligaske > 0">
+            <img src="img/player_badges/igrac_10.png" height="auto" width="100%" style="max-width: 90px">  
+          </div>
+          <div ng-if ="current_player_badge.odigrane_sve_ligaske == 0">
+            <img src="img/player_badges/igrac_10.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
+          </div>
+        </td>
+      </tr>
+    </table>
 
     <!--<table class="player-stats">
         <tr>

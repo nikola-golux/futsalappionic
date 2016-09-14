@@ -1,0 +1,25 @@
+<ion-view view-title="Gotovi mečevi">
+  <ion-content class="padding">
+    <div class="list card" ng-repeat="match in finished_matches" ng-click="go(match.id)">
+      <div class="item item-divider">
+        <div class="row">
+          <div class="col col-50" style="text-align: left">{{match.start_date}}</div>
+          <div class="col col-50" style="text-align: right">{{match.start_time}}</div>
+        </div>
+      </div>
+        <div class="item item-body" style="text-align: center" href="#delegate_match">
+          <div class="row">
+            <div class="col col-33 col-center"><img src="{{match.home_team_avatar}}" height="auto" width="100%" style="max-width: 60px"></div>
+            <div class="col col-33 col-center" style="padding-top: 23px;">{{match.home_goals}} - {{match.away_goals}}</div>
+            <div class="col col-33 col-center"><img src="{{match.away_team_avatar}}" height="auto" width="100%" style="max-width: 60px"></div>
+          </div>
+          <div class="row">
+            <div class="col col-33">{{match.home_team_name}}</div>
+            <div class="col col-33"></div>
+            <div class="col col-33">{{match.away_team_name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
