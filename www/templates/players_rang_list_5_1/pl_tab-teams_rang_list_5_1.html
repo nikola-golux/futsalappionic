@@ -1,28 +1,59 @@
-<ion-view view-title="RANG LISTA TIMOVA (5+1)">
-	<ion-content>
-		<div class="row" style="background: white; text-align: center">
-			<div class="col-10">Poz</div>
-			<div class="col-20">Ime</div>
+<ion-view view-title="RANG LISTA TIMOVA">
+	<ion-content class="padding">
+		<!-- <div class="row" style="background: white; text-align: center"> -->
+			<!-- <div class="col-10">Poz</div> -->
+			<!-- <div class="col-20">Ime</div> -->
 			<!--<div class="col">Ekipa</div>-->
-			<div class="col-10">O</div>
-			<div class="col-10">P</div>
+			<!-- <div class="col-10">O</div> -->
+			<!-- <div class="col-10">P</div> -->
 			<!--<div class="col">{{player_season_5_1.fouls}}</div>-->
-			<div class="col-10">N</div>
-			<div class="col-10">I</div>
-			<div class="col-10">Lvl</div>
-			<div class="col-20">EXP</div>
-		</div>
-		<div class="row" style="background: white; text-align: center" ng-repeat="team_season_5_1 in team_seasons_5_1 | orderBy:'-expirience'">
-			<div class="col-10">{{team_season_5_1.position}}</div>
-			<div class="col-20">{{team_season_5_1.team_name}}</div>
+			<!-- <div class="col-10">N</div> -->
+			<!-- <div class="col-10">I</div> -->
+			<!-- <div class="col-10">Lvl</div> -->
+			<!-- <div class="col-20">EXP</div> -->
+		<!-- </div> -->
+		<!-- <div class="row" style="background: white; text-align: center" ng-repeat="team_season_5_1 in team_seasons_5_1 | orderBy:'-expirience'"> -->
+			<!-- <div class="col-10">{{team_season_5_1.position}}</div> -->
+			<!-- <div class="col-20">{{team_season_5_1.team_name}}</div> -->
 			<!--<div class="col">{{player_season_5_1.team_name}}</div>-->
-			<div class="col-10">{{team_season_5_1.matches_played}}</div>
-			<div class="col-10">{{team_season_5_1.matches_win}}</div>
+			<!-- <div class="col-10">{{team_season_5_1.matches_played}}</div> -->
+			<!-- <div class="col-10">{{team_season_5_1.matches_win}}</div> -->
 			<!--<div class="col">{{player_season_5_1.fouls}}</div>-->
-			<div class="col-10">{{team_season_5_1.matches_draw}}</div>
-			<div class="col-10">{{team_season_5_1.matches_lose}}</div>
-			<div class="col-10">{{team_season_5_1.level}}</div>
-			<div class="col-20">{{team_season_5_1.expirience}}</div>
+			<!-- <div class="col-10">{{team_season_5_1.matches_draw}}</div> -->
+			<!-- <div class="col-10">{{team_season_5_1.matches_lose}}</div> -->
+			<!-- <div class="col-10">{{team_season_5_1.level}}</div> -->
+			<!-- <div class="col-20">{{team_season_5_1.expirience}}</div> -->
+		<!-- </div> -->
+
+		<div class="col" style="background-color: rgba(255, 255, 255, 0.07); text-align: center; color: white; font-size: 20px">
+		RANG LISTA TIMOVA (5+1)
 		</div>
+
+		<div class="row" >
+		<div class="col col-offset-33 col-offset-33 col-offset-33"></div>
+		</div>
+
+		<table class="player-stats1">
+			<tr>
+				<th>Poz</th>
+				<th>Ekipa</th>
+				<th>O</th>
+				<th>P</th>
+				<th>N</th>
+				<th>I</th>
+				<th>LvL</th>
+				<th>EXP</th>
+			</tr>
+			<tr ng-repeat="team_season_5_1 in team_seasons_5_1 | orderBy:'-expirience'" >
+				<td>{{team_season_5_1.position}}.</td>
+				<td>{{team_season_5_1.team_name}}</td>
+				<td>{{team_season_5_1.matches_played}}</td>
+				<td>{{team_season_5_1.matches_win}}</td>
+				<td>{{team_season_5_1.matches_draw}}</td>
+				<td>{{team_season_5_1.matches_lose}}</td>
+				<td>{{team_season_5_1.level}}</td>
+				<td>{{team_season_5_1.expirience}}</td>
+			</tr>
+		</table>
 	</ion-content>
 </ion-view>
