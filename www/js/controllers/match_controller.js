@@ -18,13 +18,13 @@ angular.module('starter.controllers')
     doRefresh();
 
   $scope.start_match = function(){
-    var match = 'http://192.168.1.104:3000/api/v1/change_match_started';
+    var match = 'http://balf.rs/api/v1/change_match_started';
 
     $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data; })
   }
 
   $scope.finish_match = function(){
-    var match = 'http://192.168.1.104:3000/api/v1/change_second_half_ended';
+    var match = 'http://balf.rs/api/v1/change_second_half_ended';
 
     $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data; })
     $state.go('delegate_tab.matches_played');

@@ -1,97 +1,97 @@
 angular.module('starter.services', [])
 
 .factory('UserSession', function($resource) {
-  return $resource("http://192.168.1.104:3000/users/sign_in.json");
+  return $resource("http://balf.rs/users/sign_in.json");
 })
 
 /**********************
 * Articles
 **********************/
 .factory('Articles', function($resource) {
-  return $resource("http://192.168.1.104:3000/articles");
+  return $resource("http://balf.rs/articles");
 })
 
 /**********************
 * Players
 **********************/
 .factory('Players', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/players");
+  return $resource("http://balf.rs/api/v1/players");
 })
 
 .factory('PlayerSeasons', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/player_seasons");
+  return $resource("http://balf.rs/api/v1/player_seasons");
 })
 
 .factory('PlayerBadges', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/player_badges");
+  return $resource("http://balf.rs/api/v1/player_badges");
 })
 
 .factory('RangListPlayers_5_1', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/players_rang_list");
+  return $resource("http://balf.rs/api/v1/players_rang_list");
 })
 
 .factory('RangListPlayers_4_1', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/players_rang_list_4_1");
+  return $resource("http://balf.rs/api/v1/players_rang_list_4_1");
 })
 /**********************
 * Leagues
 **********************/
 .factory('Leagues', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/leagues");
+  return $resource("http://balf.rs/api/v1/leagues");
 })
 /**********************
 * Teams
 **********************/
 .factory('Teams', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/teams");
+  return $resource("http://balf.rs/api/v1/teams");
 })
 
 .factory('TeamSeasons', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/team_seasons");
+  return $resource("http://balf.rs/api/v1/team_seasons");
 })
 
 
 .factory('TeamBadges', function($resource){
-  return $resource("http://192.168.1.104:3000/api/v1/team_badges");
+  return $resource("http://balf.rs/api/v1/team_badges");
 })
 
 
 .factory('HomeTeams', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/home_teams");
+  return $resource("http://balf.rs/api/v1/home_teams");
 })
 
 .factory('AwayTeams', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/away_teams");
+  return $resource("http://balf.rs/api/v1/away_teams");
 })
 
 .factory('RangListTeams_5_1', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/teams_rang_list");
+  return $resource("http://balf.rs/api/v1/teams_rang_list");
 })
 
 .factory('RangListTeams_4_1', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/teams_rang_list_4_1");
+  return $resource("http://balf.rs/api/v1/teams_rang_list_4_1");
 })
 /**********************
 * Matches
 **********************/
 .factory('Matches', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/matches");
+  return $resource("http://balf.rs/api/v1/matches");
 })
 
 .factory('MatchPlayers', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/match_players");
+  return $resource("http://balf.rs/api/v1/match_players");
 })
 /**********************
 * Delegate Match
 **********************/
 .factory('Match', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/matches"); 
+  return $resource("http://balf.rs/api/v1/matches"); 
 })
 /***********************
 * Delegate
 ***********************/
 .factory('Delegates', function($resource) {
-  return $resource("http://192.168.1.104:3000/api/v1/delegates");
+  return $resource("http://balf.rs/api/v1/delegates");
 })
 
 

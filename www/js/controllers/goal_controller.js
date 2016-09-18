@@ -69,7 +69,7 @@ angular.module('starter.controllers')
     $scope.submit_home = function(id) {
 
       var player_season_that_scored_goal = getPlayerSeasonById($scope.player_seasons, id);
-      var goal = 'http://192.168.1.104:3000/api/v1/goals';
+      var goal = 'http://balf.rs/api/v1/goals';
       
       $http.post(goal,{ player_season_id : player_season_that_scored_goal,
                         match_id : $scope.id_meca,
@@ -149,7 +149,7 @@ angular.module('starter.controllers')
     $scope.submit_away = function(id) {
 
       var player_season_that_scored_goal = getPlayerSeasonById($scope.player_seasons, id);
-      var goal = 'http://192.168.1.104:3000/api/v1/goals';
+      var goal = 'http://balf.rs/api/v1/goals';
       
       $http.post(goal,{ player_season_id : player_season_that_scored_goal,
                         match_id : $scope.id_meca,

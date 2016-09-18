@@ -71,7 +71,7 @@ angular.module('starter.controllers')
     $scope.submit_home = function(id) {
 
       var player_season_that_scored_yellow_cards = getPlayerSeasonById($scope.player_seasons, id);
-      var yellow_card = 'http://192.168.1.104:3000/api/v1/yellow_cards';
+      var yellow_card = 'http://balf.rs/api/v1/yellow_cards';
       
       $http.post(yellow_card,{ player_season_id : player_season_that_scored_yellow_cards,
                         match_id : $scope.id_meca,
@@ -153,7 +153,7 @@ angular.module('starter.controllers')
     $scope.submit_away = function(id) {
 
       var player_season_that_scored_yellow_cards = getPlayerSeasonById($scope.player_seasons, id);
-      var yellow_card = 'http://192.168.1.104:3000/api/v1/yellow_cards';
+      var yellow_card = 'http://balf.rs/api/v1/yellow_cards';
       
       $http.post(yellow_card,{ player_season_id : player_season_that_scored_yellow_cards,
                         match_id : $scope.id_meca,

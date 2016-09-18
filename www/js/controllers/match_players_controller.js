@@ -87,7 +87,7 @@ angular.module('starter.controllers')
             if($scope.checkItems[i] == true) {
                 array.push(i);
                 var player_season_that_is_checked = getPlayerSeasonById($scope.player_seasons, i);
-                var match_players = 'http://192.168.1.104:3000/api/v1/chooseplayers';
+                var match_players = 'http://balf.rs/api/v1/chooseplayers';
                 
                 $http.post(match_players,{ player_season_id : player_season_that_is_checked,
                         match_id : $scope.id_meca,
@@ -186,7 +186,7 @@ angular.module('starter.controllers')
             if($scope.checkItems[i] == true) {
                 array.push(i);
                 var player_season_that_is_checked = getPlayerSeasonById($scope.player_seasons, i);
-                var match_players = 'http://192.168.1.104:3000/api/v1/chooseplayers';
+                var match_players = 'http://balf.rs/api/v1/chooseplayers';
                 
                 $http.post(match_players,{ player_season_id : player_season_that_is_checked,
                         match_id : $scope.id_meca,
