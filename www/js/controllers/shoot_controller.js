@@ -54,7 +54,7 @@ angular.module('starter.controllers')
     $scope.current_team_season = getTeamSeasonById($scope.team_seasons, $scope.id_tima.id);
      
 
-    var shoot = 'http://192.168.1.104:3000/api/v1/new_home_shoot';
+    var shoot = 'http://balf.rs/api/v1/new_home_shoot';
     
     $http.post(shoot,{ team_season_id : $scope.current_team_season,
                       match_id : $scope.id_meca,
@@ -115,7 +115,7 @@ angular.module('starter.controllers')
     $scope.current_team_season = getTeamSeasonById($scope.team_seasons, $scope.id_tima.id);
      
 
-    var shoot = 'http://192.168.1.104:3000/api/v1/new_away_shoot';
+    var shoot = 'http://balf.rs/api/v1/new_away_shoot';
     
     $http.post(shoot,{ team_season_id : $scope.current_team_season,
                       match_id : $scope.id_meca,
