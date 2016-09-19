@@ -41,6 +41,7 @@ angular.module('starter.controllers')
     /* PLAYER_SEASONS table */
   TeamSeasons.query().$promise.then(function(response){
     $scope.id_tima = localStorage.getItem('current_hometeam_team_id');
+    var current_team_id = localStorage.getItem('current_hometeam_team_id');
     $scope.team_seasons = response;
     /* Funkcija za nalazenje JSON elementa */
     function getTeamSeasonById(arr, id) {
@@ -56,7 +57,7 @@ angular.module('starter.controllers')
 
     var shoot = 'http://balf.rs/api/v1/new_home_shoot';
     
-    $http.post(shoot,{ team_season_id : $scope.current_team_season,
+    $http.post(shoot,{ team_season_id : current_team_id,
                       match_id : $scope.id_meca,
                       is_home : true}).then(function(res){ $scope.response = res.data;
     })
@@ -102,6 +103,7 @@ angular.module('starter.controllers')
     /* PLAYER_SEASONS table */
   TeamSeasons.query().$promise.then(function(response){
     $scope.id_tima = localStorage.getItem('current_awayteam_team_id');
+    var current_team_id = localStorage.getItem('current_awayteam_team_id');
     $scope.team_seasons = response;
     /* Funkcija za nalazenje JSON elementa */
     function getTeamSeasonById(arr, id) {
@@ -117,7 +119,7 @@ angular.module('starter.controllers')
 
     var shoot = 'http://balf.rs/api/v1/new_away_shoot';
     
-    $http.post(shoot,{ team_season_id : $scope.current_team_season,
+    $http.post(shoot,{ team_season_id : current_team_id,
                       match_id : $scope.id_meca,
                       is_home : false}).then(function(res){ $scope.response = res.data;
     })
