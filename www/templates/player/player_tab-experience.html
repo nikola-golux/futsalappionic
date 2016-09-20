@@ -13,12 +13,17 @@
 	<table class="player-stats">
 			<tr>
 				<th>Ime</th>
-				<th>Level</th>
-				<th>XP</th>
+				<td>{{current_player.name}}</td>
+			<tr>
+				<th>Prezime</th>
+				<td>{{current_player.surname}}</td>
 			</tr>
 			<tr>
-				<td>{{current_player.name}}</td>
+				<th>Level</th>
 				<td>{{current_player.level}}</td>
+			</tr>
+			<tr>
+				<th>Ekperience</th>
 				<td>{{current_player.experience}}</td>
 			</tr>
 	</table>
@@ -27,23 +32,12 @@
 		<div class="col col-offset-33 col-offset-33 col-offset-33"></div>
 	</div>
 
-	<table class="player-stats">
-			<tr>
-				<th>Experience</th>
-				<td>{{current_player_season.expirience}}</td>
-			</tr>
-			<tr>
-				<th>Level</th>
-				<td>{{current_player_season.level}}</td>
-			</tr>
-	</table>
-
 	<div class="center-progress-wrapper">
 		<div class="progress-wrapper" style="padding-top: 20px">
 			<!-- bgcolor="#eaeaea" -->
 			<round-progress
 			    max="100"
-			    current="75"
+			    current="do_sledeceg_levela"
 			    color="url(#boja-progress-bara)"
 			    bgcolor="#14181f" 
 			    radius="100"

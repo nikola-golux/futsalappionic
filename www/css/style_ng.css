@@ -17,6 +17,13 @@
     background: -webkit-linear-gradient(#0c1325, #337ab7 60%, #0c1325) !important;
 }
 
+.kontakt-o-nama {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;    
+    background: white !important;
+}
+
 .center-progress-wrapper{
   width: 60%;
   margin: 0 auto;
@@ -352,4 +359,48 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
   background-color: #0000e6; /*#009933;*/
   border-radius: 9px 0 0 9px;
+}
+
+/****************************************************************
+* O nama
+****************************************************************/
+
+.elastic-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /*  margin-top: 44px;*/
+  /* Initial image height: */
+  height: 250px;
+}
+
+.the-content {
+  /* Same as initial image height: */
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: grey;
+}
+
+.the-content h3{
+  /* Same as initial image height: */
+  text-align: left;
+  color: grey;
+}
+
+.the-content h4{
+  /* Same as initial image height: */
+  text-align: left;
+  color: grey;
+}
+
+.opis-o-nama {
+  padding-top: 20px;
+}
+
+.kontakt-mail {
+  max-width:17px;
+  padding-right:5px;
+  font-size: 15px;
+  color: grey;
 }

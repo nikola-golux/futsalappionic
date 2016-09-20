@@ -44,6 +44,8 @@ angular.module('starter.controllers')
     }
 
     $scope.current_player_season = getById($scope.player_seasons, window.localStorage['tempPlayerId']);
+    var do_sledeceg_levela_float = trenutni_experience_u_procentima($scope.current_player_season.expirience ,$scope.current_player_season.level);
+    $scope.do_sledeceg_levela = parseInt(do_sledeceg_levela_float, 10);
   });
 
   /* TEAMS table */

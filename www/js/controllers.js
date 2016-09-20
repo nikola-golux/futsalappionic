@@ -4,7 +4,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 * HOME (WELCOME) TABS CONTROLLERS
 ****************************************************************************************************/
 // 1) Login Controller
-.controller('LoginCtrl', function($scope, $state, $location, UserSession, $ionicPopup, $rootScope) {
+.controller('LoginCtrl', function($scope, $state, $location, UserSession, $ionicPopup, $rootScope, Player) {
   $scope.data = {};
 
   $scope.login = function() {
@@ -239,3 +239,87 @@ var getAllFinishedMatchesFromMyLeagueId =  function (arr, id) {
     }
     return svi_rezultati;
 }
+
+/***********************************************************************************************
+* 
+***********************************************************************************************/
+var trenutni_experience_u_procentima = function (trenutni_experince, level) {
+    if (level == 1) {
+      return (100*trenutni_experince/250); }
+
+    else if (level == 2) {
+      return (100*(trenutni_experince-250)/1250); }
+      
+    else if (level == 3) {
+      return (100*(trenutni_experince-1500)/2000); }
+      
+    else if (level == 4) {
+      return (100*(trenutni_experince-3500)/2500); }
+      
+    else if (level == 5) {
+      return (100*(trenutni_experince-6000)/4000); }
+      
+    else if (level == 6) {
+      return (100*(trenutni_experince-10000)/4000); }
+      
+    else if (level == 7) {
+      return (100*(trenutni_experince-14000)/4000); }
+      
+    else if (level == 8) {
+      return (100*(trenutni_experince-18000)/4000); }
+      
+    else if (level == 9) {
+      return (100*(trenutni_experince-22000)/4000); }
+      
+    else if (level == 10) {
+      return (100*(trenutni_experince-26000)/4000); }
+      
+    else if (level == 11) {
+      return (100*(trenutni_experince-30000)/4000); }
+      
+    else if (level == 12) {
+      return (100*(trenutni_experince-34000)/4000); }
+      
+    else if (level == 13) {
+      return (100*(trenutni_experince-38000)/4000); }
+      
+    else if (level == 14) {
+      return (100*(trenutni_experince-42000)/4000); }
+      
+    else if (level == 15) {
+      return (100*(trenutni_experince-46000)/4000); }
+      
+    else if (level == 16) {
+      return (100*(trenutni_experince-50000)/4000); }
+      
+    else if (level == 17) {
+      return (100*(trenutni_experince-54000)/4000); }
+      
+    else if (level == 18) {
+      return (100*(trenutni_experince-58000)/4000); }
+      
+    else if (level == 19) {
+      return (100*(trenutni_experince-62000)/4000); }
+      
+    else if (level == 20) {
+      return (100*(trenutni_experince-66000)/4000); }
+      
+    else if (level == 21) {
+      return (100*(trenutni_experince-70000)/4000); }
+      
+    else if (level == 22) {
+      return (100*(trenutni_experince-74000)/4000); }
+      
+    else if (level == 23) {
+      return (100*(trenutni_experince-78000)/4000); }
+      
+    else if (level == 24) {
+      return (100*(trenutni_experince-82000)/4000); }
+
+    else if (level == 25) {
+      return (100*(trenutni_experince-86000)/4000); }
+      
+    else if (level == 26) {
+      return (100*(trenutni_experince-90000)/4000); }
+}
+    

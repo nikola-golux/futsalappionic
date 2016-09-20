@@ -17,13 +17,51 @@ angular.module('starter.services', [])
 .factory('Players', function($resource) {
   return $resource("http://balf.rs/api/v1/players");
 })
+// Player Resource
+.factory("Player", function ($resource) {
+    return $resource(
+        "http://balf.rs/api/v1/players/:Id",
+        {Id: "@Id" },
+        {
+            "update": {method: "PUT"},
+            "reviews": {'method': 'GET'}
+ 
+        }
+    );
+})
 
 .factory('PlayerSeasons', function($resource) {
   return $resource("http://balf.rs/api/v1/player_seasons");
 })
 
+// PlayerSeason Resource
+.factory("PlayerSeason", function ($resource) {
+    return $resource(
+        "http://balf.rs/api/v1/player_seasons/:Id",
+        {Id: "@Id" },
+        {
+            "update": {method: "PUT"},
+            "reviews": {'method': 'GET', 'params': {'reviews_only': "true"}, isArray: true}
+ 
+        }
+    );
+})
+
 .factory('PlayerBadges', function($resource) {
   return $resource("http://balf.rs/api/v1/player_badges");
+})
+
+// PlayerBadge Resource
+.factory("PlayerBadge", function ($resource) {
+    return $resource(
+        "http://balf.rs/api/v1/player_badges/:Id",
+        {Id: "@Id" },
+        {
+            "update": {method: "PUT"},
+            "reviews": {'method': 'GET', 'params': {'reviews_only': "true"}, isArray: true}
+ 
+        }
+    );
 })
 
 .factory('RangListPlayers_5_1', function($resource) {
