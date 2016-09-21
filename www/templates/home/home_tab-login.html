@@ -6,7 +6,7 @@
       <img ng-src="img/balf-logo-155px.png" height="auto" width="100%" style="max-width: 100px">
     </div>
     
-    <div class="main-wrap">
+    <div class="main-wrap" ng-if="ulogovan() == 'false'">
       <div class="login-main">
         <input type="email" placeholder="Email" class="login-polje border1" ng-model="data.email">
         <input type="password" placeholder="Password" class="login-polje border2" ng-model="data.password">
