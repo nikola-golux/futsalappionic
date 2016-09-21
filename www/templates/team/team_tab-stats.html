@@ -1,8 +1,8 @@
 <ion-view view-title="Stats">
-  <ion-content class="padding" ng-repeat="team in teams" ng-show="team.id == id_tima_igraca">
+  <ion-content class="padding">
       <div class="row">
         <div class="col col-33 col-offset-33">
-          <img src="{{team.avatar_url}}" height="auto" width="100%" style="max-width: 200px">
+          <img src="{{current_team.avatar_url}}" height="auto" width="100%" style="max-width: 200px">
         </div>
       </div>
 
@@ -13,7 +13,7 @@
       <table class="player-stats" style="width: 80%; text-align: left">
           <tr>
             <td>Ime tima:</td>
-            <td style="text-align: center">{{team.name}}</td>
+            <td style="text-align: center">{{current_team.name}}</td>
           </tr>
           <tr>
             <td>Broj odigranih mečeva:</td>

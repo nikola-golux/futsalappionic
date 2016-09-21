@@ -523,7 +523,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     views:{
       'league_tab-league':{
         templateUrl: 'templates/league/league_tab-league.html',
-        controller: 'Leaugue_Ctrl'
+        controller: 'League_Ctrl'
       }
     }
   })

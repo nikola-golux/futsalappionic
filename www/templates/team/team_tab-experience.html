@@ -1,8 +1,8 @@
 <ion-view view-title="Experience">
-  <ion-content class="padding" ng-repeat="team in teams" ng-show="team.id == id_tima_igraca">
+  <ion-content class="padding">
 	<div class="row">
 	  <div class="col col-33 col-offset-33">
-	  	<img src="{{team.avatar_url}}" height="auto" width="100%" style="max-width: 200px">
+	  	<img src="{{current_team.avatar_url}}" height="auto" width="100%" style="max-width: 200px">
 	  </div>
 	</div> 
 
@@ -17,7 +17,7 @@
 				<th>XP</th>
 			</tr>
 			<tr>
-				<td>{{team.name}}</td>
+				<td>{{current_team.name}}</td>
 				<td>{{current_team_season.level}}</td>
 				<td>{{current_team_season.expirience}}</td>
 			</tr>
@@ -27,17 +27,34 @@
 		<div class="col col-offset-33 col-offset-33 col-offset-33"></div>
 	</div>
 
-	<table class="player-stats">
-			<tr>
-				<th>Experience</th>
-				<td>{{current_team_season.expirience}}</td>
-			</tr>
-			<tr>
-				<th>Level</th>
-				<td>{{current_team_season.level}}</td>
-			</tr>
-	</table>
-	<div>
+	<div class="center-progress-wrapper">
+		<div class="progress-wrapper" style="padding-top: 20px">
+			<!-- bgcolor="#eaeaea" -->
+			<round-progress
+			    max="100"
+			    current="do_sledeceg_levela"
+			    color="url(#boja-progress-bara)"
+			    bgcolor="#14181f" 
+			    radius="100"
+			    stroke="18"
+			    semi="false"
+			    rounded="true"
+			    clockwise="true"
+			    responsive="true"
+			    duration="3200"
+			    animation="easeInOutQuart"
+			    animation-delay="0">
+
+			    <svg>
+			        <linearGradient id="boja-progress-bara" x1="0" x2="0" y1="0" y2="1">
+			            <stop offset="5%"  stop-color="red"/>
+			            <stop offset="95%" stop-color="gold"/>
+			        </linearGradient>
+			    </svg>
+			</round-progress>
+		<div class="text">{{current_team_season.level}} Level</div>
+		</div>
 	</div>
+
   </ion-content>
 </ion-view>

@@ -1,28 +1,5 @@
 <ion-view view-title="Moja liga">
 	<ion-content class="padding">
-		<!-- <div class="row header" style="background-color: red; text-align: center"> -->
-			<!-- <div class="col">{{league.name}}</div> -->
-		<!-- </div> -->
-		<!-- <div class="row"> -->
-			<!-- <div class="col col-15 col-center">Poz</div> -->
-			<!-- <div class="col col-25 col-center">Ekipa</div> -->
-			<!-- <div class="col col-05 col-center">O</div> -->
-			<!-- <div class="col col-05 col-center">P</div> -->
-			<!-- <div class="col col-10 col-center">N</div> -->
-			<!-- <div class="col col-10 col-center">I</div> -->
-			<!-- <div class="col col-15 col-center">GR</div> -->
-			<!-- <div class="col col-15 col-center">BD</div> -->
-		<!-- </div> -->
-		<!-- <div class="row" ng-repeat="team_season in current_team_seasons"> -->
-			<!-- <div class="col col-15 col-center">{{team_season.position}}</div> -->
-			<!-- <div class="col col-25 col-center">{{team_season.team_name}}</div> -->
-			<!-- <div class="col col-05 col-center">{{team_season.matches_played}}</div> -->
-			<!-- <div class="col col-05 col-center">{{team_season.matches_win}}</div> -->
-			<!-- <div class="col col-10 col-center">{{team_season.matches_draw}}</div> -->
-			<!-- <div class="col col-10 col-center">{{team_season.matches_lose}}</div> -->
-			<!-- <div class="col col-15 col-center">{{team_season.goals_scored - team_season.goals_received}}</div> -->
-			<!-- <div class="col col-15 col-center">{{team_season.points}}</div> -->
-		<!-- </div> -->
 
 		<div class="col" style="background-color: rgba(255, 255, 255, 0.07); text-align: center; color: white; font-size: 20px">
 		{{league.name}}
@@ -40,8 +17,7 @@
 				<th>P</th>
 				<th>N</th>
 				<th>I</th>
-				<th>DG</th>
-				<th>PG</th>
+				<th>GR</th>
 				<th>BD</th>
 			</tr>
 			<tr ng-repeat="team_season in current_team_seasons | orderBy:'-points'">
@@ -51,8 +27,7 @@
 				<td>{{team_season.matches_win}}</td>
 				<td>{{team_season.matches_draw}}</td>
 				<td>{{team_season.matches_lose}}</td>
-				<td>{{team_season.goals_scored}}</td>
-				<td>{{team_season.goals_received}}</td>
+				<td>{{team_season.goals_scored - team_season.goals_received}}</td>
 				<td>{{team_season.points}}</td>
 			</tr>
 		</table>

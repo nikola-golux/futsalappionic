@@ -4,138 +4,89 @@ angular.module('starter.controllers')
 * PLAYER TABS CONTROLLERS
 ****************************************************************************************************/
 // 1) SinglePlayer_experience controller
-.controller('SinglePlayer_ExpCtrl',function($scope, $state, $stateParams, $window, Players, PlayerSeasons, Teams) {
-  /* PLAYERS table */
-  Players.query().$promise.then(function(response){
-    $scope.id_igraca = localStorage.getItem('tempPlayerId');
-    $scope.players = response;
-    
-    function getById(arr, id) {
-          for (var d = 0, len = arr.length; d < len; d += 1) {
-              if (arr[d].id == id) /* Bilo je 3 === */ {
-                  return arr[d];
-              }
-          }
-      }
-
-    /*$scope.i = true;
-    $scope.$apply();
-    if ($scope.i){
-      $scope.i = false;
-      $scope.$apply();
-      window.location.reload(true);  
-    }*/
-    $scope.current_player = getById($scope.players, $scope.id_igraca);
-    window.localStorage['playerTeamId'] = $scope.current_player.team_id;
-
+.controller('SinglePlayer_ExpCtrl',function($scope, $state, $stateParams, $window, Player, PlayerSeason, Team) {
+  $scope.id_igraca = window.localStorage['userPlayerId'];
+  
+  //---------------------------------------------
+  // Radimo JSON GET tacno tog ulogovanog igraca
+  //---------------------------------------------
+  $scope.current_player_json = Player.get({},{'Id': window.localStorage['userPlayerId']});
+  $scope.current_player_json.$promise.then(function(response) {
+      $scope.current_player = response;
+      // window.localStorage['playerTeamId'] = $scope.current_player.team_id;
+      // window.localStorage['playerLeagueId'] = $scope.current_player.league_id;
   });
 
-  /* PLAYER_SEASONS table */
-  PlayerSeasons.query().$promise.then(function(response){
-    $scope.id_igraca = window.localStorage['tempPlayerId'];
-    $scope.player_seasons = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-        for (var d = 0, len = arr.length; d < len; d += 1) {
-            if (arr[d].player_id == id) /* Bilo je 3 === */ {
-                return arr[d];
-            }
-        }
-    }
-
-    $scope.current_player_season = getById($scope.player_seasons, window.localStorage['tempPlayerId']);
-    var do_sledeceg_levela_float = trenutni_experience_u_procentima($scope.current_player_season.expirience ,$scope.current_player_season.level);
-    $scope.do_sledeceg_levela = parseInt(do_sledeceg_levela_float, 10);
+  //---------------------------------------------
+  // Radimo JSON GET sezone tog igraca
+  //---------------------------------------------
+  $scope.current_player_season_json = PlayerSeason.get({},{'Id': window.localStorage['userPlayerId']});
+  $scope.current_player_season_json.$promise.then(function(response) {
+      $scope.current_player_season = response;
+      var do_sledeceg_levela_float = trenutni_experience_u_procentima($scope.current_player_season.expirience ,$scope.current_player_season.level);
+      $scope.do_sledeceg_levela = parseInt(do_sledeceg_levela_float, 10);
   });
-
-  /* TEAMS table */
-  Teams.query().$promise.then(function(response){
-    $scope.id_tima_igraca = window.localStorage['playerTeamId'];
-    $scope.teams = response;
-    
-    function getById(arr, id) {
-            for (var d = 0, len = arr.length; d < len; d += 1) {
-                if (arr[d].id == id) /* Bilo je 3 === */ {
-                    return arr[d];
-                }
-            }
-        }
-
-    $scope.current_team = getById($scope.teams, window.localStorage['playerTeamId']);
+  
+  //---------------------------------------------
+  // Radimo JSON GET ekipe tog igraca
+  //---------------------------------------------
+  $scope.current_player_team_json = Team.get({},{'Id': window.localStorage['playerTeamId']});
+  $scope.current_player_team_json.$promise.then(function(response) {
+      $scope.current_team = response;
   });
 
 })
 
 // 2) SinglePlayer_stats controller
-.controller('SinglePlayer_StatsCtrl', function($scope, Players, PlayerSeasons) {
-  /* PLAYERS table */
-  Players.query().$promise.then(function(response){
-    $scope.id_igraca = window.localStorage['tempPlayerId'];
-    $scope.players = response;
+.controller('SinglePlayer_StatsCtrl', function($scope, Player, PlayerSeason) {
+  $scope.id_igraca = window.localStorage['userPlayerId'];
+
+  //---------------------------------------------
+  // Radimo JSON GET tacno tog ulogovanog igraca
+  //---------------------------------------------
+  $scope.current_player_json = Player.get({},{'Id': window.localStorage['userPlayerId']});
+  $scope.current_player_json.$promise.then(function(response) {
+      $scope.current_player = response;
   });
-  /* PLAYER_SEASONS table */
-  PlayerSeasons.query().$promise.then(function(response){
-    $scope.id_igraca = window.localStorage['tempPlayerId'];
-    $scope.player_seasons = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-        for (var d = 0, len = arr.length; d < len; d += 1) {
-            if (arr[d].player_id == id) /* Bilo je 3 === */ {
-                return arr[d];
-            }
-        }
-    }
 
-    $scope.current_player_season = getById($scope.player_seasons, window.localStorage['tempPlayerId']);
-
+  //---------------------------------------------
+  // Radimo JSON GET sezone tog igraca
+  //---------------------------------------------
+  $scope.current_player_season_json = PlayerSeason.get({},{'Id': window.localStorage['userPlayerId']});
+  $scope.current_player_season_json.$promise.then(function(response) {
+      $scope.current_player_season = response;
+      var do_sledeceg_levela_float = trenutni_experience_u_procentima($scope.current_player_season.expirience ,$scope.current_player_season.level);
+      $scope.do_sledeceg_levela = parseInt(do_sledeceg_levela_float, 10);
   });
 })
 
 // 3) SinglePlayer_badges Controller
-.controller('SinglePlayer_BadgesCtrl', function($scope, Players, PlayerBadges) {
-  /* PLAYERS table */
-  Players.query().$promise.then(function(response){
-    $scope.id_igraca = window.localStorage['tempPlayerId'];
-    $scope.players = response;
+.controller('SinglePlayer_BadgesCtrl', function($scope, Player, PlayerBadge) {
+  $scope.id_igraca = window.localStorage['userPlayerId'];
+  //---------------------------------------------
+  // Radimo JSON GET tacno tog ulogovanog igraca
+  //---------------------------------------------
+  $scope.current_player_json = Player.get({},{'Id': window.localStorage['userPlayerId']});
+  $scope.current_player_json.$promise.then(function(response) {
+      $scope.current_player = response;
   });
-  /* PLAYER_BADGES table */
-  PlayerBadges.query().$promise.then(function(response){
-    $scope.id_igraca = window.localStorage['tempPlayerId'];
-    $scope.player_badges = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-        for (var d = 0, len = arr.length; d < len; d += 1) {
-            if (arr[d].player_id == id) /* Bilo je 3 === */ {
-                return arr[d];
-            }
-        }
-    }
 
-    $scope.current_player_badge = getById($scope.player_badges, window.localStorage['tempPlayerId']);
-
+  //---------------------------------------------
+  // Radimo JSON GET badge tog igraca
+  //---------------------------------------------
+  $scope.current_player_badge_json = PlayerBadge.get({},{'Id': window.localStorage['userPlayerId']});
+  $scope.current_player_badge_json.$promise.then(function(response) {
+      $scope.current_player_badge = response;
   });
 })
 
 // 4) SinglePlayer_Team Controller
-.controller('SinglePlayer_TeamCtrl', function($scope, Players, Teams) {
-  /* PLAYERS table */
-  Players.query().$promise.then(function(response){
-    $scope.id_igraca = window.localStorage['tempPlayerId'];
-    $scope.players = response;
-  });
-  /* PLAYER_SEASONS table */
-  Teams.query().$promise.then(function(response){
-    $scope.id_igraca = window.localStorage['tempPlayerId'];
-    $scope.teams = response;
-    /* Funkcija za nalazenje JSON elementa */
-    function getById(arr, id) {
-        for (var d = 0, len = arr.length; d < len; d += 1) {
-            if (arr[d].id == id) /* Bilo je 3 === */ {
-                return arr[d];
-            }
-        }
-    }
-
-    $scope.current_player_team = getById($scope.teams, window.localStorage['tempPlayerId']);
+.controller('SinglePlayer_TeamCtrl', function($scope, Player, Team) {
+  //---------------------------------------------
+  // Radimo JSON GET ekipe tog igraca
+  //---------------------------------------------
+  $scope.current_player_team_json = Team.get({},{'Id': window.localStorage['playerTeamId']});
+  $scope.current_player_team_json.$promise.then(function(response) {
+      $scope.current_team = response;
   });
 })
