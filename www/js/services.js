@@ -24,7 +24,7 @@ angular.module('starter.services', [])
         {Id: "@Id" },
         {
             "update": {method: "PUT"},
-            "reviews": {'method': 'GET'}
+            "reviews": {'method': 'GET', 'params': {'reviews_only': "true"}, isArray: true}
  
         }
     );
@@ -77,6 +77,20 @@ angular.module('starter.services', [])
 .factory('Leagues', function($resource) {
   return $resource("http://balf.rs/api/v1/leagues");
 })
+
+// League Resource
+.factory("League", function ($resource) {
+    return $resource(
+        "http://balf.rs/api/v1/leagues/:Id",
+        {Id: "@Id" },
+        {
+            "update": {method: "PUT"},
+            "reviews": {'method': 'GET', 'params': {'reviews_only': "true"}, isArray: true}
+ 
+        }
+    );
+})
+
 /**********************
 * Teams
 **********************/
@@ -84,15 +98,52 @@ angular.module('starter.services', [])
   return $resource("http://balf.rs/api/v1/teams");
 })
 
+// TeamBadge Resource
+.factory("Team", function ($resource) {
+    return $resource(
+        "http://balf.rs/api/v1/teams/:Id",
+        {Id: "@Id" },
+        {
+            "update": {method: "PUT"},
+            "reviews": {'method': 'GET', 'params': {'reviews_only': "true"}, isArray: true}
+ 
+        }
+    );
+})
+
 .factory('TeamSeasons', function($resource) {
   return $resource("http://balf.rs/api/v1/team_seasons");
 })
 
+// TeamBadge Resource
+.factory("TeamSeason", function ($resource) {
+    return $resource(
+        "http://balf.rs/api/v1/team_seasons/:Id",
+        {Id: "@Id" },
+        {
+            "update": {method: "PUT"},
+            "reviews": {'method': 'GET', 'params': {'reviews_only': "true"}, isArray: true}
+ 
+        }
+    );
+})
 
 .factory('TeamBadges', function($resource){
   return $resource("http://balf.rs/api/v1/team_badges");
 })
 
+// TeamBadge Resource
+.factory("TeamBadge", function ($resource) {
+    return $resource(
+        "http://balf.rs/api/v1/team_badges/:Id",
+        {Id: "@Id" },
+        {
+            "update": {method: "PUT"},
+            "reviews": {'method': 'GET', 'params': {'reviews_only': "true"}, isArray: true}
+ 
+        }
+    );
+})
 
 .factory('HomeTeams', function($resource) {
   return $resource("http://balf.rs/api/v1/home_teams");

@@ -343,22 +343,22 @@ text-shadow: -1px 1px 0px #fff;
 
 /* Progress bar */
 progress {
-  background-color: #f3f3f3;
+  background-color: #f3f3f3 !important;
   border: 0;
   height: 18px;
-  border-radius: 9px;
+  /*border-radius: 9px;*/
   margin: 1px auto !important;
 }
 
 progress::-webkit-progress-bar {
-    background-color: #ff0000;
-    border-radius: 9px;
+    background-color: #ff0000 !important;
+    /*border-radius: 9px;*/
     margin: 1px auto !important;
 }
 
 progress::-webkit-progress-value {
   background-color: #0000e6; /*#009933;*/
-  border-radius: 9px 0 0 9px;
+  /*border-radius: 9px 0 0 9px;*/
 }
 
 /****************************************************************
