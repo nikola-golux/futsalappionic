@@ -167,15 +167,23 @@ angular.module('starter.services', [])
   return $resource("http://balf.rs/api/v1/matches");
 })
 
+// Match Resource
+.factory("Match", function ($resource) {
+    return $resource(
+        "http://balf.rs/api/v1/matches/:Id",
+        {Id: "@Id" },
+        {
+            "update": {method: "PUT"},
+            "reviews": {'method': 'GET', 'params': {'reviews_only': "true"}, isArray: true}
+ 
+        }
+    );
+})
+
 .factory('MatchPlayers', function($resource) {
   return $resource("http://balf.rs/api/v1/match_players");
 })
-/**********************
-* Delegate Match
-**********************/
-.factory('Match', function($resource) {
-  return $resource("http://balf.rs/api/v1/matches"); 
-})
+
 /***********************
 * Delegate
 ***********************/

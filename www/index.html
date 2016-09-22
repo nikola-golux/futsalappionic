@@ -42,6 +42,7 @@
     <script src="js/controllers/match_players_controller.js"></script>
     <script src="js/controllers/match_played_controller.js"></script>
     <script src="js/controllers/league_controller.js"></script>
+    <script src="js/controllers/moje_utakmice_controller.js"></script>
     <!-- Routes -->
     <script src="js/routes.js"></script>
     <!-- Services -->
@@ -81,8 +82,8 @@
               <li ng-if="ulogovan_igrac() == 'true'">
                 <a class="item" menu-close href="#/league_tab/league">Moja liga</a>
               </li>
-              <li ng-if="ulogovan() == 'true'">
-                <a class="item" menu-close href="#">Moje utakmice</a>
+              <li ng-if="ulogovan_igrac() == 'true'">
+                <a class="item" menu-close href="#/moje_utakmice">Moje utakmice</a>
               </li>
               <li ng-if="ulogovan() == 'true'">
                 <a class="item" menu-close href="#/pl_tab/players_rang_list_5_1">Rang lista 5+1</a>

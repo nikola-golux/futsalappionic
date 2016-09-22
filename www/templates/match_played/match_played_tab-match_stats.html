@@ -6,70 +6,168 @@
     	<div class="col col-33 col-center"><img src="{{gotov_mec.away_team_avatar}}" height="auto" width="auto" style="max-width: 80px; max-height: 100px"></div>
     </div>
     <div class="card">
+    	<!--**********************************************************
+    	* GOALS
+    	***********************************************************-->
     	<div class="row">
 		    <div class="col col-25"></div>
-		    <div class="col col-50" align="center" >GOALS</div>
+		    <div class="col col-50" align="center">GOALS</div>
 		    <div class="col col-25"></div>
 	    </div>
-		<div class="row">
-			<div class="col col-20 col-center">{{procenat_home_goals | number: 2}}%</div>
-			<div class="col col-60"><progress max="{{gotov_mec.home_goals + gotov_mec.away_goals}}" value="{{gotov_mec.home_goals}}"> </progress></div>
-			<div class="col col-20 col-center">{{procenat_away_goals | number: 2}}%</div>
+
+		<div class="row" ng-if="((gotov_mec.home_goals + gotov_mec.away_goals) > 0)">
+			<div class="col col-20 col-center">{{procenat_home_goals | number: 1}}%</div>
+			<div class="col col-60">
+				<div id="myProgress">
+		  			<div id="myBar" style="width: {{(gotov_mec.home_goals*100)/(gotov_mec.home_goals + gotov_mec.away_goals)}}%;"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">{{procenat_away_goals | number: 1}}%</div>
 		</div>
 
+		<div class="row" ng-if="((gotov_mec.home_goals + gotov_mec.away_goals) < 1)">
+			<div class="col col-20 col-center">0%</div>
+			<div class="col col-60">
+				<div id="myProgress_blank">
+		  			<div id="myBar_blank"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">0%</div>
+		</div>
+
+    	<!--**********************************************************
+    	* ASISSTS
+    	***********************************************************-->
 	    <div class="row">
 		    <div class="col col-25"></div>
 		    <div class="col col-50" align="center" >ASISSTS</div>
 		    <div class="col col-25"></div>
 	    </div>
-		<div class="row">
-			<div class="col col-20 col-center">{{procenat_home_assists | number: 2}}%</div>
-			<div class="col col-60"><progress max="{{gotov_mec.home_assists + gotov_mec.away_assists}}" value="{{gotov_mec.home_assists}}"> </progress></div>
-			<div class="col col-20 col-center">{{procenat_away_assists | number: 2}}%</div>
+		<div class="row" ng-if="((gotov_mec.home_assists + gotov_mec.away_assists) > 0)">
+			<div class="col col-20 col-center">{{procenat_home_assists | number: 1}}%</div>
+			<div class="col col-60">
+				<div id="myProgress">
+		  			<div id="myBar" style="width: {{(gotov_mec.home_assists*100)/(gotov_mec.home_assists + gotov_mec.away_assists)}}%;"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">{{procenat_away_assists | number: 1}}%</div>
 		</div>
-	  
+		<div class="row" ng-if="((gotov_mec.home_assists + gotov_mec.away_assists) < 1)">
+			<div class="col col-20 col-center">0%</div>
+			<div class="col col-60">
+				<div id="myProgress_blank">
+		  			<div id="myBar_blank"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">0%</div>
+		</div>
+
+    	<!--**********************************************************
+    	* FOULS
+    	***********************************************************-->
 	     <div class="row">
 		    <div class="col col-25"></div>
 		    <div class="col col-50" align="center" >FOULS</div>
 		    <div class="col col-25"></div>
 	    </div>
-		<div class="row">
-			<div class="col col-20 col-center">{{procenat_home_fouls | number: 2}}%</div>
-			<div class="col col-60"><progress max="{{gotov_mec.home_fouls + gotov_mec.away_fouls}}" value="{{gotov_mec.home_fouls}}"> </progress></div>
-			<div class="col col-20 col-center">{{procenat_away_fouls | number: 2}}%</div>
+		<div class="row" ng-if="((gotov_mec.home_fouls + gotov_mec.away_fouls) > 0)">
+			<div class="col col-20 col-center">{{procenat_home_fouls | number: 1}}%</div>
+			<div class="col col-60">
+				<div id="myProgress">
+		  			<div id="myBar" style="width: {{(gotov_mec.home_fouls*100)/(gotov_mec.home_fouls + gotov_mec.away_fouls)}}%;"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">{{procenat_away_fouls | number: 1}}%</div>
+		</div>
+		<div class="row" ng-if="((gotov_mec.home_fouls + gotov_mec.away_fouls) < 1)">
+			<div class="col col-20 col-center">0%</div>
+			<div class="col col-60">
+				<div id="myProgress_blank">
+		  			<div id="myBar_blank"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">0%</div>
 		</div>
 
+    	<!--**********************************************************
+    	* YELLOW CARDS
+    	***********************************************************-->
 	    <div class="row">
 		    <div class="col col-25"></div>
-		    <div class="col col-50" align="center" >YELLOW CARDS</div>
+		    <div class="col col-50" align="center">YELLOW CARDS</div>
 		    <div class="col col-25"></div>
 	    </div>
-		<div class="row">
-			<div class="col col-20 col-center">{{procenat_home_yellow_cards | number: 2}}%</div>
-			<div class="col col-60"><progress max="{{gotov_mec.home_yellow_cards + gotov_mec.away_yellow_cards}}" value="{{gotov_mec.home_yellow_cards}}"> </progress></div>
-			<div class="col col-20 col-center">{{procenat_away_yellow_cards | number: 2}}%</div>
+		<div class="row" ng-if="((gotov_mec.home_yellow_cards + gotov_mec.away_yellow_cards) > 0)">
+			<div class="col col-20 col-center">{{procenat_home_yellow_cards | number: 1}}%</div>
+			<div class="col col-60">
+				<div id="myProgress">
+		  			<div id="myBar" style="width: {{(gotov_mec.home_yellow_cards*100)/(gotov_mec.home_yellow_cards + gotov_mec.away_yellow_cards)}}%;"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">{{procenat_away_yellow_cards | number: 1}}%</div>
+		</div>
+		<div class="row" ng-if="((gotov_mec.home_yellow_cards + gotov_mec.away_yellow_cards) < 1)">
+			<div class="col col-20 col-center">0%</div>
+			<div class="col col-60">
+				<div id="myProgress_blank">
+		  			<div id="myBar_blank"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">0%</div>
 		</div>
 
+    	<!--**********************************************************
+    	* RED CARDS
+    	***********************************************************-->
 	    <div class="row">
 		    <div class="col col-25"></div>
 		    <div class="col col-50" align="center" >RED CARDS</div>
 		    <div class="col col-25"></div>
 	    </div>
-		<div class="row">
-			<div class="col col-20 col-center">{{procenat_home_red_cards | number: 2}}%</div>
-			<div class="col col-60"><progress max="{{gotov_mec.home_red_cards + gotov_mec.away_red_cards}}" value="{{gotov_mec.home_red_cards}}"> </progress></div>
-			<div class="col col-20 col-center">{{procenat_away_red_cards | number: 2}}%</div>
+		<div class="row" ng-if="((gotov_mec.home_red_cards + gotov_mec.away_red_cards) > 0)">
+			<div class="col col-20 col-center">{{procenat_home_red_cards | number: 1}}%</div>
+			<div class="col col-60">
+				<div id="myProgress">
+		  			<div id="myBar" style="width: {{(gotov_mec.home_red_cards*100)/(gotov_mec.home_red_cards + gotov_mec.away_red_cards)}}%;"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">{{procenat_away_red_cards | number: 1}}%</div>
+		</div>
+		<div class="row" ng-if="((gotov_mec.home_red_cards + gotov_mec.away_red_cards) < 1)">
+			<div class="col col-20 col-center">0%</div>
+			<div class="col col-60">
+				<div id="myProgress_blank">
+		  			<div id="myBar_blank"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">0%</div>
 		</div>
 
+    	<!--**********************************************************
+    	* GOALKEEPER SAVES
+    	***********************************************************-->
 	    <div class="row">
 		    <div class="col col-25"></div>
 		    <div class="col col-50" align="center" >GOALKEEPER SAVES</div>
 		    <div class="col col-25"></div>
 	    </div>
-		<div class="row">
-			<div class="col col-20 col-center">{{procenat_home_goalkeeper_saves | number: 2}}%</div>
-			<div class="col col-60"><progress max="{{gotov_mec.home_goalkeeper_saves + gotov_mec.away_goalkeeper_saves}}" value="{{gotov_mec.home_goalkeeper_saves}}"> </progress></div>
-			<div class="col col-20 col-center">{{procenat_away_goalkeeper_saves | number: 2}}%</div>
+		<div class="row" ng-if="((gotov_mec.home_goalkeeper_saves + gotov_mec.away_goalkeeper_saves) > 0)">
+			<div class="col col-20 col-center">{{procenat_home_goalkeeper_saves | number: 1}}%</div>
+			<div class="col col-60">
+				<div id="myProgress">
+		  			<div id="myBar" style="width: {{(gotov_mec.home_goalkeeper_saves*100)/(gotov_mec.home_goalkeeper_saves + gotov_mec.away_goalkeeper_saves)}}%;"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">{{procenat_away_goalkeeper_saves | number: 1}}%</div>
+		</div>
+		<div class="row" ng-if="((gotov_mec.home_goalkeeper_saves + gotov_mec.away_goalkeeper_saves) < 1)">
+			<div class="col col-20 col-center">0%</div>
+			<div class="col col-60">
+				<div id="myProgress_blank">
+		  			<div id="myBar_blank"></div>
+				</div>
+			</div>
+			<div class="col col-20 col-center">0%</div>
 		</div>
     </div> 
 </ion-view>

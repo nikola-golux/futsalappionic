@@ -540,6 +540,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   }) 
 
+/**************************
+* MOJE UTAKMICE
+**************************/
+  .state('moje_utakmice', {
+    url: '/moje_utakmice',
+    templateUrl: 'templates/moje_utakmice/moje_utakmice.html',
+    controller: 'UtakmiceIgraca_Ctrl'  
+  })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home_tab/login');
 
