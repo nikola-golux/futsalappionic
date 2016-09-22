@@ -178,12 +178,12 @@ input[type="email"], input[type="password"] {
 
 /* Background-color of the odd rows */
 .player-stats1 tr:nth-child(odd) {
-  background-color: rgba(8, 3, 181, 0.61);
+  background-color: rgba(55, 74, 103, 0.66);
 }
 
 /* Background-color of the even rows */
 .player-stats1 tr:nth-child(even) {
-  background-color: rgb(14, 16, 80);
+  background-color: rgb(18, 34, 58);
 }
 
 .player-stats1 th {

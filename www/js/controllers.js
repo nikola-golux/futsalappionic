@@ -5,6 +5,10 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 ****************************************************************************************************/
 // 1) Login Controller
 .controller('LoginCtrl', function($scope, $state, $location, UserSession, $ionicPopup, $rootScope, Player) {
+  if (localStorage.getItem('is_logged_in') == null) {
+    localStorage.setItem('is_logged_in', false);
+  }
+
   $scope.data = {};
 
   $scope.login = function() {

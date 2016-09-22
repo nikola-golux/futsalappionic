@@ -40,11 +40,11 @@
 				<th>P</th>
 				<th>N</th>
 				<th>I</th>
-				<th>LvL</th>
+				<th>L</th>
 				<th>EXP</th>
 			</tr>
 			<tr ng-repeat="team_season_4_1 in team_seasons_4_1 | orderBy:'-expirience'">
-				<td>{{team_season_4_1.position}}.</td>
+				<td>{{$index+1}}.</td>
 				<td>{{team_season_4_1.team_name}}</td>
 				<td>{{team_season_4_1.matches_played}}</td>
 				<td>{{team_season_4_1.matches_win}}</td>

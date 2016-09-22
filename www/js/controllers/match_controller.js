@@ -3,7 +3,7 @@ angular.module('starter.controllers')
 /****************************************************************************************************
 * DELEGATE_MATCH CONTROLLERS
 ****************************************************************************************************/
-.controller('Delegate_matchCtrl', function($scope, $http, $state, Matches, HomeTeams, Teams) {
+.controller('Delegate_matchCtrl', function($scope, $http, $state, $ionicPopup, Matches, HomeTeams, Teams) {
   $scope.$on('$ionicView.enter', function() {
   Matches.query().$promise.then(function(response){
     $scope.id_delegata = window.localStorage['userDelegateId'];
@@ -18,17 +18,67 @@ angular.module('starter.controllers')
     doRefresh();
 
   $scope.start_match = function(){
-    var match = 'http://balf.rs/api/v1/change_match_started';
-
-    $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data; })
+    var start_match = $ionicPopup.confirm({
+         title: 'Potvrda!',
+         template: 'Da li ste sigurni da želite da započnete meč?'
+    });
+    start_match.then(function(res) {
+     if(res) {
+        var match = 'http://balf.rs/api/v1/change_match_started';
+        $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data; })
+     } else {
+       console.log('You are not sure');
+     }
+    });
   }
 
-  $scope.finish_match = function(){
-    var match = 'http://balf.rs/api/v1/change_second_half_ended';
-
-    $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data; })
-    $state.go('delegate_tab.matches_played');
+  $scope.finish_first_half = function(){
+    var finish_first_half = $ionicPopup.confirm({
+         title: 'Potvrda!',
+         template: 'Da li ste sigurni da želite da završite prvo poluvreme?'
+    });
+    finish_first_half.then(function(res) {
+     if(res) {
+        var match = 'http://balf.rs/api/v1/change_first_half_ended';
+        $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data; })
+     } else {
+       console.log('You are not sure');
+     }
+    });
   }
+
+  $scope.start_second_half = function(){
+    var start_second_half = $ionicPopup.confirm({
+     title: 'Potvrda!',
+     template: 'Da li ste sigurni da želite da započnete drugo poluvreme?'
+    });
+    start_second_half.then(function(res) {
+     if(res) {
+        var match = 'http://balf.rs/api/v1/change_second_half_started';
+        $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data; })
+     } else {
+       console.log('You are not sure');
+     }
+    });
+  }
+
+   // A confirm dialog
+  $scope.finish_match = function() {
+    var finish_match = $ionicPopup.confirm({
+     title: 'Potvrda!',
+     template: 'Da li ste sigurni da želite da završite meč?'
+    });
+    finish_match.then(function(res) {
+     if(res) {
+          var match = 'http://balf.rs/api/v1/change_second_half_ended';
+          $http.put(match,{ id : $scope.id_meca}).then(function(res){ $scope.response = res.data; })
+          $state.go('delegate_tab.matches_played');
+     } else {
+       console.log('You are not sure');
+     }
+    });
+  };
+
 
 /*******************************************************************************************************
 *SKAKNJE NA GOAL STRANU

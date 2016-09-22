@@ -40,19 +40,19 @@
 				<th>G</th>
 				<th>A</th>
 				<th>F</th>
-				<th>ŽK</th>
-				<th>CK</th>
-				<th>LvL</th>
+				<!-- <th>ŽK</th>
+				<th>CK</th> -->
+				<th>L</th>
 				<th>EXP</th>
 			</tr>
 			<tr ng-repeat="player_season_5_1 in player_seasons_5_1 | orderBy:'-expirience'">
-				<td>{{player_season_5_1.position}}.</td>
+				<td>{{$index+1}}.</td>
 				<td>{{player_season_5_1.name}}<br>{{player_season_5_1.surname}}</td>
 				<td>{{player_season_5_1.goals}}</td>
 				<td>{{player_season_5_1.assists}}</td>
 				<td>{{player_season_5_1.fouls}}</td>
-				<td>{{player_season_5_1.yellow_cards}}</td>
-				<td>{{player_season_5_1.red_cards}}</td>
+				<!-- <td>{{player_season_5_1.yellow_cards}}</td>
+				<td>{{player_season_5_1.red_cards}}</td> -->
 				<td>{{player_season_5_1.level}}</td>
 				<td>{{player_season_5_1.expirience}}</td>
 			</tr>

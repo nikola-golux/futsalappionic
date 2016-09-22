@@ -1,6 +1,6 @@
 <ion-view view-title="Badges">
   <ion-content class="padding">
-    
+
     <table  class="player-stats" style="min-width: 100%">
       <tr>
         <td>
@@ -11,7 +11,7 @@
             <img src="img/player_badges/igrac_01.png" height="auto" width="100%" style="max-width: 90px">
           </div>
           <div ng-if="current_player_badge.prvi_gol == 0">
-            <img src="img/player_badges/igrac_01.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
+            <img src="img/player_badges/igrac_01_gs.png" height="auto" width="100%" style="max-width: 90px" >
           </div>
         </div>
         </td>
@@ -23,7 +23,7 @@
             <img src="img/player_badges/igrac_02.png" height="auto" width="100%" style="max-width: 90px">
           </div>
           <div ng-if="current_player_badge.prva_asistencija == 0">
-             <img src="img/player_badges/igrac_02.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
+             <img src="img/player_badges/igrac_02_gs.png" height="auto" width="100%" style="max-width: 90px" >
           </div>
         </td>
       </tr>
@@ -36,7 +36,7 @@
             <img src="img/player_badges/igrac_03.png" height="auto" width="100%" style="max-width: 90px">  
           </div>
           <div ng-if="current_player_badge.tri_gola_na_utakmici == 0">
-            <img src="img/player_badges/igrac_03.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
+            <img src="img/player_badges/igrac_03_gs.png" height="auto" width="100%" style="max-width: 90px" >  
           </div>
         </td>
         <td>
@@ -47,7 +47,7 @@
             <img src="img/player_badges/igrac_04.png" height="auto" width="100%" style="max-width: 90px">
           </div>
           <div ng-if="current_player_badge.tri_asist_na_utakmici == 0">
-            <img src="img/player_badges/igrac_04.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
+            <img src="img/player_badges/igrac_04_gs.png" height="auto" width="100%" style="max-width: 90px" >
           </div>
         </td>
       </tr>
@@ -60,7 +60,7 @@
             <img src="img/player_badges/igrac_05.png" height="auto" width="100%" style="max-width: 90px">  
           </div>
           <div ng-if="current_player_badge.tri_odbrane_na_utakmici == 0">
-            <img src="img/player_badges/igrac_05.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
+            <img src="img/player_badges/igrac_05_gs.png" height="auto" width="100%" style="max-width: 90px" >  
           </div>
         </td>
         <td>
@@ -71,7 +71,7 @@
             <img src="img/player_badges/igrac_06.png" height="auto" width="100%" style="max-width: 90px">
           </div>
           <div ng-if="current_player_badge.gol_asistencija == 0">
-            <img src="img/player_badges/igrac_06.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">
+            <img src="img/player_badges/igrac_06_gs.png" height="auto" width="100%" style="max-width: 90px" >
           </div>
         </td>
       </tr>
@@ -84,7 +84,7 @@
             <img src="img/player_badges/igrac_07.png" height="auto" width="100%" style="max-width: 90px"> 
           </div>
           <div ng-if="current_player_badge.odigrao_10_utakmica == 0">
-            <img src="img/player_badges/igrac_07.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
+            <img src="img/player_badges/igrac_07_gs.png" height="auto" width="100%" style="max-width: 90px" >  
           </div>
         </td>
         <td>
@@ -95,7 +95,7 @@
             <img src="img/player_badges/igrac_08.png" height="auto" width="100%" style="max-width: 135px">  
           </div>
           <div ng-if="current_player_badge.gol_u_prva_2_min == 0">
-            <img src="img/player_badges/igrac_08.png" height="auto" width="100%" style="max-width: 135px" class="grayscale_badge">  
+            <img src="img/player_badges/igrac_08_gs.png" height="auto" width="100%" style="max-width: 135px" >  
           </div>
         </td>
       </tr>
@@ -108,7 +108,7 @@
             <img src="img/player_badges/igrac_09.png" height="auto" width="100%" style="max-width: 90px">  
           </div>
            <div ng-if="current_player_badge.pet_prijateljskih == 0">
-            <img src="img/player_badges/igrac_09.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
+            <img src="img/player_badges/igrac_09_gs.png" height="auto" width="100%" style="max-width: 90px" >  
           </div>
         </td>
         <td>
@@ -119,54 +119,10 @@
             <img src="img/player_badges/igrac_10.png" height="auto" width="100%" style="max-width: 90px">  
           </div>
           <div ng-if ="current_player_badge.odigrane_sve_ligaske == 0">
-            <img src="img/player_badges/igrac_10.png" height="auto" width="100%" style="max-width: 90px" class="grayscale_badge">  
+            <img src="img/player_badges/igrac_10_gs.png" height="auto" width="100%" style="max-width: 90px" >  
           </div>
         </td>
       </tr>
     </table>
-
-    <!--<table class="player-stats">
-        <tr>
-          <td>prvi_gol</td>
-          <td>{{current_player_badge.prvi_gol}}</td>
-        </tr>
-        <tr>
-          <td>Asistencija</td>
-          <td>{{current_player_badge.prva_asistencija}}</td>
-        </tr>
-        <tr>
-          <td>gol_u_prva_2_min</td>
-          <td>{{current_player_badge.gol_u_prva_2_min}}</td>
-        </tr>
-        <tr>
-          <td>tri_gola_na_utakmici</td>
-          <td>{{current_player_badge.tri_gola_na_utakmici}}</td>
-        </tr>
-        <tr>
-          <td>pet_prijateljskih</td>
-          <td>{{current_player_badge.pet_prijateljskih}}</td>
-        </tr>
-        <tr>
-          <td>tri_asist_na_utakmici</td>
-          <td>{{current_player_badge.tri_asist_na_utakmici}}</td>
-        </tr>
-        <tr>
-          <td>gol_asistencija</td>
-          <td>{{current_player_badge.gol_asistencija}}</td>
-        </tr>
-        <tr>
-          <td>odigrao_10_utakmica</td>
-          <td>{{current_player_badge.odigrao_10_utakmica}}</td>
-        </tr>
-        <tr>
-          <td>tri_odbrane_na_utakmici</td>
-          <td>{{current_player_badge.tri_odbrane_na_utakmici}}</td>
-        </tr>
-        <tr>
-          <td>odigrane_sve_ligaske</td>
-          <td>{{current_player_badge.odigrane_sve_ligaske}}</td>
-        </tr>
-      </table>-->
-
   </ion-content>
 </ion-view>
