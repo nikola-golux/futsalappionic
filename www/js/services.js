@@ -1,26 +1,26 @@
 angular.module('starter.services', [])
 
 .factory('UserSession', function($resource) {
-  return $resource("http://balf.rs/users/sign_in.json");
+  return $resource("http://demo.futsalgtc.com/users/sign_in.json");
 })
 
 /**********************
 * Articles
 **********************/
 .factory('Articles', function($resource) {
-  return $resource("http://balf.rs/articles");
+  return $resource("http://demo.futsalgtc.com/articles");
 })
 
 /**********************
 * Players
 **********************/
 .factory('Players', function($resource) {
-  return $resource("http://balf.rs/api/v1/players");
+  return $resource("http://demo.futsalgtc.com/api/v1/players");
 })
 // Player Resource
 .factory("Player", function ($resource) {
     return $resource(
-        "http://balf.rs/api/v1/players/:Id",
+        "http://demo.futsalgtc.com/api/v1/players/:Id",
         {Id: "@Id" },
         {
             "update": {method: "PUT"},
@@ -31,13 +31,13 @@ angular.module('starter.services', [])
 })
 
 .factory('PlayerSeasons', function($resource) {
-  return $resource("http://balf.rs/api/v1/player_seasons");
+  return $resource("http://demo.futsalgtc.com/api/v1/player_seasons");
 })
 
 // PlayerSeason Resource
 .factory("PlayerSeason", function ($resource) {
     return $resource(
-        "http://balf.rs/api/v1/player_seasons/:Id",
+        "http://demo.futsalgtc.com/api/v1/player_seasons/:Id",
         {Id: "@Id" },
         {
             "update": {method: "PUT"},
@@ -48,13 +48,13 @@ angular.module('starter.services', [])
 })
 
 .factory('PlayerBadges', function($resource) {
-  return $resource("http://balf.rs/api/v1/player_badges");
+  return $resource("http://demo.futsalgtc.com/api/v1/player_badges");
 })
 
 // PlayerBadge Resource
 .factory("PlayerBadge", function ($resource) {
     return $resource(
-        "http://balf.rs/api/v1/player_badges/:Id",
+        "http://demo.futsalgtc.com/api/v1/player_badges/:Id",
         {Id: "@Id" },
         {
             "update": {method: "PUT"},
@@ -65,23 +65,23 @@ angular.module('starter.services', [])
 })
 
 .factory('RangListPlayers_5_1', function($resource) {
-  return $resource("http://balf.rs/api/v1/players_rang_list");
+  return $resource("http://demo.futsalgtc.com/api/v1/players_rang_list");
 })
 
 .factory('RangListPlayers_4_1', function($resource) {
-  return $resource("http://balf.rs/api/v1/players_rang_list_4_1");
+  return $resource("http://demo.futsalgtc.com/api/v1/players_rang_list_4_1");
 })
 /**********************
 * Leagues
 **********************/
 .factory('Leagues', function($resource) {
-  return $resource("http://balf.rs/api/v1/leagues");
+  return $resource("http://demo.futsalgtc.com/api/v1/leagues");
 })
 
 // League Resource
 .factory("League", function ($resource) {
     return $resource(
-        "http://balf.rs/api/v1/leagues/:Id",
+        "http://demo.futsalgtc.com/api/v1/leagues/:Id",
         {Id: "@Id" },
         {
             "update": {method: "PUT"},
@@ -95,13 +95,13 @@ angular.module('starter.services', [])
 * Teams
 **********************/
 .factory('Teams', function($resource) {
-  return $resource("http://balf.rs/api/v1/teams");
+  return $resource("http://demo.futsalgtc.com/api/v1/teams");
 })
 
 // TeamBadge Resource
 .factory("Team", function ($resource) {
     return $resource(
-        "http://balf.rs/api/v1/teams/:Id",
+        "http://demo.futsalgtc.com/api/v1/teams/:Id",
         {Id: "@Id" },
         {
             "update": {method: "PUT"},
@@ -112,13 +112,13 @@ angular.module('starter.services', [])
 })
 
 .factory('TeamSeasons', function($resource) {
-  return $resource("http://balf.rs/api/v1/team_seasons");
+  return $resource("http://demo.futsalgtc.com/api/v1/team_seasons");
 })
 
 // TeamBadge Resource
 .factory("TeamSeason", function ($resource) {
     return $resource(
-        "http://balf.rs/api/v1/team_seasons/:Id",
+        "http://demo.futsalgtc.com/api/v1/team_seasons/:Id",
         {Id: "@Id" },
         {
             "update": {method: "PUT"},
@@ -129,13 +129,13 @@ angular.module('starter.services', [])
 })
 
 .factory('TeamBadges', function($resource){
-  return $resource("http://balf.rs/api/v1/team_badges");
+  return $resource("http://demo.futsalgtc.com/api/v1/team_badges");
 })
 
 // TeamBadge Resource
 .factory("TeamBadge", function ($resource) {
     return $resource(
-        "http://balf.rs/api/v1/team_badges/:Id",
+        "http://demo.futsalgtc.com/api/v1/team_badges/:Id",
         {Id: "@Id" },
         {
             "update": {method: "PUT"},
@@ -146,31 +146,31 @@ angular.module('starter.services', [])
 })
 
 .factory('HomeTeams', function($resource) {
-  return $resource("http://balf.rs/api/v1/home_teams");
+  return $resource("http://demo.futsalgtc.com/api/v1/home_teams");
 })
 
 .factory('AwayTeams', function($resource) {
-  return $resource("http://balf.rs/api/v1/away_teams");
+  return $resource("http://demo.futsalgtc.com/api/v1/away_teams");
 })
 
 .factory('RangListTeams_5_1', function($resource) {
-  return $resource("http://balf.rs/api/v1/teams_rang_list");
+  return $resource("http://demo.futsalgtc.com/api/v1/teams_rang_list");
 })
 
 .factory('RangListTeams_4_1', function($resource) {
-  return $resource("http://balf.rs/api/v1/teams_rang_list_4_1");
+  return $resource("http://demo.futsalgtc.com/api/v1/teams_rang_list_4_1");
 })
 /**********************
 * Matches
 **********************/
 .factory('Matches', function($resource) {
-  return $resource("http://balf.rs/api/v1/matches");
+  return $resource("http://demo.futsalgtc.com/api/v1/matches");
 })
 
 // Match Resource
 .factory("Match", function ($resource) {
     return $resource(
-        "http://balf.rs/api/v1/matches/:Id",
+        "http://demo.futsalgtc.com/api/v1/matches/:Id",
         {Id: "@Id" },
         {
             "update": {method: "PUT"},
@@ -181,14 +181,14 @@ angular.module('starter.services', [])
 })
 
 .factory('MatchPlayers', function($resource) {
-  return $resource("http://balf.rs/api/v1/match_players");
+  return $resource("http://demo.futsalgtc.com/api/v1/match_players");
 })
 
 /***********************
 * Delegate
 ***********************/
 .factory('Delegates', function($resource) {
-  return $resource("http://balf.rs/api/v1/delegates");
+  return $resource("http://demo.futsalgtc.com/api/v1/delegates");
 })
 
 
